@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Life is DiaMond !</string>
+    <string name="app_name">DiaMon</string>
+    <string name="version">1.0.23</string>
+    <string name="buttonExit">Exit</string>
+    <string name="butonSave">Save</string>
+    <string name="user_profile">Select Profile to work</string>
+    <string name="version_desc"> Version </string>
+    <string name="buttonConfig">Config</string>
+    <string name="buttonProfile">Profiles</string>
+    <string name="buttonHelp">Help</string>
+    <string name="buttonAbout">About</string>
+</resources>
