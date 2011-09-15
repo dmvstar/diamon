@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Жизнь это DiaMond !</string>
+    <string name="version">1.0.23</string>
+    <string name="butonSave">Сохранить</string>
+    <string name="buttonExit">Выйти</string>
+    <string name="user_profile">Выберите Профайл для работы</string>
+    <string name="version_desc"> Версия</string>
+    <string name="buttonConfig">Параметры</string>
+    <string name="buttonProfile">Профайлы</string>
+</resources>
