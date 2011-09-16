@@ -13,7 +13,7 @@
             <TextView android:layout_weight="1" android:layout_height="wrap_content" android:id="@+id/textView1" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="fill_parent" android:text="@string/user_profile" android:textSize="24sp"></TextView>
             <Spinner android:layout_weight="1" android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/spinnerProfileList"></Spinner>
         </LinearLayout>
-        <Button android:layout_width="253dp" android:layout_height="wrap_content" android:drawableTop="@drawable/system_users" android:id="@+id/buttonUsers" android:text="@string/buttonProfile" android:textSize="18sp"></Button>
+        <Button android:layout_width="253dp" android:layout_height="wrap_content" android:drawableTop="@drawable/system_users" android:id="@+id/buttonUsers" android:text="@string/buttonProfile" android:textSize="18sp" android:onClick="profileActivity"></Button>
     </LinearLayout>
     <LinearLayout android:layout_height="wrap_content" android:id="@+id/LinearLayout05" android:layout_width="fill_parent">
         <Button android:layout_height="wrap_content" android:layout_width="253dp" android:textSize="18sp" android:onClick="saveData" android:id="@+id/buttonHelp" android:text="@string/buttonHelp" android:drawableTop="@drawable/help_contents"></Button>

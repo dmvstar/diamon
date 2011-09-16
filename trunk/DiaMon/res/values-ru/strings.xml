@@ -8,4 +8,13 @@
     <string name="version_desc"> Версия</string>
     <string name="buttonConfig">Параметры</string>
     <string name="buttonProfile">Профайлы</string>
+    <string name="buttonHelp">Помощь</string>
+    <string name="buttonAbout">О...</string>
+    
+    <string-array name="array_sex">
+		<item>Г-н.</item>
+		<item>Г-жа.</item>
+	</string-array>
+    
+    
 </resources>
