@@ -11,4 +11,24 @@
     <string name="buttonProfile">Profiles</string>
     <string name="buttonHelp">Help</string>
     <string name="buttonAbout">About</string>
+    
+    <string-array name="array_sex">
+		<item>Mr.</item>
+		<item>Ms.</item>
+	</string-array>
+	
+    <string-array name="array_measur">
+		<item>Mmol/L</item>
+		<item>Mg/dL</item>
+	</string-array>
+	
+	<string name="user_id">User Id</string>
+	<string name="user_name">User Name</string>
+	<string name="user_sex">Sex</string>
+	<string name="user_weight">Weight</string>
+	<string name="user_height">Height</string>
+	<string name="user_age">Age</string>
+	<string name="measure_type">Measure</string>
+	<string name="insulin_type">Insulin Type</string>
+    
 </resources>
