@@ -51,9 +51,6 @@ public class DiaMonActivity extends Activity {
         final SimpleAdapter simpleAdapter =
             new SimpleAdapter(this, data,
                     android.R.layout.simple_spinner_item, from, to);
-     
-        
-        
         
         
         simpleAdapter.setDropDownViewResource(
@@ -132,6 +129,12 @@ public class DiaMonActivity extends Activity {
 		activity.startActivity( config );
     }
 
+    public void profileActivity(View v) {
+    	Toast.makeText(getApplicationContext(), "profileActivity",
+        Toast.LENGTH_LONG).show();
+		final Intent profile = new Intent(activity, ProfileActivity.class);
+		activity.startActivity( profile );
+    }
     
     /**
      * Convert the String that's passed in into a Map, with
