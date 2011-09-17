@@ -37,7 +37,7 @@ public class HelpBUActivity  extends Activity {
   */          
             
             
-        SimpleAdapter adapter = new SimpleAdapter(this, createSensorsList(), R.layout.bu_item_layout,
+        SimpleAdapter adapter = new SimpleAdapter(this, createBUList(), R.layout.bu_item_layout,
                 				new String[] {"title", "count", "weight"}, 
         						new int[] {R.id.title, R.id.count, R.id.weight});
         ListView lv = (ListView)findViewById(R.id.listviewBU);
@@ -51,7 +51,7 @@ public class HelpBUActivity  extends Activity {
     }
     
     
-    private List<Map<String, ?>> createSensorsList()
+    private List<Map<String, ?>> createBUList()
     {
         String[] countries = getResources().getStringArray(R.array.bu_items_array);
         
