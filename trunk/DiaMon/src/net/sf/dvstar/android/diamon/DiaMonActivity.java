@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -37,26 +38,17 @@ public class DiaMonActivity extends Activity {
         setContentView(R.layout.main);
         
         // The key to use for reading the color from the Map
-        final String[] from = new String[] { "color" };
+        final String[] from = new String[] { "profile", "name" };
  
         // The type of View to use for displaying the color name.
         // android.R.id.text1 is a standard resource for displaying text.
-        final int[] to = new int[] { android.R.id.text1  };
-        
-        // Create the List of strings for the spinner to display. Each string
-        // is embedded within a Map, using "color" as the key.
-        final List<Map<String, String>> data =
-            new ArrayList<Map<String, String>>();      
-    	String[] colors = new String[] { "One", "Two", "Three" };
-    	
-        for (int i = 0; i < colors.length; i++) {
-            data.add(addData(colors[i]));
-        }
-        
+        final int[] to = new int[] { android.R.id.text1, android.R.id.text2  };
         
         final SimpleAdapter simpleAdapter =
-            new SimpleAdapter(this, data,
-                    android.R.layout.simple_spinner_item, from, to);
+            new SimpleAdapter(this, createProfileList(),
+                    android.R.layout.simple_spinner_item, 
+//                    android.R.layout.simple_list_item_1, 
+                    from, to);
         
         
         simpleAdapter.setDropDownViewResource(
@@ -104,7 +96,7 @@ public class DiaMonActivity extends Activity {
                 // Get the color name out of the Map
                 final Map<String, String> data =
                     (Map<String, String>) parent.getItemAtPosition(position);
-                final String text = "Selected Color:-  " + data.get("color");
+                final String text = "Selected Color:-  " + data.get("profile");
  
                 Toast.makeText(parent.getContext(), text,
                         Toast.LENGTH_LONG).show();
@@ -161,16 +153,24 @@ public class DiaMonActivity extends Activity {
 		final Intent profile = new Intent(activity, ProfileActivity.class);
 		activity.startActivity( profile );
     }
+   
     
-    /**
-     * Convert the String that's passed in into a Map, with
-     * "color" as the key, and the String as the value.
-     * @param    colorName  The color to be inserted into a new Map
-     * @return   the new Map
-     */
-    private Map<String, String> addData(String colorName) {
-        Map<String, String> map = new HashMap<String, String>();
-        map.put("color", colorName);
-        return map;
-    }    
+    private List<Map<String, ?>> createProfileList()
+    {
+        String[] profiles = new String[]{"dmvstar@gmail.com", "nstarzhynska@gmail.com", "dmvstar@mail.ru"};
+        String[] names = new String[]{"Старжинский Дмитрий", "Старжинская Наталия", "Старжинский Дмитрий"};
+        
+        List<Map<String, ?>> items = new ArrayList<Map<String, ?>>();
+        
+        for (int i=0; i<profiles.length;i++ )
+        {
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put("profile",  profiles[i] );
+            map.put("name",  	names[i]);
+            items.add(map);
+        }
+        
+        return items;
+    }        
+    
 }
