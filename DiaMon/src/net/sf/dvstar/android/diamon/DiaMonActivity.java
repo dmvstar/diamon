@@ -16,7 +16,6 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class DiaMonActivity extends Activity {
