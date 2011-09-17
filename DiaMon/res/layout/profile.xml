@@ -9,9 +9,9 @@
         <EditText android:id="@+id/editText1" android:layout_height="wrap_content" android:layout_width="match_parent">
             <requestFocus></requestFocus>
         </EditText>
-        <TextView android:text="User Name" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView2"></TextView>
+        <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView2" android:text="@string/user_name"></TextView>
         <EditText android:id="@+id/editText2" android:layout_height="wrap_content" android:layout_width="match_parent"></EditText>
-        <TextView android:text="Sex" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView3"></TextView>
+        <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView3" android:text="@string/user_sex"></TextView>
         <Spinner android:id="@+id/spinnerSex" android:layout_height="wrap_content" android:layout_width="match_parent"></Spinner>
         <TextView android:text="@string/user_age" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView4"></TextView>
         <EditText android:id="@+id/editText3" android:layout_height="wrap_content" android:layout_width="match_parent"></EditText>
@@ -22,7 +22,7 @@
         <TextView android:text="@string/measure_type" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView7"></TextView>
         <Spinner android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/spinnerMeasure"></Spinner>
         <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView8" android:text="@string/insulin_type"></TextView>
-        <Spinner android:id="@+id/spinner1" android:layout_height="wrap_content" android:layout_width="match_parent"></Spinner>
+        <Spinner android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/spinner1"></Spinner>
     </LinearLayout>
     
 </ScrollView>
