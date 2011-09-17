@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -24,11 +26,16 @@ public class DiaMonActivity extends Activity {
 	private final Activity activity = this;        
 	
     @Override
+    public void onBackPressed() {
+//        super.onBackPressed();
+        selfDestruct( this.getCurrentFocus() );
+    }
+	
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.main);
-
         
         // The key to use for reading the color from the Map
         final String[] from = new String[] { "color" };
@@ -112,7 +119,21 @@ public class DiaMonActivity extends Activity {
     }
 
     public void selfDestruct(View v) {
-        finish();
+    	AlertDialog.Builder builder = new AlertDialog.Builder(this);
+    	builder.setMessage( getString(R.string.exit_confirm))
+    	       .setCancelable(false)
+    	       .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+    	           public void onClick(DialogInterface dialog, int id) {
+    	                DiaMonActivity.this.finish();
+    	           }
+    	       })
+    	       .setNegativeButton("No", new DialogInterface.OnClickListener() {
+    	           public void onClick(DialogInterface dialog, int id) {
+    	                dialog.cancel();
+    	           }
+    	       });
+    	AlertDialog alert = builder.create();
+    	alert.show();
     }
    
     public void saveData(View v) {
@@ -129,8 +150,14 @@ public class DiaMonActivity extends Activity {
 		activity.startActivity( config );
     }
 
+    public void helpActivity(View v) {
+		final Intent config = new Intent(activity, HelpAllActivity.class);
+		activity.startActivity( config );
+    }
+   
+    
     public void profileActivity(View v) {
-    	Toast.makeText(getApplicationContext(), "profileActivity",
+    	Toast.makeText(getApplicationContext(), "profileActivity Start",
         Toast.LENGTH_LONG).show();
 		final Intent profile = new Intent(activity, ProfileActivity.class);
 		activity.startActivity( profile );
