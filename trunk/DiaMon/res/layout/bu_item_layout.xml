@@ -6,10 +6,10 @@
   android:layout_height="wrap_content">
     <TextView android:layout_width="fill_parent" android:text="title" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:id="@+id/title" android:textStyle="bold" android:textColor="#FFFF66"></TextView>
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/linearLayout1">
-        <TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="count" 
-        android:id="@+id/count" android:textColor="#FFFFCC"></TextView>
+        <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="count" 
+        android:id="@+id/count" android:textColor="#FFFFCC" android:layout_width="fill_parent" android:layout_weight=".80"></TextView>
         <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="weight" 
-        android:id="@+id/weight" android:layout_marginLeft="20sp" android:textStyle="bold"></TextView>
+        android:id="@+id/weight" android:textStyle="bold" android:layout_weight=".20" android:layout_marginLeft="5sp"></TextView>
     </LinearLayout>
 
 </LinearLayout>
