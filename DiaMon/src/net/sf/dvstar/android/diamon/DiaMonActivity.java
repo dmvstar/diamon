@@ -12,11 +12,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class DiaMonActivity extends Activity {
@@ -38,7 +40,7 @@ public class DiaMonActivity extends Activity {
         setContentView(R.layout.main);
         
         // The key to use for reading the color from the Map
-        final String[] from = new String[] { "profile", "name" };
+        final String[] from = new String[] { "user_id", "user_name" };
  
         // The type of View to use for displaying the color name.
         // android.R.id.text1 is a standard resource for displaying text.
@@ -46,14 +48,37 @@ public class DiaMonActivity extends Activity {
         
         final SimpleAdapter simpleAdapter =
             new SimpleAdapter(this, createProfileList(),
+//            		  R.layout.user_item,	
                     android.R.layout.simple_spinner_item, 
 //                    android.R.layout.simple_list_item_1, 
-                    from, to);
+                    from, to)
+/*        
+        {
+        			public View getView (int position, View convertView, ViewGroup parent) {
+        				final View view = super.getView(position, convertView, parent);
+            			return view;
+        			}
+        }
+*/        
+        ;
         
         
         simpleAdapter.setDropDownViewResource(
-                android.R.layout.simple_spinner_dropdown_item);
-
+                android.R.layout.simple_spinner_dropdown_item
+                //R.layout.user_item for this use only ArrayAdapter
+        );
+        
+        
+/*        
+        simpleAdapter.setViewBinder(new SimpleAdapter.ViewBinder() {
+			public boolean setViewValue(View view, Object data,
+					String textRepresentation) {
+				//TextView textView = (TextView) view.findViewById(R.id.user_id);
+		        ((TextView)view).setText((String) data);
+		        return true;			
+			}
+		});
+*/
 
         
      // Add a ViewBinder to display a color name in a TextView within the
@@ -165,8 +190,8 @@ public class DiaMonActivity extends Activity {
         for (int i=0; i<profiles.length;i++ )
         {
             Map<String, Object> map = new HashMap<String, Object>();
-            map.put("profile",  profiles[i] );
-            map.put("name",  	names[i]);
+            map.put("user_id",  	profiles[i] );
+            map.put("user_name",  	names[i]);
             items.add(map);
         }
         
