@@ -6,8 +6,8 @@
     <LinearLayout android:layout_height="wrap_content" android:id="@+id/linearLayout1" android:layout_width="match_parent">
         <ImageView android:id="@+id/imageView1" android:src="@drawable/user_identity" android:layout_width="wrap_content" android:layout_height="match_parent"></ImageView>
         <LinearLayout android:layout_height="match_parent" android:id="@+id/linearLayout2" android:layout_width="wrap_content" android:orientation="vertical">
-            <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:id="@+id/user_id" android:text="user_id" android:textColor="#66FF33" android:layout_width="fill_parent"></TextView>
-            <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="user_name" android:id="@+id/user_name" android:textColor="#FFFF33" android:layout_width="fill_parent"></TextView>
+            <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:id="@+id/user_id" android:text="user_id" android:layout_width="fill_parent" android:textColor="#0000CC"></TextView>
+            <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="user_name" android:id="@+id/user_name" android:layout_width="fill_parent" android:textColor="#0000EE"></TextView>
         </LinearLayout>
     </LinearLayout>
     
