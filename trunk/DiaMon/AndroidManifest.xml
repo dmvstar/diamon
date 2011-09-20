@@ -16,7 +16,7 @@
         <activity android:name="AboutActivity"></activity>
         <activity android:name="ConfigActivity"></activity>
         <activity android:name="ProfileActivity"></activity>
-        <activity android:name="BackupActivity"></activity>
+        <activity android:name=".activities.BackupActivity"></activity>
         <activity android:name="HelpBUActivity"></activity>
         <activity android:name="HelpAllActivity"></activity>
 

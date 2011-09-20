@@ -1,5 +1,6 @@
 package net.sf.dvstar.android.diamon;
 
+import net.sf.dvstar.android.diamon.activities.BackupActivity;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;

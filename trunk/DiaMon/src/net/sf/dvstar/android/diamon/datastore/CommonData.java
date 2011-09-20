@@ -8,5 +8,6 @@ public class CommonData {
 	    public String name;
 	    public byte[] picture;
 	    public Bitmap pictureBitmap;
+	    
 	} 
 }

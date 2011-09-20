@@ -1,6 +1,11 @@
-package net.sf.dvstar.android.diamon;
+package net.sf.dvstar.android.diamon.activities;
 
 import java.io.File;
+
+import net.sf.dvstar.android.diamon.R;
+import net.sf.dvstar.android.diamon.R.id;
+import net.sf.dvstar.android.diamon.R.layout;
+import net.sf.dvstar.android.diamon.datastore.DBHelper;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -37,6 +42,16 @@ public class BackupActivity extends Activity {
         File fb = Environment.getExternalStorageDirectory();
         text = (EditText) findViewById(R.id.editTextStoragePath);
         text.setText( fb.getPath() );
+
+        text = (EditText) findViewById(R.id.editTextDataDirectory);
+        text.setText( Environment.getDataDirectory().getPath() );
+        
+        text = (EditText) findViewById(R.id.editTextAppName);
+        text.setText( getPackageName() );
+
+        DBHelper dbhelper = new DBHelper(this);
+        text = (EditText) findViewById(R.id.editTextDBPath);
+        text.setText( dbhelper.getReadableDatabase().getPath() );
         
     }    
 

@@ -13,8 +13,8 @@ public class DBHelper extends SQLiteOpenHelper {
     private static final String DB_NAME = "diamod.db";
     private static final String TABLE_NAME = "profiles";
 	
-	public DBHelper(Context context, String name, CursorFactory factory,
-			int version) {
+	//public DBHelper(Context context, String name, CursorFactory factory,int version) {
+	public DBHelper(Context context){
 		super(context, DB_NAME, null, DATABASE_VERSION);
         db = getWritableDatabase();	
     }
