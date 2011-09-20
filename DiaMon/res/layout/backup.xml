@@ -5,9 +5,17 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent">
     <TextView android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:id="@+id/textView1" android:text="@string/storage_path_desc"></TextView>
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView2" android:textAppearance="?android:attr/textAppearanceSmall" android:text="getExternalStorageDirectory()"></TextView>
     <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/editTextStoragePath">
         <requestFocus></requestFocus>
     </EditText>
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView3" android:textAppearance="?android:attr/textAppearanceSmall" android:text="lastStoragePath"></TextView>
     <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/editTextLastStoragePath"></EditText>
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView4" android:textAppearance="?android:attr/textAppearanceSmall" android:text="getReadableDatabase().getPath()"></TextView>
+    <EditText android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/editTextDBPath"></EditText>
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView5" android:textAppearance="?android:attr/textAppearanceSmall" android:text="getDataDirectory().getPath()"></TextView>
+    <EditText android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/editTextDataDirectory"></EditText>
+    <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/textView6" android:textAppearance="?android:attr/textAppearanceSmall" android:text="getPackageName()"></TextView>
+    <EditText android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/editTextAppName"></EditText>
     
 </LinearLayout>

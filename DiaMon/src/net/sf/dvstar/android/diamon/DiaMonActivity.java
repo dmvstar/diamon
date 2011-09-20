@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import net.sf.dvstar.android.diamon.datastore.DBHelper;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -29,6 +31,7 @@ public class DiaMonActivity extends Activity {
 
 	private Button closeButton;
 	private final Activity activity = this;
+	private DBHelper dbHelper;
 
 	@Override
 	public void onBackPressed() {
@@ -164,8 +167,10 @@ public class DiaMonActivity extends Activity {
 				// Do nothing
 			}
 		});
+		
+		dbHelper = new DBHelper(this);
 
-	}
+	} // onCreate
 
 	public void selfDestruct(View v) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
