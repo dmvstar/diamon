@@ -50,10 +50,11 @@ public class DiaMonActivity extends Activity {
 
 		final SimpleAdapter simpleAdapter = new SimpleAdapter(this,
 				createProfileList(),
-				// R.layout.user_item,
-				android.R.layout.simple_spinner_item,
+				R.layout.user_item,
+				//android.R.layout.simple_spinner_item,
 				// android.R.layout.simple_list_item_1,
 				from, to) {
+
 			
 			public View getView (int position, View convertView, ViewGroup  parent){ 
 				final View view = super.getView(position, convertView, parent);
@@ -81,8 +82,6 @@ public class DiaMonActivity extends Activity {
 */
 				return row;
 			}
-			
-
 			
 			public View getDropDownView(int position, View convertView,
 					ViewGroup parent) {
@@ -122,6 +121,7 @@ public class DiaMonActivity extends Activity {
 		// when we're displaying text data within a Spinner, and no ViewBinder
 		// is set in the SimpleAdapter, an IllegalStateException is thrown.)
 
+/*		
 		SimpleAdapter.ViewBinder viewBinder = new SimpleAdapter.ViewBinder() {
 
 			public boolean setViewValue(View view, Object data,
@@ -139,7 +139,7 @@ public class DiaMonActivity extends Activity {
 			}
 		};
 		simpleAdapter.setViewBinder(viewBinder);
-
+*/
 		/*
 		 * this.closeButton = (Button)this.findViewById(R.id.buttonClose);
 		 * this.closeButton.setOnClickListener(new OnClickListener() {

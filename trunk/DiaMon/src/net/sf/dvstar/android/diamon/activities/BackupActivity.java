@@ -46,12 +46,16 @@ public class BackupActivity extends Activity {
         text = (EditText) findViewById(R.id.editTextDataDirectory);
         text.setText( Environment.getDataDirectory().getPath() );
         
-        text = (EditText) findViewById(R.id.editTextAppName);
-        text.setText( getPackageName() );
-
         DBHelper dbhelper = new DBHelper(this);
         text = (EditText) findViewById(R.id.editTextDBPath);
         text.setText( dbhelper.getReadableDatabase().getPath() );
+        
+        text = (EditText) findViewById(R.id.editTextAppName);
+        text.setText( getPackageName() );
+
+        String dbSDPath = Environment.getExternalStorageDirectory().getPath()+"/Android/data/"+getPackageName()+"/databases/"+"diamod.db";
+        text = (EditText) findViewById(R.id.editTextDBSDPath);
+        text.setText( dbSDPath );
         
     }    
 

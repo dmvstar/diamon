@@ -41,7 +41,7 @@
 	<string name="buttonBackup">Backup and Restore</string>
 	<string name="buttonFood">Unit of food</string>
 	<string name="exit_confirm">"Are you sure you want to exit?"</string>
-	<string name="storage_path_desc">Storage Path</string>
+	<string name="storage_path_desc">Storage Paths Values</string>
 
 	<string name="bu_items_array_title">Таблица замены углеводсодержащих продукто по хлебным единицам</string>
 	
