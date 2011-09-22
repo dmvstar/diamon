@@ -10,4 +10,11 @@ public class CommonData {
 	    public Bitmap pictureBitmap;
 	    
 	} 
+	public static class HelpBUItem {
+		public int id;
+		public int kind_of_item; 
+		public String description; 
+		public String measure_bu; 
+		public String measure_wt;
+	} 
 }

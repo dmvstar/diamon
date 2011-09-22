@@ -47,6 +47,7 @@ public class BackupActivity extends Activity {
         text.setText( Environment.getDataDirectory().getPath() );
         
         DBHelper dbhelper = new DBHelper(this);
+        
         text = (EditText) findViewById(R.id.editTextDBPath);
         text.setText( dbhelper.getReadableDatabase().getPath() );
         
