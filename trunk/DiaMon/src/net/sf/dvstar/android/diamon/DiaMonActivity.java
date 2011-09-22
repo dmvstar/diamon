@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import net.sf.dvstar.android.diamon.datastore.DBHelper;
+import net.sf.dvstar.android.diamon.datastore.HelpBUItemsFiller;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -169,6 +170,10 @@ public class DiaMonActivity extends Activity {
 		});
 		
 		dbHelper = new DBHelper(this);
+		dbHelper.openDataBase();
+		
+		HelpBUItemsFiller buItems = new HelpBUItemsFiller( dbHelper.getDb() );
+		buItems.fillBUItems();
 
 	} // onCreate
 
