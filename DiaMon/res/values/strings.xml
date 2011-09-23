@@ -119,6 +119,20 @@
 	</string-array>
 	
 	<string name="buttonBUHelp">Таблица замены по хлебным единицам</string>
+	
+	<string name="user_image">User image</string>
+	
+	<string name="button_add_blood_measure">Add blood measure</string>
+	<string name="button_add_insulin_injection">Add insulin injection</string>
+	<string name="button_add_medicaments">Add medicaments</string>
+	<string name="button_medicaments">Medicaments</string>
+	<string name="button_shared_values">Shared Values</string>
+	<string name="button_add_insulin_type">Add Insulin description</string>
+	<string name="label_insulin">Insulin description</string>
+	<string name="label_insulin_start">Start time :</string>
+	<string name="label_insulin_max_start">Max time start:</string>
+	<string name="label_insulin_max_end">Max time end :</string>
+	<string name="label_insulin_end">End time :</string>
 
  
 </resources>

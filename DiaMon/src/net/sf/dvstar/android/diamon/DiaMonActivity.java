@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import net.sf.dvstar.android.diamon.activities.ConfigActivity;
+import net.sf.dvstar.android.diamon.activities.MeasuresActivity;
 import net.sf.dvstar.android.diamon.datastore.DBHelper;
 import net.sf.dvstar.android.diamon.datastore.HelpBUItemsFiller;
 
@@ -201,18 +203,23 @@ public class DiaMonActivity extends Activity {
 	}
 
 	public void aboutActivity(View v) {
-		final Intent about = new Intent(activity, AboutActivity.class);
-		activity.startActivity(about);
+		final Intent dialog = new Intent(activity, AboutActivity.class);
+		activity.startActivity(dialog);
+	}
+
+	public void measureActivity(View v) {
+		final Intent dialog = new Intent(activity, MeasuresActivity.class);
+		activity.startActivity(dialog);
 	}
 
 	public void configActivity(View v) {
-		final Intent config = new Intent(activity, ConfigActivity.class);
-		activity.startActivity(config);
+		final Intent dialog = new Intent(activity, ConfigActivity.class);
+		activity.startActivity(dialog);
 	}
 
 	public void helpActivity(View v) {
-		final Intent config = new Intent(activity, HelpAllActivity.class);
-		activity.startActivity(config);
+		final Intent dialog = new Intent(activity, HelpAllActivity.class);
+		activity.startActivity(dialog);
 	}
 
 	public void profileActivity(View v) {
