@@ -9,8 +9,10 @@ import java.util.StringTokenizer;
 import net.sf.dvstar.android.diamon.activities.AboutActivity;
 import net.sf.dvstar.android.diamon.activities.ConfigActivity;
 import net.sf.dvstar.android.diamon.activities.HelpAllActivity;
+import net.sf.dvstar.android.diamon.activities.JournalActivity;
 import net.sf.dvstar.android.diamon.activities.MeasuresActivity;
 import net.sf.dvstar.android.diamon.activities.ProfileActivity;
+import net.sf.dvstar.android.diamon.datastore.CommonData;
 import net.sf.dvstar.android.diamon.datastore.DBHelper;
 import net.sf.dvstar.android.diamon.datastore.HelpBUItemsFiller;
 
@@ -54,8 +56,12 @@ public class DiaMonActivity extends Activity {
 		final String[] from = new String[] 	{ "user_id", 			"user_name" };
 		final int[] to = new int[] 			{ android.R.id.text1, 	android.R.id.text2 };
 
+		CommonData commonData = new CommonData(); 
+
+		//commonData.createProfilesSimpleAdapter( this );
+		
 		final SimpleAdapter simpleAdapter = new SimpleAdapter(this,
-				createProfileList(),
+				commonData.createProfileList(),
 				R.layout.user_item,
 				//android.R.layout.simple_spinner_item,
 				// android.R.layout.simple_list_item_1,
@@ -225,29 +231,16 @@ public class DiaMonActivity extends Activity {
 		activity.startActivity(dialog);
 	}
 
+	public void journalActivity(View v) {
+		final Intent dialog = new Intent(activity, JournalActivity.class);
+		activity.startActivity(dialog);
+	}
+	
 	public void profileActivity(View v) {
 		Toast.makeText(getApplicationContext(), "profileActivity Start",
 				Toast.LENGTH_LONG).show();
 		final Intent profile = new Intent(activity, ProfileActivity.class);
 		activity.startActivity(profile);
-	}
-
-	private List<Map<String, ?>> createProfileList() {
-		String[] profiles = new String[] { "dmvstar@gmail.com",
-				"nstarzhynska@gmail.com", "dmvstar@mail.ru" };
-		String[] names = new String[] { "Старжинский Дмитрий",
-				"Старжинская Наталия", "Старжинский Дмитрий" };
-
-		List<Map<String, ?>> items = new ArrayList<Map<String, ?>>();
-
-		for (int i = 0; i < profiles.length; i++) {
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("user_id", profiles[i]);
-			map.put("user_name", names[i]);
-			items.add(map);
-		}
-
-		return items;
 	}
 
 }
