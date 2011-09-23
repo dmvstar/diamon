@@ -1,6 +1,8 @@
-package net.sf.dvstar.android.diamon;
+package net.sf.dvstar.android.diamon.activities;
 
-import net.sf.dvstar.android.diamon.activities.BackupActivity;
+import net.sf.dvstar.android.diamon.R;
+import net.sf.dvstar.android.diamon.R.array;
+import net.sf.dvstar.android.diamon.R.layout;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -44,6 +46,10 @@ public class ConfigActivity extends Activity {
 		this.startActivity( about );
     }
 
+    public void sharedValActivity(View v) {
+		final Intent about = new Intent(this, SharedActivity.class);
+		this.startActivity( about );
+    }
     
     
 }

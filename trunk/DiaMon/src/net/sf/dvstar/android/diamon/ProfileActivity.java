@@ -66,13 +66,7 @@ public void onBackPressed() {
         			adapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
         Spinner s = (Spinner) findViewById( R.id.spinnerSex );
 		s.setAdapter( adapter );	
-		
-		adapter = ArrayAdapter.createFromResource(
-    			this, R.array.array_measur, android.R.layout.simple_spinner_item );
-    			adapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
-    	s = (Spinner) findViewById( R.id.spinnerMeasure );
-    	s.setAdapter( adapter );	
-		
+	
         
     }
 	
