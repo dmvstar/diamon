@@ -5,6 +5,7 @@ import net.sf.dvstar.android.diamon.R.array;
 import net.sf.dvstar.android.diamon.R.id;
 import net.sf.dvstar.android.diamon.R.layout;
 import net.sf.dvstar.android.diamon.R.string;
+import net.sf.dvstar.android.diamon.datastore.CommonData;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -12,6 +13,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -72,6 +74,15 @@ public void onBackPressed() {
         Spinner s = (Spinner) findViewById( R.id.spinnerSex );
 		s.setAdapter( adapter );	
 	
+		CommonData commonData = new CommonData(); 
+		SimpleAdapter simpleAdapter = commonData.createProfilesSimpleAdapter(this);
+		simpleAdapter.setDropDownViewResource(
+				android.R.layout.simple_spinner_dropdown_item
+				//R.layout.user_item // for this use only ArrayAdapter
+				);
+
+		Spinner spinner = (Spinner) findViewById(R.id.spinnerProfileList);
+		spinner.setAdapter(simpleAdapter);
         
     }
 	

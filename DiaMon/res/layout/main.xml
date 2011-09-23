@@ -18,7 +18,7 @@
             	android:id="@+id/spinnerProfileList" style="@style/SpinnerAsEditText">
             </Spinner>
         </LinearLayout>
-        <Button android:text="@string/show_journal" android:layout_width="253dp" android:drawableTop="@drawable/kjournal" android:layout_height="wrap_content" android:id="@+id/Button01" android:textSize="18sp"></Button>
+        <Button android:text="@string/show_journal" android:layout_width="253dp" android:drawableTop="@drawable/kjournal" android:layout_height="wrap_content" android:id="@+id/Button01" android:textSize="18sp" android:onClick="journalActivity"></Button>
     </LinearLayout>
     <LinearLayout android:id="@+id/LinearLayout03" android:layout_height="wrap_content" android:layout_width="fill_parent">
         <Button android:layout_width="253dp" android:layout_height="wrap_content" android:id="@+id/buttonConfig" android:drawableTop="@drawable/preferences_system" android:text="@string/buttonConfig" android:textSize="18sp" android:onClick="configActivity"></Button>

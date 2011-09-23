@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent" android:orientation="vertical">
+  
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="match_parent" android:orientation="vertical">
+  
+  
     <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/textView1" android:layout_width="wrap_content" android:text="@string/label_insulin" android:layout_height="wrap_content"></TextView>
     <LinearLayout android:id="@+id/linearLayout2" android:layout_width="match_parent" android:layout_height="wrap_content">
         <Spinner android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/spinnerInsulins" android:layout_weight=".3"></Spinner>
@@ -33,5 +40,6 @@
         <TextView android:layout_width="fill_parent" android:id="@+id/TextView04" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_weight="0.5" android:layout_height="wrap_content" android:text="@string/insulin_color"></TextView>
         <EditText android:layout_width="fill_parent" android:layout_weight="0.5" android:layout_height="wrap_content" android:inputType="text" android:id="@+id/EditTextInsulinColor"></EditText>
     </LinearLayout>
-    
 </LinearLayout>
+    
+</ScrollView>

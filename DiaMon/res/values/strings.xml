@@ -144,6 +144,9 @@
 	<string name="insulin_work_max_to_val">...</string>
 	<string name="insulin_name">Insulin name</string>
 	<string name="insulin_color">Color</string>
+	<string name="button_profile_add">Add</string>
+	<string name="button_profile_save">Save</string>
+	<string name="button_profile_del">Delete</string>
 
  
 </resources>
