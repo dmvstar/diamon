@@ -13,12 +13,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="AboutActivity"></activity>
+        <activity android:name=".activities.AboutActivity"></activity>
         <activity android:name=".activities.ConfigActivity"></activity>
-        <activity android:name="ProfileActivity"></activity>
+        <activity android:name=".activities.ProfileActivity"></activity>
         <activity android:name=".activities.BackupActivity"></activity>
-        <activity android:name="HelpBUActivity"></activity>
-        <activity android:name="HelpAllActivity"></activity>
+        <activity android:name=".activities.HelpBUActivity"></activity>
+        <activity android:name=".activities.HelpAllActivity"></activity>
         <activity android:name=".activities.MeasuresActivity"></activity>
         <activity android:name=".activities.SharedActivity"></activity>
         <activity android:name=".activities.InsulinDescActivity"></activity>

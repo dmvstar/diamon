@@ -1,5 +1,10 @@
-package net.sf.dvstar.android.diamon;
+package net.sf.dvstar.android.diamon.activities;
 
+import net.sf.dvstar.android.diamon.R;
+import net.sf.dvstar.android.diamon.R.array;
+import net.sf.dvstar.android.diamon.R.id;
+import net.sf.dvstar.android.diamon.R.layout;
+import net.sf.dvstar.android.diamon.R.string;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;

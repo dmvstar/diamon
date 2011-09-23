@@ -133,6 +133,17 @@
 	<string name="label_insulin_max_start">Max time start:</string>
 	<string name="label_insulin_max_end">Max time end :</string>
 	<string name="label_insulin_end">End time :</string>
+	<string name="button_export_import">Export/Import Data</string>
+	<string name="insulin_work_from">Work From :</string>
+	<string name="insulin_work_from_val">...</string>
+	<string name="insulin_work_to"> To </string>
+	<string name="insulin_work_to_val">...</string>
+	<string name="insulin_work_max_from">Max From :</string>
+	<string name="insulin_work_max_from_val">...</string>
+	<string name="insulin_work_max_to"> To </string>
+	<string name="insulin_work_max_to_val">...</string>
+	<string name="insulin_name">Insulin name</string>
+	<string name="insulin_color">Color</string>
 
  
 </resources>

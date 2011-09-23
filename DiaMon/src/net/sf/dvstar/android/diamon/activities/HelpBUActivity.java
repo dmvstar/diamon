@@ -1,10 +1,16 @@
-package net.sf.dvstar.android.diamon;
+package net.sf.dvstar.android.diamon.activities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
+
+import net.sf.dvstar.android.diamon.R;
+import net.sf.dvstar.android.diamon.R.array;
+import net.sf.dvstar.android.diamon.R.id;
+import net.sf.dvstar.android.diamon.R.layout;
+import net.sf.dvstar.android.diamon.R.string;
 
 import android.app.Activity;
 import android.os.Bundle;
