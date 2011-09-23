@@ -6,8 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import net.sf.dvstar.android.diamon.activities.AboutActivity;
 import net.sf.dvstar.android.diamon.activities.ConfigActivity;
+import net.sf.dvstar.android.diamon.activities.HelpAllActivity;
 import net.sf.dvstar.android.diamon.activities.MeasuresActivity;
+import net.sf.dvstar.android.diamon.activities.ProfileActivity;
 import net.sf.dvstar.android.diamon.datastore.DBHelper;
 import net.sf.dvstar.android.diamon.datastore.HelpBUItemsFiller;
 

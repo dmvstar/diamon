@@ -7,25 +7,19 @@
     <LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:layout_height="wrap_content">
         <ImageView android:id="@+id/imageView1" android:layout_width="wrap_content" android:src="@drawable/syringe_48" android:layout_height="109dp"></ImageView>
         <LinearLayout android:id="@+id/linearLayout2" android:layout_height="match_parent" android:orientation="vertical" android:layout_width="fill_parent">
-            <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/textViewInsulinName" android:text="Insulin Name"></TextView>
-            <TableLayout android:id="@+id/tableLayout1" android:layout_width="fill_parent" android:layout_height="fill_parent">
-                <TableRow android:layout_height="wrap_content" android:id="@+id/TableRow03" android:layout_width="wrap_content">
-                    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/TextView06" android:layout_width="wrap_content" android:text="TextView"></TextView>
-                    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/TextView05" android:layout_width="wrap_content" android:text="TextView"></TextView>
-                </TableRow>
-                <TableRow android:layout_height="wrap_content" android:id="@+id/TableRow02" android:layout_width="wrap_content">
-                    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/TextView04" android:layout_width="wrap_content" android:text="TextView"></TextView>
-                    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/TextView03" android:layout_width="wrap_content" android:text="TextView"></TextView>
-                </TableRow>
-                <TableRow android:layout_height="wrap_content" android:id="@+id/TableRow01" android:layout_width="wrap_content">
-                    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/TextView02" android:layout_width="wrap_content" android:text="TextView"></TextView>
-                    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/TextView01" android:layout_width="wrap_content" android:text="TextView"></TextView>
-                </TableRow>
-                <TableRow android:id="@+id/tableRow1" android:layout_width="wrap_content" android:layout_height="wrap_content">
-                    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/textView1" android:layout_width="wrap_content" android:text="TextView"></TextView>
-                    <TextView android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/textView2" android:layout_width="wrap_content" android:text="TextView"></TextView>
-                </TableRow>
-            </TableLayout>
+            <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/textViewInsulinName" android:text="Insulin Name" android:padding="5sp"></TextView>
+            <LinearLayout android:id="@+id/linearLayout3" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="5sp">
+                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/textView1" android:layout_height="wrap_content" android:text="@string/insulin_work_from" android:layout_width="fill_parent" android:layout_weight="0.25"></TextView>
+                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="@string/insulin_work_from_val" android:id="@+id/textViewInsulinWorkFrom" android:layout_width="fill_parent" android:layout_weight="0.25"></TextView>
+                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/textView4" android:layout_height="wrap_content" android:text="@string/insulin_work_to" android:layout_width="fill_parent" android:layout_weight="0.25"></TextView>
+                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="@string/insulin_work_to_val" android:id="@+id/textViewInsulinWorkTo" android:layout_width="fill_parent" android:layout_weight="0.25"></TextView>
+            </LinearLayout>
+            <LinearLayout android:id="@+id/linearLayout4" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="5sp">
+                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/textView2" android:text="@string/insulin_work_max_from" android:layout_height="wrap_content" android:layout_width="fill_parent" android:layout_weight=".25"></TextView>
+                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="@string/insulin_work_max_to_val" android:id="@+id/textViewInsulinMaxFrom" android:layout_width="fill_parent" android:layout_weight=".25"></TextView>
+                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/TextView01" android:layout_height="wrap_content" android:text="@string/insulin_work_max_to" android:layout_width="fill_parent" android:layout_weight=".25"></TextView>
+                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="@string/insulin_work_max_to_val" android:id="@+id/textViewInsulinMaxTo" android:layout_width="fill_parent" android:layout_weight=".25"></TextView>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
     
