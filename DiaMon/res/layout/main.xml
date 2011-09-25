@@ -10,22 +10,17 @@
         <TextView android:textStyle="bold" android:layout_width="wrap_content" android:textSize="24sp" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/version"></TextView>
         <TextView android:textColor="#ffcc00" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/hello"></TextView>
     </LinearLayout>
-    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/LinearLayout07">
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/LinearLayout07" android:layout_gravity="bottom|center_horizontal">
         <Button android:text="@string/add_data" android:layout_width="253dp" android:drawableTop="@drawable/data_add" android:layout_height="wrap_content" android:id="@+id/Button02" android:textSize="18sp" android:onClick="measureActivity"></Button>
         <LinearLayout android:layout_width="fill_parent" android:layout_weight="2" android:id="@+id/LinearLayout06" android:orientation="vertical" android:layout_height="wrap_content">
-            <TextView android:layout_width="fill_parent" android:text="@string/user_profile" android:layout_weight="1" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:textSize="24sp" android:id="@+id/textView1"></TextView>
-            <Spinner 
-            	android:layout_width="fill_parent" 
-            	android:layout_height="wrap_content" 
-            	android:layout_weight="1" 
-            	android:id="@+id/spinnerProfileList" style="@style/SpinnerAsEditText">
-            </Spinner>
+            <TextView android:layout_width="fill_parent" android:text="@string/user_profile" android:textAppearance="?android:attr/textAppearanceLarge" android:textSize="24sp" android:id="@+id/textView1" android:layout_gravity="bottom|center_horizontal" android:layout_height="match_parent"></TextView>
         </LinearLayout>
         <Button android:text="@string/show_journal" android:layout_width="253dp" android:drawableTop="@drawable/kjournal" android:layout_height="wrap_content" android:id="@+id/Button01" android:textSize="18sp" android:onClick="journalActivity"></Button>
     </LinearLayout>
     <LinearLayout android:id="@+id/LinearLayout03" android:layout_height="wrap_content" android:layout_width="fill_parent">
         <Button android:layout_width="253dp" android:layout_height="wrap_content" android:id="@+id/buttonConfig" android:drawableTop="@drawable/preferences_system" android:text="@string/buttonConfig" android:textSize="18sp" android:onClick="configActivity"></Button>
         <LinearLayout android:layout_weight="2" android:id="@+id/LinearLayout02" android:layout_height="match_parent" android:layout_width="fill_parent" android:orientation="vertical">
+            <Spinner android:layout_height="wrap_content" android:layout_weight="1" style="@style/SpinnerAsEditText" android:id="@+id/spinnerProfileList" android:layout_width="fill_parent"></Spinner>
         </LinearLayout>
         <Button android:layout_width="253dp" android:layout_height="wrap_content" android:drawableTop="@drawable/system_users" android:id="@+id/buttonUsers" android:text="@string/buttonProfile" android:textSize="18sp" android:onClick="profileActivity"></Button>
     </LinearLayout>
