@@ -122,9 +122,6 @@
 	
 	<string name="user_image">User image</string>
 	
-	<string name="button_add_blood_measure">Add blood measure</string>
-	<string name="button_add_insulin_injection">Add insulin injection</string>
-	<string name="button_add_medicaments">Add medicaments</string>
 	<string name="button_medicaments">Medicaments</string>
 	<string name="button_shared_values">Shared Values</string>
 	<string name="button_add_insulin_type">Add Insulin description</string>
@@ -147,6 +144,15 @@
 	<string name="button_profile_add">Add</string>
 	<string name="button_profile_save">Save</string>
 	<string name="button_profile_del">Delete</string>
+
+	<string name="button_add_blood_measure">Add blood glucose record</string>
+	<string name="button_add_insulin_injection">Add insulin dose</string>
+	<string name="button_add_medicaments">Add medicaments dose</string>
+	<string name="button_add_eat">Add calories or BU</string>
+	<string name="button_add_weight_measure">Add weight record</string>
+	<string name="button_add_blood_pressure">Add blood pressure</string>
+	<string name="button_add_exercise">Add exercise</string>
+	<string name="button_add_hba1">Add HbA1 record</string>
 
  
 </resources>

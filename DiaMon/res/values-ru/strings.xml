@@ -120,11 +120,7 @@
 	<string name="buttonBUHelp">Таблица замены по хлебным единицам</string>
 	<string name="user_image">Изображение профиля</string>
 	
-	<string name="button_add_blood_measure">Добавить показания глюкозы</string>
-	<string name="button_add_insulin_injection">Доза инсулина</string>
     
-    
-	<string name="button_add_medicaments">Добавить Медикаменты</string>
 	<string name="button_medicaments">Медикаменты</string>
 	<string name="button_shared_values">Общие параметры</string>
 	<string name="button_add_insulin_type">Добавить описатель Инсулина</string>
@@ -133,6 +129,20 @@
 	<string name="label_insulin_max_start">Начало максимального действия :</string>
 	<string name="label_insulin_max_end">Конец максимального действия :</string>
 	<string name="label_insulin_end">Конец действия :</string>
+
+	<string name="button_profile_add">Добавить</string>
+	<string name="button_profile_save">Сохранить</string>
+	<string name="button_profile_del">Удалить</string>
+
+
+	<string name="button_add_blood_measure">Добавить показания глюкозы</string>
+	<string name="button_add_insulin_injection">Доза инсулина</string>
+	<string name="button_add_medicaments">Добавить медикаменты</string>
+	<string name="button_add_eat">Добавить калории или ХЕ</string>
+	<string name="button_add_weight_measure">Добавить показания веса</string>
+	<string name="button_add_blood_pressure">Добавить показания давления</string>
+	<string name="button_add_exercise">Добавить упражнения</string>
+	<string name="button_add_hba1">Добавить показания HbA1</string>
     
     
 </resources>
