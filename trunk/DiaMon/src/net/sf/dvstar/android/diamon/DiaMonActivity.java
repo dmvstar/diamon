@@ -82,7 +82,6 @@ public class DiaMonActivity extends Activity {
 				label.setText( data.get("user_name") );
 				
 /*
-				
 				ImageView icon=(ImageView)row.findViewById(R.id.icon);
 
 				if (DayOfWeek[position]=="Sunday"){
