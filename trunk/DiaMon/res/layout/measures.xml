@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:orientation="vertical"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
-    <Button android:id="@+id/button1" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="@string/button_add_blood_measure" android:drawableLeft="@drawable/blood_drop_48"></Button>
-    <Button android:id="@+id/button2" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="@string/button_add_insulin_injection" android:drawableLeft="@drawable/syringe_48"></Button>
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/linearLayout1" android:orientation="vertical">
+        <Button android:layout_height="wrap_content" android:drawableLeft="@drawable/blood_drop_48" android:layout_width="fill_parent" android:onClick="addMeasureGlucoseActivity" android:id="@+id/button1" android:text="@string/button_add_blood_measure"></Button>
+        <Button android:layout_height="wrap_content" android:drawableLeft="@drawable/syringe_48" android:layout_width="fill_parent" android:onClick="addMeasureInsulinActivity" android:id="@+id/button2" android:text="@string/button_add_insulin_injection"></Button>
+        <Button android:layout_height="wrap_content" android:drawableLeft="@drawable/kteatime_48" android:layout_width="fill_parent" android:onClick="addMeasureInsulinActivity" android:id="@+id/Button01" android:text="@string/button_add_eat"></Button>
+        <Button android:layout_height="wrap_content" android:layout_width="fill_parent" android:onClick="addMeasureGlucoseActivity" android:id="@+id/Button03" android:text="@string/button_add_weight_measure" android:drawableLeft="@drawable/ark_48"></Button>
+        <Button android:layout_height="wrap_content" android:layout_width="fill_parent" android:onClick="addMeasureInsulinActivity" android:id="@+id/Button02" android:text="@string/button_add_medicaments" android:drawableLeft="@drawable/tablet_48"></Button>
+        <Button android:layout_height="wrap_content" android:layout_width="fill_parent" android:onClick="addMeasureInsulinActivity" android:id="@+id/Button04" android:text="@string/button_add_blood_pressure" android:drawableLeft="@drawable/emblem_favorite_48"></Button>
+        <Button android:layout_height="wrap_content" android:drawableLeft="@drawable/xclock_48" android:layout_width="fill_parent" android:onClick="addMeasureInsulinActivity" android:id="@+id/Button05" android:text="@string/button_add_exercise"></Button>
+        <Button android:layout_height="wrap_content" android:layout_width="fill_parent" android:onClick="addMeasureInsulinActivity" android:id="@+id/Button06" android:text="@string/button_add_hba1" android:drawableLeft="@drawable/bookmarks_48"></Button>
+    </LinearLayout>
     
-</LinearLayout>
+</ScrollView>
