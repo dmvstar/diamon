@@ -1,10 +1,6 @@
 package net.sf.dvstar.android.diamon;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
 
 import net.sf.dvstar.android.diamon.activities.AboutActivity;
 import net.sf.dvstar.android.diamon.activities.ConfigActivity;
@@ -28,7 +24,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -191,13 +186,14 @@ public class DiaMonActivity extends Activity {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setMessage(getString(R.string.exit_confirm))
 				.setCancelable(false)
-				.setPositiveButton("Yes",
+				.setPositiveButton(R.string.buttonYes, //  "Yes",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
 								DiaMonActivity.this.finish();
 							}
 						})
-				.setNegativeButton("No", new DialogInterface.OnClickListener() {
+				.setNegativeButton(R.string.buttonNo, //"No", 
+						new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
 						dialog.cancel();
 					}

@@ -12,6 +12,11 @@
     <string name="buttonHelp">Помощь</string>
     <string name="buttonAbout">О...</string>
     
+    <string name="buttonYes">Да</string>
+    <string name="buttonNo">Нет</string>
+    <string name="buttonCancel">Отмена</string>
+    <string name="buttonOk">Конечно</string>
+
     <string-array name="array_sex">
 		<item>Г-н.</item>
 		<item>Г-жа.</item>
@@ -40,6 +45,7 @@
 	<string name="buttonBackup">Резервное Копирование и Восстановление</string>
 	<string name="buttonFood">Единицы меры пищи</string>
 	<string name="exit_confirm">Вы действительно хотите завершить работу?</string>
+	<string name="close_confirm">Вы хотите закрыть диалог?</string>
 	
 	<string name="bu_items_array_title">Таблица замены углеводсодержащих продукто по хлебным единицам</string>
 	

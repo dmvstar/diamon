@@ -11,6 +11,11 @@
  <string name="buttonProfile">Profiles</string>
  <string name="buttonHelp">Help</string>
  <string name="buttonAbout">About</string>
+
+ <string name="buttonYes">Yes</string>
+ <string name="buttonNo">No</string>
+ <string name="buttonCancel">Cancel</string>
+ <string name="buttonOk">Ok</string>
  
  <string-array name="array_sex">
 		<item>Mr.</item>
@@ -41,6 +46,7 @@
 	<string name="buttonBackup">Backup and Restore</string>
 	<string name="buttonFood">Unit of food</string>
 	<string name="exit_confirm">"Are you sure you want to exit?"</string>
+	<string name="close_confirm">"Do you want to close dialog?"</string>
 	<string name="storage_path_desc">Storage Paths Values</string>
 
 	<string name="bu_items_array_title">Таблица замены углеводсодержащих продукто по хлебным единицам</string>
