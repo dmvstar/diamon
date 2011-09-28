@@ -1,15 +1,10 @@
 package net.sf.dvstar.android.diamon.activities;
 
 import net.sf.dvstar.android.diamon.R;
-import net.sf.dvstar.android.diamon.R.array;
-import net.sf.dvstar.android.diamon.R.id;
-import net.sf.dvstar.android.diamon.R.layout;
-import net.sf.dvstar.android.diamon.R.string;
 import net.sf.dvstar.android.diamon.datastore.CommonData;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -25,9 +20,10 @@ public class ProfileActivity extends Activity {
 //        super.onBackPressed();
         
     	AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    	builder.setMessage( getString(R.string.exit_confirm))
+    	builder.setMessage( getString(R.string.close_confirm))
     	       .setCancelable(false)
-    	       .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+    	       .setNeutralButton(R.string.buttonOk, //"Ok", 
+    	    		   new DialogInterface.OnClickListener() {
     	           public void onClick(DialogInterface dialog, int id) {
     	        	   dialog.cancel();
     	        	   ProfileActivity.this.finish();
@@ -86,5 +82,14 @@ public void onBackPressed() {
         
     }
 	
+    
+	public void addProfileAction(View v) {
+	}
+	public void saveProfileAction(View v) {
+	}
+	public void delProfileAction(View v) {
+	}
+    
+    
     
 }
