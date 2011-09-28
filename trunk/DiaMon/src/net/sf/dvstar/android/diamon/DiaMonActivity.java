@@ -33,6 +33,7 @@ public class DiaMonActivity extends Activity {
 	/** Called when the activity is first created. */
 
 	private Button closeButton;
+	
 	private final Activity activity = this;
 	private DBHelper dbHelper;
 
