@@ -228,8 +228,10 @@ public class DiaMonActivity extends Activity {
 	}
 
 	public void journalActivity(View v) {
-		final Intent dialog = new Intent(activity, JournalActivity.class);
-		activity.startActivity(dialog);
+		final Intent intent = new Intent(activity, JournalActivity.class);
+		//IDemoChart chart =  new BudgetPieChart();
+		//final Intent intent = chart.execute(activity);
+		activity.startActivity(intent);
 	}
 	
 	public void profileActivity(View v) {
