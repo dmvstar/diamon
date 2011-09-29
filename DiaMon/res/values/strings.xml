@@ -162,6 +162,7 @@
 	<string name="button_add_blood_pressure">Add blood pressure</string>
 	<string name="button_add_exercise">Add exercise</string>
 	<string name="button_add_hba1">Add HbA1 record</string>
+	<string name="button_charts">Charts</string>
 
  
 </resources>
