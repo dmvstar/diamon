@@ -22,7 +22,7 @@
         <LinearLayout android:id="@+id/LinearLayout02" android:layout_height="match_parent" android:layout_width="fill_parent" android:orientation="vertical" android:layout_weight="1">
             <Spinner android:layout_height="wrap_content" android:layout_weight="1" style="@style/SpinnerAsEditText" android:id="@+id/spinnerProfileList" android:layout_width="fill_parent"></Spinner>
         </LinearLayout>
-        <Button android:onClick="profileActivity" android:textSize="18sp" android:layout_height="wrap_content" android:id="@+id/buttonStats" android:layout_width="fill_parent" android:layout_weight="2" android:drawableTop="@drawable/kchart" android:text="@string/button_charts"></Button>
+        <Button android:textSize="18sp" android:layout_height="wrap_content" android:id="@+id/buttonStats" android:layout_width="fill_parent" android:layout_weight="2" android:drawableTop="@drawable/kchart" android:text="@string/button_charts" android:onClick="statsActivity"></Button>
     </LinearLayout>
     <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/LinearLayout05">
         <Button android:text="@string/buttonHelp" android:layout_height="wrap_content" android:id="@+id/buttonHelp" android:textSize="18sp" android:drawableTop="@drawable/help" android:onClick="helpActivity" android:layout_width="fill_parent" android:layout_weight="2"></Button>

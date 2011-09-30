@@ -23,8 +23,9 @@
         <activity android:name=".activities.SharedActivity"></activity>
         <activity android:name=".activities.InsulinDescActivity"></activity>
         <activity android:name=".activities.JournalActivity"></activity>
-        <activity android:name=".activities.AddMeasureActivity"></activity>
+        <activity android:name=".activities.StatsActivity"></activity><activity android:name=".activities.AddMeasureActivity"></activity>
         <activity android:name="org.achartengine.GraphicalActivity"></activity>
+        
 
     </application>
     
