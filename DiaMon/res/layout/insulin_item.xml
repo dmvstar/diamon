@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  android:orientation="vertical"
-  android:layout_width="match_parent"
-  android:layout_height="match_parent">
-    <LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:layout_height="wrap_content">
-        <ImageView android:id="@+id/imageView1" android:layout_width="wrap_content" android:src="@drawable/syringe_48" android:layout_height="109dp"></ImageView>
-        <LinearLayout android:id="@+id/linearLayout2" android:layout_height="match_parent" android:orientation="vertical" android:layout_width="fill_parent">
-            <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/textViewInsulinName" android:text="Insulin Name" android:padding="5sp"></TextView>
-            <LinearLayout android:id="@+id/linearLayout3" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="5sp">
-                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/textView1" android:layout_height="wrap_content" android:text="@string/insulin_work_from" android:layout_width="fill_parent" android:layout_weight="0.25"></TextView>
-                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="@string/insulin_work_from_val" android:id="@+id/textViewInsulinWorkFrom" android:layout_width="fill_parent" android:layout_weight="0.25"></TextView>
-                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/textView4" android:layout_height="wrap_content" android:text="@string/insulin_work_to" android:layout_width="fill_parent" android:layout_weight="0.25"></TextView>
-                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="@string/insulin_work_to_val" android:id="@+id/textViewInsulinWorkTo" android:layout_width="fill_parent" android:layout_weight="0.25"></TextView>
-            </LinearLayout>
-            <LinearLayout android:id="@+id/linearLayout4" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="5sp">
-                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/textView2" android:text="@string/insulin_work_max_from" android:layout_height="wrap_content" android:layout_width="fill_parent" android:layout_weight=".25"></TextView>
-                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="@string/insulin_work_max_to_val" android:id="@+id/textViewInsulinMaxFrom" android:layout_width="fill_parent" android:layout_weight=".25"></TextView>
-                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:id="@+id/TextView01" android:layout_height="wrap_content" android:text="@string/insulin_work_max_to" android:layout_width="fill_parent" android:layout_weight=".25"></TextView>
-                <TextView android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="@string/insulin_work_max_to_val" android:id="@+id/textViewInsulinMaxTo" android:layout_width="fill_parent" android:layout_weight=".25"></TextView>
+    <LinearLayout android:id="@+id/linearLayout1" xmlns:android="http://schemas.android.com/apk/res/android" android:layout_gravity="top" android:layout_width="fill_parent" android:layout_height="fill_parent" android:orientation="vertical">
+        <LinearLayout android:id="@+id/linearLayout5" android:layout_height="match_parent" android:layout_width="match_parent">
+            <ImageView android:layout_width="wrap_content" android:src="@drawable/syringe_48" android:id="@+id/imageView1" android:layout_height="112dp"></ImageView>
+            <LinearLayout android:orientation="vertical" android:id="@+id/linearLayout2" android:layout_height="match_parent" android:layout_width="fill_parent">
+                <TextView android:padding="5sp" android:layout_height="wrap_content" android:text="Insulin Name" android:layout_width="fill_parent" android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/InsulinName" android:textColor="#0000FF"></TextView>
+                <LinearLayout android:id="@+id/linearLayout3" android:padding="5sp" android:layout_height="wrap_content" android:layout_width="fill_parent">
+                    <TextView android:layout_height="fill_parent" android:text="@string/insulin_work_from" android:layout_width="fill_parent" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_weight="0.25" android:id="@+id/textView1" android:textColor="#0000FF"></TextView>
+                    <TextView android:layout_height="wrap_content" android:text="@string/insulin_work_from_val" android:layout_width="fill_parent" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_weight="0.25" android:id="@+id/WorkFrom" android:textColor="#0000FF"></TextView>
+                    <TextView android:layout_height="fill_parent" android:text="@string/insulin_work_to" android:layout_width="fill_parent" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_weight="0.25" android:id="@+id/textView4" android:textColor="#0000FF"></TextView>
+                    <TextView android:layout_height="wrap_content" android:text="@string/insulin_work_to_val" android:layout_width="fill_parent" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_weight="0.25" android:id="@+id/WorkTo" android:textColor="#0000FF"></TextView>
+                </LinearLayout>
+                <LinearLayout android:id="@+id/linearLayout4" android:padding="5sp" android:layout_height="wrap_content" android:layout_width="fill_parent">
+                    <TextView android:layout_height="fill_parent" android:text="@string/insulin_work_max_from" android:layout_width="fill_parent" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_weight=".25" android:id="@+id/textView2" android:textColor="#0000FF"></TextView>
+                    <TextView android:layout_height="wrap_content" android:text="@string/insulin_work_max_to_val" android:layout_width="fill_parent" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_weight=".25" android:id="@+id/MaxFrom" android:textColor="#0000FF"></TextView>
+                    <TextView android:layout_height="fill_parent" android:text="@string/insulin_work_max_to" android:layout_width="fill_parent" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_weight=".25" android:id="@+id/TextView01" android:textColor="#0000FF"></TextView>
+                    <TextView android:layout_height="wrap_content" android:text="@string/insulin_work_max_to_val" android:layout_width="fill_parent" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_weight=".25" android:id="@+id/MaxTo" android:textColor="#0000FF"></TextView>
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
     
-</LinearLayout>

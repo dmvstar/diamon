@@ -135,6 +135,8 @@
 	<string name="label_insulin_max_start">Начало максимального действия :</string>
 	<string name="label_insulin_max_end">Конец максимального действия :</string>
 	<string name="label_insulin_end">Конец действия :</string>
+	<string name="insulin_name">Название инсулина</string>
+	<string name="insulin_color">Цвет</string>
 
 	<string name="button_profile_add">Добавить</string>
 	<string name="button_profile_save">Сохранить</string>
