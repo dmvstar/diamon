@@ -21,6 +21,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	private static final int DATABASE_VERSION = 1;
 	private static final String DB_NAME = "diamon.db";
 	private static final String TABLE_NAME_PROFILE = "profiles";
+	private static final String TABLE_NAME_INSULIN = "insulin";
 	private static final String TABLE_NAME_HELP_BU = "help_bu_items";
 	private static String DB_FULL_PATH = "";
 	private static String DB_PATH_CHECK = "";
@@ -84,7 +85,8 @@ public class DBHelper extends SQLiteOpenHelper {
 		if (!checkTable(TABLE_NAME_PROFILE)) {
 			diamondb.execSQL("create table " + TABLE_NAME_PROFILE
 					+ " (id integer primary key autoincrement, "
-					+ " user_id text not null, " + " user_name text not null) ");
+					+ " user_id text not null, " 
+					+ " user_name text not null) ");
 		}
 
 		if (!checkTable(TABLE_NAME_HELP_BU)) {
@@ -93,7 +95,20 @@ public class DBHelper extends SQLiteOpenHelper {
 					+ " kind_of_item 	NUMERIC, " + " description 	TEXT, "
 					+ " measure_bu 		TEXT, " + " measure_wt 		TEXT) ");
 		}
-
+/*
+		if (!checkTable(TABLE_NAME_INSULIN)) {
+			diamondb.execSQL("create table " + TABLE_NAME_INSULIN
+					+ " (id integer primary key autoincrement, "
+					+ " descript		TEXT not null, " 
+					+ " time_start 		INT, " 
+					+ " time_end 		INT, " 
+					+ " time_max 		INT, " 
+					+ " time_work 		INT, " 
+					+ " color		TEXT " 
+					);
+		}
+*/		
+		
 	}
 
 	public void openDataBase() throws SQLException {

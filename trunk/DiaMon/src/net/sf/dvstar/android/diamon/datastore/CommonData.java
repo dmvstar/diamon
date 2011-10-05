@@ -106,4 +106,29 @@ public class CommonData {
 		
 	}
 
+
+	public List<? extends Map<String, ?>> createInsulinList() {
+		String[] names 		= new String[] { "Левемир", 	"Новорапид" };
+		String[] workFrom 	= new String[] { "1.5", 		"0.5" };
+		String[] workTo   	= new String[] { "20", 			"5" };
+		String[] maxFrom   	= new String[] { "3", 			"1" };
+		String[] maxTo  	= new String[] { "12", 			"4" };
+		String[] color 		= new String[] { "#FF00TT", 	"#EE55AA" };
+
+		List<Map<String, ?>> items = new ArrayList<Map<String, ?>>();
+
+		for (int i = 0; i < names.length; i++) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			map.put("InsulinName", 	names[i]);
+			map.put("WorkFrom", 	workFrom[i]);
+			map.put("WorkTo", 		workTo[i]);
+			map.put("MaxFrom", 		maxFrom[i]);
+			map.put("MaxTo", 		maxTo[i]);
+			map.put("Color", 		color[i]);
+			items.add(map);
+		}
+
+		return items;
+	}
+
 }
