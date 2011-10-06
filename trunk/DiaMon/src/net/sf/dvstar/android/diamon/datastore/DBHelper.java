@@ -99,12 +99,12 @@ public class DBHelper extends SQLiteOpenHelper {
 		if (!checkTable(TABLE_NAME_INSULIN)) {
 			diamondb.execSQL("create table " + TABLE_NAME_INSULIN
 					+ " (id integer primary key autoincrement, "
-					+ " descript		TEXT not null, " 
-					+ " time_start 		INT, " 
-					+ " time_end 		INT, " 
-					+ " time_max 		INT, " 
-					+ " time_work 		INT, " 
-					+ " color		TEXT " 
+					+ " descr			TEXT not null, " 
+					+ " time_start 		DECIMAL(2,2), " 
+					+ " time_end 		DECIMAL(2,2), " 
+					+ " time_max 		DECIMAL(2,2), " 
+					+ " time_work 		DECIMAL(2,2), " 
+					+ " color			TEXT " 
 					);
 		}
 */		
