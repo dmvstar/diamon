@@ -28,7 +28,7 @@ public class DBHelper extends SQLiteOpenHelper {
 	private static String DB_FULL_PATH = "";
 	private static String DB_PATH_CHECK = "";
 
-	public static String KEY_ID = "id";
+	public static String KEY_ID = "_id";
 	public static String KEY_INSULIN_DESC  = "descript"; 
 	public static String KEY_INSULIN_TSTRT = "time_start"; 
 	public static String KEY_INSULIN_TEND  = "time_end"; 
@@ -96,24 +96,24 @@ public class DBHelper extends SQLiteOpenHelper {
 
 		if (!checkTable(TABLE_NAME_PROFILE)) {
 			diamondb.execSQL("create table " + TABLE_NAME_PROFILE
-					+ " (id integer primary key autoincrement, "
+					+ " (_id integer primary key autoincrement, "
 					+ " user_id text not null, " 
 					+ " user_name text not null) ");
 		}
 
 		if (!checkTable(TABLE_NAME_HELP_BU)) {
 			diamondb.execSQL("create table " + TABLE_NAME_HELP_BU
-					+ " (id integer primary key autoincrement, "
+					+ " (_id integer primary key autoincrement, "
 					+ " kind_of_item 	NUMERIC, " + " description 	TEXT, "
 					+ " measure_bu 		TEXT, " + " measure_wt 		TEXT) ");
 		}
 
-/*
+
 		if (!checkTable(TABLE_NAME_INSULIN)) {
 			diamondb.execSQL(
 					"create table " 
 					+ TABLE_NAME_INSULIN
-					+ " (id integer primary key autoincrement, "
+					+ " (_id integer primary key autoincrement, "
 					+ " descript		TEXT not null, " 
 					+ " time_start 		DECIMAL(2,2), " 
 					+ " time_end 		DECIMAL(2,2), " 
@@ -123,7 +123,7 @@ public class DBHelper extends SQLiteOpenHelper {
 					+ " )"
 					);
 		}
-*/		
+		
 		
 	}
 
