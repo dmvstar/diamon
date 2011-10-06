@@ -2,6 +2,8 @@ package net.sf.dvstar.android.diamon.activities;
 
 import java.util.Map;
 
+import de.devmil.common.ui.color.ColorSelectorDialog;
+
 import net.sf.dvstar.android.diamon.R;
 import net.sf.dvstar.android.diamon.datastore.CommonData;
 import android.app.Activity;
@@ -11,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -19,20 +22,33 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 public class InsulinDescActivity extends Activity { 
 
-	final String[] from = new String[] 	{ 	"InsulinName", 			
-											"WorkFrom" ,	"WorkTo",	
-											"MaxFrom",		"MaxTo",	
-											"Color"	};
+	final String[] from = new String[] 	{ 	"insulinName", 			
+											"workFrom" ,	"workTo",	
+											"maxFrom",		"maxTo",	
+											"color"	};
 	final int[] to = new int[] 			{ 	android.R.id.text1, 	
 											android.R.id.text2, 	android.R.id.text2, 	
 											android.R.id.text2, 	android.R.id.text2, 	
 											android.R.id.text2, 	android.R.id.text2 };
+
 	
+	EditText 	editTextInsulinName, 
+				editTextInsulinFrom, 	editTextInsulinTo, 
+				editTextInsulinMaxFrom, editTextInsulinMaxTo,
+				editTextInsulinColor;
+
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.insulin_desc);
+		
+		editTextInsulinName=(EditText)findViewById(R.id.editTextInsulinName);
+		editTextInsulinFrom=(EditText)findViewById(R.id.editTextInsulinFrom);
+		editTextInsulinTo=(EditText)findViewById(R.id.editTextInsulinTo);
+		editTextInsulinMaxFrom=(EditText)findViewById(R.id.editTextInsulinMaxFrom);
+		editTextInsulinMaxTo=(EditText)findViewById(R.id.editTextInsulinMaxTo);
+		editTextInsulinColor=(EditText)findViewById(R.id.editTextInsulinColor);
 		
 		CommonData commonData = new CommonData(); 
 		
@@ -51,15 +67,15 @@ public class InsulinDescActivity extends Activity {
 				final Map<String, String> data = (Map<String, String>)getItem(position);
 				
 				TextView label=(TextView)row.findViewById(R.id.InsulinName);
-				label.setText( data.get("InsulinName") );
+				label.setText( data.get("insulinName") );
 				label=(TextView)row.findViewById(R.id.WorkFrom);
-				label.setText( data.get("WorkFrom") );
+				label.setText( data.get("workFrom") );
 				label=(TextView)row.findViewById(R.id.WorkTo);
-				label.setText( data.get("WorkTo") );
+				label.setText( data.get("workTo") );
 				label=(TextView)row.findViewById(R.id.MaxFrom);
-				label.setText( data.get("MaxFrom") );
+				label.setText( data.get("maxFrom") );
 				label=(TextView)row.findViewById(R.id.MaxTo);
-				label.setText( data.get("MaxTo") );
+				label.setText( data.get("maxTo") );
 				//label=(TextView)row.findViewById(R.id.Color);
 				//label.setText( data.get("Color") );
 				
@@ -79,15 +95,15 @@ public class InsulinDescActivity extends Activity {
 				final Map<String, String> data = (Map<String, String>)getItem(position);
 				
 				TextView label=(TextView)row.findViewById(R.id.InsulinName);
-				label.setText( data.get("InsulinName") );
+				label.setText( data.get("insulinName") );
 				label=(TextView)row.findViewById(R.id.WorkFrom);
-				label.setText( data.get("WorkFrom") );
+				label.setText( data.get("workFrom") );
 				label=(TextView)row.findViewById(R.id.WorkTo);
-				label.setText( data.get("WorkTo") );
+				label.setText( data.get("workTo") );
 				label=(TextView)row.findViewById(R.id.MaxFrom);
-				label.setText( data.get("MaxFrom") );
+				label.setText( data.get("maxFrom") );
 				label=(TextView)row.findViewById(R.id.MaxTo);
-				label.setText( data.get("MaxTo") );
+				label.setText( data.get("maxTo") );
 				//label=(TextView)row.findViewById(R.id.Color);
 				//label.setText( data.get("Color") );
 				
@@ -106,15 +122,33 @@ public class InsulinDescActivity extends Activity {
 		spinner.setAdapter(simpleAdapter);
 
 		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+/*			
+			public OnItemSelectedListener(){
+				super();				
+			}
+*/			
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				// Get the color name out of the Map
 				final Map<String, String> data = (Map<String, String>) parent
 						.getItemAtPosition(position);
-				final String text = "Selected Insulin : " + data.get("InsulinName");
+				
+				final String text = "Selected Insulin : " + data.get("insulinName");
 
 				Toast.makeText(parent.getContext(), text, Toast.LENGTH_LONG)
 						.show();
+				
+				LayoutInflater inflater=getLayoutInflater();
+				View row=inflater.inflate(R.layout.insulin_desc, parent, false);
+				
+				editTextInsulinName.setText( data.get("insulinName") );
+				editTextInsulinFrom.setText( data.get("workFrom") );
+				editTextInsulinTo.setText( data.get("workTo") );
+				editTextInsulinMaxFrom.setText( data.get("maxFrom") );
+				editTextInsulinMaxTo.setText( data.get("maxTo") );
+				editTextInsulinColor.setText( data.get("color") );
+				
 			}
 
 			public void onNothingSelected(AdapterView<?> arg0) {
@@ -123,5 +157,11 @@ public class InsulinDescActivity extends Activity {
 		});
 		
 	}	
+	
+	
+	public void selectColor(View v){
+		ColorSelectorDialog dialog = new ColorSelectorDialog(this,null,0);
+		dialog.show();
+	}
 
 }
