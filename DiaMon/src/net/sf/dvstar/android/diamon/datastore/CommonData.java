@@ -106,7 +106,8 @@ public class CommonData {
 		
 	}
 
-
+	
+	
 	public List<? extends Map<String, ?>> createInsulinList() {
 		String[] names 		= new String[] { "Левемир", 	"Новорапид" };
 		String[] workFrom 	= new String[] { "1.5", 		"0.5" };
@@ -119,12 +120,12 @@ public class CommonData {
 
 		for (int i = 0; i < names.length; i++) {
 			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("InsulinName", 	names[i]);
-			map.put("WorkFrom", 	workFrom[i]);
-			map.put("WorkTo", 		workTo[i]);
-			map.put("MaxFrom", 		maxFrom[i]);
-			map.put("MaxTo", 		maxTo[i]);
-			map.put("Color", 		color[i]);
+			map.put("insulinName", 	names[i]);
+			map.put("workFrom", 	workFrom[i]);
+			map.put("workTo", 		workTo[i]);
+			map.put("maxFrom", 		maxFrom[i]);
+			map.put("maxTo", 		maxTo[i]);
+			map.put("color", 		color[i]);
 			items.add(map);
 		}
 

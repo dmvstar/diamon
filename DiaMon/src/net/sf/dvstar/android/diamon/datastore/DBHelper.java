@@ -3,6 +3,7 @@ package net.sf.dvstar.android.diamon.datastore;
 import java.io.File;
 import java.io.IOException;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
@@ -22,10 +23,21 @@ public class DBHelper extends SQLiteOpenHelper {
 	private static final String DB_NAME = "diamon.db";
 	private static final String TABLE_NAME_PROFILE = "profiles";
 	private static final String TABLE_NAME_INSULIN = "insulin";
+	
 	private static final String TABLE_NAME_HELP_BU = "help_bu_items";
 	private static String DB_FULL_PATH = "";
 	private static String DB_PATH_CHECK = "";
 
+	public static String KEY_ID = "id";
+	public static String KEY_INSULIN_DESC  = "descript"; 
+	public static String KEY_INSULIN_TSTRT = "time_start"; 
+	public static String KEY_INSULIN_TEND  = "time_end"; 
+	public static String KEY_INSULIN_TMAX  = "time_max"; 
+	public static String KEY_INSULIN_TWRK  = "time_work"; 
+	public static String KEY_INSULIN_COLOR = "color";
+		
+	
+	
 	// public DBHelper(Context context, String name, CursorFactory factory,int
 	// version) {
 	public DBHelper(Context context) {
@@ -95,16 +107,20 @@ public class DBHelper extends SQLiteOpenHelper {
 					+ " kind_of_item 	NUMERIC, " + " description 	TEXT, "
 					+ " measure_bu 		TEXT, " + " measure_wt 		TEXT) ");
 		}
+
 /*
 		if (!checkTable(TABLE_NAME_INSULIN)) {
-			diamondb.execSQL("create table " + TABLE_NAME_INSULIN
+			diamondb.execSQL(
+					"create table " 
+					+ TABLE_NAME_INSULIN
 					+ " (id integer primary key autoincrement, "
-					+ " descr			TEXT not null, " 
+					+ " descript		TEXT not null, " 
 					+ " time_start 		DECIMAL(2,2), " 
 					+ " time_end 		DECIMAL(2,2), " 
 					+ " time_max 		DECIMAL(2,2), " 
 					+ " time_work 		DECIMAL(2,2), " 
-					+ " color			TEXT " 
+					+ " color			TEXT "
+					+ " )"
 					);
 		}
 */		
@@ -191,4 +207,77 @@ public class DBHelper extends SQLiteOpenHelper {
 		// TODO Auto-generated method stub
 	}
 
+	
+	
+    public long insertInsulin(String desc) 
+    {
+    	return insertInsulin(desc, "0", "0", "0", "0", "#FF00FF");
+    }
+    public long insertInsulin(String desc, String tstrt, String tend, String tmax, String twrk, String color) 
+    {
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(KEY_INSULIN_DESC,  desc);
+        initialValues.put(KEY_INSULIN_TSTRT, tstrt);
+        initialValues.put(KEY_INSULIN_TEND,  tend);
+        initialValues.put(KEY_INSULIN_TMAX,  tmax);
+        initialValues.put(KEY_INSULIN_TWRK,  twrk);
+        initialValues.put(KEY_INSULIN_COLOR, color);
+        
+        return diamondb.insert(TABLE_NAME_INSULIN, null, initialValues);
+    }
+
+    //---deletes a particular title---
+    public boolean deleteInsulin(long rowId) 
+    {
+        return diamondb.delete(TABLE_NAME_INSULIN, KEY_ID + 
+        		"=" + rowId, null) > 0;
+    }
+
+    //---retrieves all the titles---
+    public Cursor getAlInsulins() 
+    {
+        return diamondb.query(TABLE_NAME_INSULIN, new String[] {
+			KEY_ID, 
+			KEY_INSULIN_DESC, 
+			KEY_INSULIN_TSTRT,
+			KEY_INSULIN_TEND, 
+			KEY_INSULIN_TMAX, 
+			KEY_INSULIN_TWRK, 
+			KEY_INSULIN_COLOR}, 
+                null, 
+                null, 
+                null, 
+                null, 
+                null);
+    }
+
+    //---retrieves a particular title---
+    public Cursor getInsulin(long rowId) throws SQLException 
+    {
+        Cursor mCursor =
+        	diamondb.query(true, TABLE_NAME_INSULIN, new String[] {
+			KEY_ID, 
+			KEY_INSULIN_DESC, 
+			KEY_INSULIN_TSTRT,
+			KEY_INSULIN_TEND, 
+			KEY_INSULIN_TMAX, 
+			KEY_INSULIN_TWRK, 
+			KEY_INSULIN_COLOR 
+                		}, 
+                		KEY_ID + "=" + rowId, 
+                		null,
+                		null, 
+                		null, 
+                		null, 
+                		null);
+        if (mCursor != null) {
+            mCursor.moveToFirst();
+        }
+        return mCursor;
+    }
+
+	
+	
+	
+	
 }

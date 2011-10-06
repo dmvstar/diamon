@@ -30,4 +30,11 @@
 		<nature>com.android.ide.eclipse.adt.AndroidNature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>devmil-android-color-picker_src</name>
+			<type>2</type>
+			<locationURI>_android_devmil_android_color_picker_9d654148/src</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>
