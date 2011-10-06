@@ -131,10 +131,16 @@
 	<string name="button_shared_values">Общие параметры</string>
 	<string name="button_add_insulin_type">Добавить описатель Инсулина</string>
 	<string name="label_insulin">Описание Инсулина</string>
-	<string name="label_insulin_start">Начало действия :</string>
-	<string name="label_insulin_max_start">Начало максимального действия :</string>
-	<string name="label_insulin_max_end">Конец максимального действия :</string>
-	<string name="label_insulin_end">Конец действия :</string>
+	<string name="label_insulin_start">Начало действия (ч.м):</string>
+	<string name="label_insulin_max_start">Начало максимального действия (ч.м):</string>
+	<string name="label_insulin_max_end">Конец максимального действия (ч.м):</string>
+	<string name="label_insulin_end">Конец действия (ч.м):</string>
+	
+	<string name="insulin_work_from">Начало действия (ч.м):</string>
+	<string name="insulin_work_to"> До (ч.м) </string>
+	<string name="insulin_work_max_from">Начало максимума (ч.м):</string>
+	<string name="insulin_work_max_to"> До (ч.м) </string>
+		
 	<string name="insulin_name">Название инсулина</string>
 	<string name="insulin_color">Цвет</string>
 

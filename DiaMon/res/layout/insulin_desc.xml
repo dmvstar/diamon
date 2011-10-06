@@ -21,25 +21,25 @@
     <TextView android:layout_width="wrap_content" android:id="@+id/textView3" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_height="wrap_content" android:text="@string/insulin_name"></TextView>
     <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/editTextInsulinName"></EditText>
     <LinearLayout android:id="@+id/LinearLayout03" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_gravity="top|left">
-        <TextView android:id="@+id/TextView03" android:text="@string/label_insulin_start" android:layout_height="wrap_content" android:layout_width="fill_parent" android:layout_weight="0.5" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_gravity="top|left"></TextView>
+        <TextView android:id="@+id/TextView03" android:text="@string/label_insulin_start" android:layout_height="wrap_content" android:layout_width="fill_parent" android:layout_weight="0.5" android:layout_gravity="top|left" android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
         <EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:layout_weight="0.5" android:inputType="numberDecimal" android:id="@+id/editTextInsulinFrom"></EditText>
     </LinearLayout>
     <LinearLayout android:id="@+id/linearLayout1" android:layout_width="match_parent" android:layout_height="wrap_content">
-        <TextView android:layout_width="fill_parent" android:id="@+id/textView2" android:textAppearance="?android:attr/textAppearanceSmall" android:text="@string/label_insulin_end" android:layout_weight="0.5" android:layout_height="wrap_content"></TextView>
+        <TextView android:layout_width="fill_parent" android:id="@+id/textView2" android:text="@string/label_insulin_end" android:layout_weight="0.5" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
         <EditText android:layout_height="wrap_content" android:layout_weight="0.5" android:inputType="numberDecimal" android:id="@+id/editTextInsulinTo" android:layout_width="fill_parent">
             <requestFocus></requestFocus>
         </EditText>
     </LinearLayout>
     <LinearLayout android:id="@+id/LinearLayout02" android:layout_width="match_parent" android:layout_height="wrap_content">
-        <TextView android:id="@+id/TextView02" android:layout_height="wrap_content" android:text="@string/label_insulin_max_start" android:layout_width="fill_parent" android:layout_weight="0.5" android:textAppearance="?android:attr/textAppearanceSmall"></TextView>
+        <TextView android:id="@+id/TextView02" android:layout_height="wrap_content" android:text="@string/label_insulin_max_start" android:layout_width="fill_parent" android:layout_weight="0.5" android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
         <EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:layout_weight="0.5" android:inputType="numberDecimal" android:id="@+id/editTextInsulinMaxFrom"></EditText>
     </LinearLayout>
     <LinearLayout android:id="@+id/LinearLayout01" android:layout_width="match_parent" android:layout_height="wrap_content">
-        <TextView android:id="@+id/TextView01" android:layout_height="wrap_content" android:text="@string/label_insulin_max_end" android:layout_width="fill_parent" android:layout_weight="0.5" android:textAppearance="?android:attr/textAppearanceSmall"></TextView>
+        <TextView android:id="@+id/TextView01" android:layout_height="wrap_content" android:text="@string/label_insulin_max_end" android:layout_width="fill_parent" android:layout_weight="0.5" android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
         <EditText android:layout_height="wrap_content" android:layout_width="fill_parent" android:layout_weight="0.5" android:inputType="numberDecimal" android:id="@+id/editTextInsulinMaxTo"></EditText>
     </LinearLayout>
     <LinearLayout android:id="@+id/LinearLayout04" android:layout_width="match_parent" android:layout_height="wrap_content">
-        <TextView android:layout_width="fill_parent" android:id="@+id/TextView04" android:textAppearance="?android:attr/textAppearanceSmall" android:layout_weight="0.5" android:layout_height="wrap_content" android:text="@string/insulin_color"></TextView>
+        <TextView android:layout_width="fill_parent" android:id="@+id/TextView04" android:layout_weight="0.5" android:layout_height="wrap_content" android:text="@string/insulin_color" android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
         <EditText android:layout_width="fill_parent" android:layout_weight="0.5" android:layout_height="wrap_content" android:inputType="text" android:id="@+id/editTextInsulinColor"></EditText>
     </LinearLayout>
 </LinearLayout>
