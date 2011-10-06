@@ -78,25 +78,18 @@ public class InsulinDescActivity extends Activity {
 
 			public View getView(int position, View convertView, ViewGroup parent) {
 				final View view = super.getView(position, convertView, parent);
-
+				Cursor cursor = getCursor();
+				int count = cursor.getCount();
+				
 				LayoutInflater inflater = getLayoutInflater();
 				View row = inflater.inflate(R.layout.insulin_item, parent,
 						false);
 
-				final Map<String, String> data = (Map<String, String>) getItem(position);
-
+				cursor.move(position);
+				
 				TextView label = (TextView) row.findViewById(R.id.InsulinName);
-				label.setText(data.get("insulinName"));
-				label = (TextView) row.findViewById(R.id.WorkFrom);
-				label.setText(data.get("workFrom"));
-				label = (TextView) row.findViewById(R.id.WorkTo);
-				label.setText(data.get("workTo"));
-				label = (TextView) row.findViewById(R.id.MaxFrom);
-				label.setText(data.get("maxFrom"));
-				label = (TextView) row.findViewById(R.id.MaxTo);
-				label.setText(data.get("maxTo"));
-				// label=(TextView)row.findViewById(R.id.Color);
-				// label.setText( data.get("Color") );
+				String text = cursor.getString(  cursor.getColumnIndex(  DBHelper.KEY_INSULIN_DESC ) );
+				label.setText( text );
 
 				return row;
 			}
@@ -196,8 +189,8 @@ public class InsulinDescActivity extends Activity {
 
 		Spinner spinner = (Spinner) findViewById(R.id.spinnerInsulins);
 
-		spinner.setAdapter(simpleAdapter);
-		// spinner.setAdapter(cursorAdapter);
+		//spinner.setAdapter(simpleAdapter);
+		spinner.setAdapter(cursorAdapter);
 
 		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -207,6 +200,7 @@ public class InsulinDescActivity extends Activity {
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				// Get the color name out of the Map
+/*				
 				final Map<String, String> data = (Map<String, String>) parent
 						.getItemAtPosition(position);
 
@@ -226,7 +220,7 @@ public class InsulinDescActivity extends Activity {
 				editTextInsulinMaxFrom.setText(data.get("maxFrom"));
 				editTextInsulinMaxTo.setText(data.get("maxTo"));
 				editTextInsulinColor.setText(data.get("color"));
-
+*/
 			}
 
 			public void onNothingSelected(AdapterView<?> arg0) {

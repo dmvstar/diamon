@@ -9,7 +9,7 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent" android:orientation="vertical">
     <LinearLayout android:id="@+id/LinearLayout05" android:layout_height="wrap_content" android:layout_width="match_parent">
-        <Button android:drawableLeft="@drawable/list_add" android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/buttonInsulinAddEdit" android:layout_weight=".7" android:layout_gravity="top"></Button>
+        <Button android:drawableLeft="@drawable/list_add" android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/buttonInsulinAddEdit" android:layout_weight=".7" android:layout_gravity="top" android:onClick="addInsulin"></Button>
         <Button android:drawableLeft="@drawable/view_statistics" android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/buttonInsulinGraph" android:layout_weight=".7" android:layout_gravity="top"></Button>
     </LinearLayout>
   

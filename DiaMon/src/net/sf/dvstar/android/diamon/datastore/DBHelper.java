@@ -236,7 +236,8 @@ public class DBHelper extends SQLiteOpenHelper {
     //---retrieves all the titles---
     public Cursor getAlInsulins() 
     {
-        return diamondb.query(TABLE_NAME_INSULIN, new String[] {
+        Cursor mCursor =
+         diamondb.query(TABLE_NAME_INSULIN, new String[] {
 			KEY_ID, 
 			KEY_INSULIN_DESC, 
 			KEY_INSULIN_TSTRT,
@@ -249,6 +250,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 null, 
                 null, 
                 null);
+        return mCursor;
     }
 
     //---retrieves a particular title---
