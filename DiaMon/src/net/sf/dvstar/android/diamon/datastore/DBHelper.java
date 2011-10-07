@@ -14,7 +14,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 import android.util.Log;
 
-public class DBHelper extends SQLiteOpenHelper {
+public class DBHelper extends SQLiteOpenHelper implements DBConst{
 
 	private static final String TAG = "DatabaseHelper";
 
@@ -28,15 +28,6 @@ public class DBHelper extends SQLiteOpenHelper {
 	private static String DB_FULL_PATH = "";
 	private static String DB_PATH_CHECK = "";
 
-	public static String KEY_ID = "_id";
-	public static String KEY_INSULIN_DESC  = "descript"; 
-	public static String KEY_INSULIN_TSTRT = "time_start"; 
-	public static String KEY_INSULIN_TEND  = "time_end"; 
-	public static String KEY_INSULIN_TMAX  = "time_max"; 
-	public static String KEY_INSULIN_TWRK  = "time_work"; 
-	public static String KEY_INSULIN_COLOR = "color";
-		
-	
 	
 	// public DBHelper(Context context, String name, CursorFactory factory,int
 	// version) {
@@ -84,8 +75,10 @@ public class DBHelper extends SQLiteOpenHelper {
 	}
 
 	public void openDataBase(int mode) throws SQLException {
+//		if(diamondb!=null && diamondb.isOpen()) return;
 		try {
-			diamondb = SQLiteDatabase.openDatabase(DB_FULL_PATH, null, mode);
+			if(diamondb==null || !diamondb.isOpen())
+				diamondb = SQLiteDatabase.openDatabase(DB_FULL_PATH, null, mode);
 		} catch (IllegalStateException e) {
 			// Sometimes, esp. after application upgrade, the database will be
 			// non-closed, raising a IllegalStateException
@@ -137,8 +130,9 @@ public class DBHelper extends SQLiteOpenHelper {
 
 	@Override
 	public synchronized void close() {
-		if (diamondb != null)
+		if (diamondb != null){
 			diamondb.close();
+		}	
 		super.close();
 	}
 
@@ -213,6 +207,7 @@ public class DBHelper extends SQLiteOpenHelper {
     {
     	return insertInsulin(desc, "0", "0", "0", "0", "#FF00FF");
     }
+
     public long insertInsulin(String desc, String tstrt, String tend, String tmax, String twrk, String color) 
     {
         ContentValues initialValues = new ContentValues();
@@ -222,10 +217,21 @@ public class DBHelper extends SQLiteOpenHelper {
         initialValues.put(KEY_INSULIN_TMAX,  tmax);
         initialValues.put(KEY_INSULIN_TWRK,  twrk);
         initialValues.put(KEY_INSULIN_COLOR, color);
-        
         return diamondb.insert(TABLE_NAME_INSULIN, null, initialValues);
     }
 
+    public long updateInsulin(int rowId, String desc, String tstrt, String tend, String tmax, String twrk, String color) 
+    {
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(KEY_INSULIN_DESC,  desc);
+        initialValues.put(KEY_INSULIN_TSTRT, tstrt);
+        initialValues.put(KEY_INSULIN_TEND,  tend);
+        initialValues.put(KEY_INSULIN_TMAX,  tmax);
+        initialValues.put(KEY_INSULIN_TWRK,  twrk);
+        initialValues.put(KEY_INSULIN_COLOR, color);
+        return diamondb.update(TABLE_NAME_INSULIN, initialValues, KEY_ID + "="+rowId, null);
+    }
+    
     //---deletes a particular title---
     public boolean deleteInsulin(long rowId) 
     {

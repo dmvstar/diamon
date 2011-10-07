@@ -25,8 +25,15 @@ public class HelpBUItemsFiller {
 	}
 
 	public void fillBUItems() {
-		if (cursorSelectAll().getCount() > 0)
+		Cursor cursor = cursorSelectAll(); 
+		if (cursor.getCount() > 0){
+			cursor.close();
+			cursor.deactivate();
 			return;
+		}	
+		cursor.close();
+		cursor.deactivate();
+		
 		VALUES(1, "Хлеб и хлебобулочные изделия", "1 ХЕ =", "...");
 		VALUES(2, "Белый хлеб", "1 кусок", "20 г");
 		VALUES(2, "Ржаной хлеб", "1 кусок", "25 г");

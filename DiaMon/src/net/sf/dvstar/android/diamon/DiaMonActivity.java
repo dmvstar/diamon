@@ -191,6 +191,7 @@ public class DiaMonActivity extends Activity {
 				.setPositiveButton(R.string.buttonYes, //  "Yes",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int id) {
+								dbHelper.close();
 								DiaMonActivity.this.finish();
 							}
 						})
