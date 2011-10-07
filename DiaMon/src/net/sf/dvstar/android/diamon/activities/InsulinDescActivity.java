@@ -326,7 +326,6 @@ public class InsulinDescActivity extends Activity implements DBConst {
 			text = insulinCursor.getString(insulinCursor.getColumnIndex(KEY_INSULIN_COLOR));
 			editTextInsulinColor.setText( text );
 			
-			
 		}
 
 		public void onNothingSelected(AdapterView<?> parent) {
