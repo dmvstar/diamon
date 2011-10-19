@@ -86,13 +86,18 @@ public class SingleInsulinChart extends AbstractDemoChart {
 			x.add( xRange );
 		}
 		List<double[]> values = new ArrayList<double[]>();
+		values.add(
+				new double[] { 0, 0, 0, 16, 16, 16, 16, 16, 14, 13, 8, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }				
+		);
+/*		
 		values.add( makeInsulinActivity(
 						xRange, 
-						new double[] { 2, 4, 9, 14 },
+						new double[] { 3, 4,  8,  12 },
 						new double[] { 0, 16, 16, 0 }
 					)
 				  );
-
+*/
 		int[] colors = new int[] { Color.BLUE, Color.YELLOW };
 		PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE,
 				PointStyle.DIAMOND, PointStyle.TRIANGLE, PointStyle.SQUARE };
@@ -127,7 +132,10 @@ public class SingleInsulinChart extends AbstractDemoChart {
 		XYMultipleSeriesDataset dataset = buildDataset(titles, x, values);
 
 		values.clear();
-		values.add(new double[] { 2, 3, 5, 7 });
+		values.add(
+				new double[] { 0, 0, 8, 8, 8, 8, 8, 7, 6, 5, 4, 0, 0, 0,
+						0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }				
+				);
 		addXYSeries(dataset, new String[] { "Sunshine hours" }, x, values, 1);
 
 		Intent intent = ChartFactory.getLineChartIntent(context, dataset,
@@ -156,8 +164,8 @@ public class SingleInsulinChart extends AbstractDemoChart {
 	 * @param yValue
 	 * @return
 	 * 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24
-	 *    2, 3,    5,    7
-	 *    0, 16,   16,   0
+	 *       3, 4,          8,            12
+	 *       0, 16,         16,           0
 	 */
 	private double calcValueAtPosition(int pos, double xRange[], double[] xValue, double[] yValue) {
 		double ret=0;
@@ -167,8 +175,14 @@ public class SingleInsulinChart extends AbstractDemoChart {
 				ret = yValue[i];
 				break;
 			} else {
+				/*
+				 y = k*x + b
+				 b = 
+				 k = i_max / t_2 - t_1
+				 */
 				
 			}
+			
 		}
 		return ret;
 	}
