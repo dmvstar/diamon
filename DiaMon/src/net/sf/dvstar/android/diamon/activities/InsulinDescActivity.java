@@ -5,12 +5,14 @@ import java.util.Map;
 //import de.devmil.common.ui.color.ColorSelectorDialog;
 
 import net.sf.dvstar.android.diamon.R;
+import net.sf.dvstar.android.diamon.charts.SingleInsulinChart;
 import net.sf.dvstar.android.diamon.datastore.CommonData;
 import net.sf.dvstar.android.diamon.datastore.DBConst;
 import net.sf.dvstar.android.diamon.datastore.DBHelper;
 import net.sf.dvstar.android.diamon.widgets.color.ColorSelectorDialog;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -251,11 +253,6 @@ public class InsulinDescActivity extends Activity implements DBConst {
 
 	}
 
-	public void selectColor(View v) {
-		// ColorSelectorDialog dialog = new ColorSelectorDialog(this,null,0);
-		// dialog.show();
-	}
-
 	public void addInsulin(View v) {
 		dbHelper.insertInsulin(
 				editTextInsulinName.getText().toString(),
@@ -295,9 +292,30 @@ public class InsulinDescActivity extends Activity implements DBConst {
 		insulinCursor.requery();
 	}
 
+	/**
+	 * View line diagram of selected insulin 
+	 * @param v
+	 * Resources res = getResources();
+	 * String text = String.format(res.getString(R.string.welcome_messages), username, mailCount);
+	 */
 	public void viewDiagram(View v) {
-		// dbHelper.deleteInsulin(rowId);
+		
+		Object o = spinner.getSelectedItem();
+		if(o!=null){
+			
+		}
+		
+		SingleInsulinChart chart = new SingleInsulinChart(this, "insulin name");
+	    Intent intent = null;
+	    intent = chart.execute(this);
+	    startActivity(intent);
 	}
+	
+	public void selectColor(View v) {
+		ColorSelectorDialog dialog = new ColorSelectorDialog(this,null,0);
+		dialog.show();
+	}
+
 	
 	class InsulinOnItemSelectedListener implements OnItemSelectedListener {
 

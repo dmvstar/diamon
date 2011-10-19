@@ -167,4 +167,10 @@
 	<string name="button_charts">Charts</string>
 
  
+	<string name="chart_insulin_name">Insulin Work Diagram</string>
+	<string name="chart_insulin_desc">The average work of insulin in day</string>
+	<string name="chart_insulin_title">Insulin Work by Hours</string>
+	<string name="chart_insulin_xtitle">Hours</string>
+	<string name="chart_insulin_ytitle">Insulin</string>
+	    	    	    	    	    
 </resources>
