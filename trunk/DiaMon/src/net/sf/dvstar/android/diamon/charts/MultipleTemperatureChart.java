@@ -75,7 +75,11 @@ public class MultipleTemperatureChart extends AbstractDemoChart {
     for (int i = 0; i < length; i++) {
       ((XYSeriesRenderer) renderer.getSeriesRendererAt(i)).setFillPoints(true);
     }
-    setChartSettings(renderer, "Average temperature", "Month", "Temperature", 0.5, 12.5, 0, 32,
+    setChartSettings(renderer, 
+    		"Average temperature", 
+    		"Month", 
+    		"Temperature", 
+    		0.5, 12.5, 0, 32,
         Color.LTGRAY, Color.LTGRAY);
     renderer.setXLabels(12);
     renderer.setYLabels(10);
