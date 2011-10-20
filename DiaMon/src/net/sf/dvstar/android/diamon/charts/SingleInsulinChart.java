@@ -16,6 +16,7 @@
 package net.sf.dvstar.android.diamon.charts;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import net.sf.dvstar.android.diamon.R;
@@ -25,6 +26,7 @@ import org.achartengine.chart.PointStyle;
 import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
+import org.achartengine.util.MathHelper;
 
 import android.app.Activity;
 import android.content.Context;
@@ -38,6 +40,13 @@ import android.graphics.Paint.Align;
  */
 public class SingleInsulinChart extends AbstractDemoChart {
 
+	  private static final long HOUR = 3600 * 1000;
+
+	  private static final long DAY = HOUR * 24;
+
+	  private static final int HOURS = 24;
+	
+	
 	private String insulinName;
 	private Activity parent;
 	private Resources resources;
@@ -55,8 +64,8 @@ public class SingleInsulinChart extends AbstractDemoChart {
 	 * @return the chart name
 	 */
 	public String getName() {
+		// return "Temperature and sunshine";
 		return resources.getString(R.string.chart_insulin_name);
-
 	}
 
 	/**
@@ -70,90 +79,148 @@ public class SingleInsulinChart extends AbstractDemoChart {
 		return resources.getString(R.string.chart_insulin_desc);
 	}
 
-	/**
-	 * Executes the chart demo.
-	 * 
-	 * @param context
-	 *            the context
-	 * @return the built intent
-	 */
 	public Intent execute(Context context) {
-		String[] titles = new String[] { insulinName, insulinName };
-		double[] xRange = new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-				15, 16, 17, 18, 19, 20, 21, 22, 23, 24 }; 
-		List<double[]> x = new ArrayList<double[]>();
+		String[] titles = new String[] { "NR", "LM", "SUM" };
+		long now = Math.round(new Date().getTime() / DAY) * DAY;
+		List<Date[]> x = new ArrayList<Date[]>();
 		for (int i = 0; i < titles.length; i++) {
-			x.add( xRange );
+			Date[] dates = new Date[HOURS];
+			for (int j = 0; j < HOURS; j++) {
+				dates[j] = new Date(now - (HOURS - j) * HOUR);
+			}
+			x.add(dates);
 		}
 		List<double[]> values = new ArrayList<double[]>();
-		values.add(
-				new double[] { 0, 0, 0, 16, 16, 16, 16, 16, 14, 13, 8, 0, 0, 0,
-						0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }				
-		);
+
+		double timeRange[] = new double[] {
+			 	 1,  2,  3,  4,  5,  6,  7,  8, 9,  10, 11, 12, 
+				13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24
+		};
+		double xValueL[] = new double[] {
+				2,  4, 10, 14
+		};
+		double yValueL[] = new double[] {
+				0, 16, 16,  0
+		};
+		double xValueN[] = new double[] {
+				1,   2,  3,  6
+		};
+		double yValueN[] = new double[] {
+				0,   6,  6,  0
+		};
+		
+		double LM[] = makeInsulinActivityRange(timeRange, xValueL, yValueL);
+		double NR[] = makeInsulinActivityRange(timeRange, xValueN, yValueN);
+		double SUM[] = arrraySum(NR, LM);
+		
+		values.add( LM ); 
+		values.add( NR ); 
+		values.add( SUM ); 
+		
 /*		
-		values.add( makeInsulinActivity(
-						xRange, 
-						new double[] { 3, 4,  8,  12 },
-						new double[] { 0, 16, 16, 0 }
-					)
-				  );
+		values.add(new double[] { 
+				MathHelper.NULL_VALUE, MathHelper.NULL_VALUE, 
+				0, 8,  
+				16, 16, 16,	16, 16, 16, 8, 6, 4, 2, 0, 
+				MathHelper.NULL_VALUE, MathHelper.NULL_VALUE,	
+				MathHelper.NULL_VALUE, MathHelper.NULL_VALUE, MathHelper.NULL_VALUE, MathHelper.NULL_VALUE, 
+				MathHelper.NULL_VALUE, MathHelper.NULL_VALUE, MathHelper.NULL_VALUE });
+		
+		values.add(new double[] { 
+				MathHelper.NULL_VALUE,  
+				0, 4,  
+				4, 4, 4,	2, 1, 0, 
+				MathHelper.NULL_VALUE, MathHelper.NULL_VALUE, MathHelper.NULL_VALUE, MathHelper.NULL_VALUE, MathHelper.NULL_VALUE, 
+				MathHelper.NULL_VALUE, MathHelper.NULL_VALUE, MathHelper.NULL_VALUE,	
+				MathHelper.NULL_VALUE, MathHelper.NULL_VALUE, MathHelper.NULL_VALUE, 
+				MathHelper.NULL_VALUE, 
+				MathHelper.NULL_VALUE, MathHelper.NULL_VALUE, MathHelper.NULL_VALUE });
 */
-		int[] colors = new int[] { Color.BLUE, Color.YELLOW };
-		PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE,
-				PointStyle.DIAMOND, PointStyle.TRIANGLE, PointStyle.SQUARE };
-		XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer(2);
-		setRenderer(renderer, colors, styles);
+		int[] colors = new int[] { Color.GREEN, Color.BLUE, Color.RED };
+		PointStyle[] styles = new PointStyle[] { 
+				PointStyle.CIRCLE,
+				PointStyle.DIAMOND, 
+				PointStyle.TRIANGLE 
+				};
+		XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles);
 		int length = renderer.getSeriesRendererCount();
 		for (int i = 0; i < length; i++) {
 			((XYSeriesRenderer) renderer.getSeriesRendererAt(i))
 					.setFillPoints(true);
 		}
-		setChartSettings(renderer,
-				resources.getString(R.string.chart_insulin_title), // "Average temperature",
-																	// // title
-				resources.getString(R.string.chart_insulin_xtitle),// "Month",
-																	// // xTitle
-				resources.getString(R.string.chart_insulin_ytitle),// "Temperature",
-																	// // yTitle
-				0.5, 12.5, 0, 32, Color.LTGRAY, Color.LTGRAY);
-		renderer.setXLabels(24);
-		renderer.setYLabels(16);
+		setChartSettings(renderer, 
+				resources.getString(R.string.chart_insulin_title), //"Sensor temperature", 
+				resources.getString(R.string.chart_insulin_xtitle),//"Hour",
+				resources.getString(R.string.chart_insulin_ytitle),//"Celsius degrees", 
+				x.get(0)[0].getTime(),
+				x.get(0)[HOURS - 1].getTime(), -5, 30, Color.LTGRAY,
+				Color.LTGRAY);
+		renderer.setXLabels(10);
+		renderer.setYLabels(10);
 		renderer.setShowGrid(true);
-		renderer.setXLabelsAlign(Align.RIGHT);
+		renderer.setXLabelsAlign(Align.CENTER);
 		renderer.setYLabelsAlign(Align.RIGHT);
-		renderer.setZoomButtonsVisible(true);
-		renderer.setPanLimits(new double[] { -10, 20, -10, 40 });
-		renderer.setZoomLimits(new double[] { -10, 20, -10, 40 });
-
-		renderer.setYTitle("Hours", 1);
-		renderer.setYAxisAlign(Align.RIGHT, 1);
-		renderer.setYLabelsAlign(Align.LEFT, 1);
-
-		XYMultipleSeriesDataset dataset = buildDataset(titles, x, values);
-
-		values.clear();
-		values.add(
-				new double[] { 0, 0, 8, 8, 8, 8, 8, 7, 6, 5, 4, 0, 0, 0,
-						0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }				
-				);
-		addXYSeries(dataset, new String[] { "Sunshine hours" }, x, values, 1);
-
-		Intent intent = ChartFactory.getLineChartIntent(context, dataset,
-				renderer, getName()
-		// "Average temperature"
-				);
+		Intent intent = ChartFactory.getTimeChartIntent(context,
+				buildDateDataset(titles, x, values), renderer, "hh:mm");
 		return intent;
 	}
 
-	private double[] makeInsulinActivity(double xRange[], double[] xValue,
-			double[] yValue) {
-		double[] ret = new double[xRange.length];
-
-		for(int i=0; i<xRange.length; i++) {
-			ret[i] = calcValueAtPosition(i, xRange, xValue, yValue);
+	private double[] arrraySum(double[] nR, double[] lM) {
+		double[] ret = new double[nR.length];
+		for(int i=0;i<nR.length;i++){
+			ret[i] = nR[i]+lM[i];
 		}
-		
 		return ret;
+	}
+
+	/**
+	 * Make range for time period
+	 * @param timeRange from 1-24
+	 * @param xValue    time pick value 2  4 10 14
+	 * @param yValue    activity value  0 16 16  0
+	 * @return array of range by time
+	 */
+	
+	/**
+	 * Make range for time period
+	 * @param timeRange from 1-24
+	 * @param xValue    time pick value 2  4 10 14
+	 * @param yValue    activity value  0 16 16  0
+	 * @return array of range by time
+	 */
+	private double[] makeInsulinActivityRange(
+			double[] timeRange, 
+			double[] xValue,
+			double[] yValue) {
+			return makeInsulinActivityRange(0,
+					timeRange, 
+					xValue,
+					yValue);
+	}		
+	private double[] makeInsulinActivityRange(
+			double   shiftTime, 
+			double[] timeRange, 
+			double[] xValue,
+			double[] yValue) {
+		double[] ret = new double[timeRange.length];
+
+		for (int i = 0; i < timeRange.length; i++) {
+			ret[i] = calcValueAtPosition(i, timeRange, xValue, yValue);
+		}
+/*		
+printArray(timeRange);
+printArray(xValue);
+printArray(yValue);
+printArray(ret);
+*/
+		return ret;
+	}
+
+	private void printArray(double[] ret) {
+		for(int i=0;i<ret.length;i++){
+			System.out.print("["+ret[i]+"]");
+		}
+		System.out.println();
 	}
 
 	/**
@@ -162,30 +229,51 @@ public class SingleInsulinChart extends AbstractDemoChart {
 	 * @param xRange
 	 * @param xValue
 	 * @param yValue
-	 * @return
-	 * 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24
-	 *       3, 4,          8,            12
-	 *       0, 16,         16,           0
+	 * @return x 
+	 * 		t	1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 ... 24 
+	 *      x         3,    5,             10,             14 
+	 *      y         0,   16,             16,              0 
+	 *                0     1               0               1
 	 */
-	private double calcValueAtPosition(int pos, double xRange[], double[] xValue, double[] yValue) {
-		double ret=0;
-		for(int i=0; i<xValue.length; i++){
+	private double calcValueAtPosition(int pos, double xRange[],
+			double[] xValue, double[] yValue) {
+		double ret = MathHelper.NULL_VALUE;
+		for (int i = 0; i < xValue.length; i++) {
+
 			
-			if(xRange[pos]==xValue[i]){
+			if(xRange[pos] == xValue[i]){
 				ret = yValue[i];
 				break;
-			} else {
-				/*
-				 y = k*x + b
-				 b = 
-				 k = i_max / t_2 - t_1
-				 */
-				
-			}
+			}	
 			
+			if (xRange[pos] < xValue[i]) {
+				
+				if(i>0 && xRange[pos] > xValue[i-1]) {
+					if(yValue[i]==yValue[i-1]) {
+						ret = yValue[i-1];
+						break;
+					} else {
+						ret = getValueAtPos(xRange[pos], xValue[i-1], yValue[i-1], xValue[i], yValue[i]);
+						break;
+					}
+				}	
+			}
 		}
+//System.out.println("pos["+pos+"] val["+ret+"]");		
 		return ret;
 	}
 	
-	
+	/*
+	 * y = k*x + b b = k = i_max / t_2 - t_1 y = y_0 + (x -
+	 * x_0)/(x_1 - x_0)*(y_1 - y_0)
+	 */
+	private double getValueAtPos(double x, double x_0, double y_0, double x_1,
+			double y_1) {
+		double ret = 0;
+
+		ret = y_0 + ((x - x_0) / (x_1 - x_0)) * (y_1 - y_0);
+
+		return ret;
+	}
+
 }
