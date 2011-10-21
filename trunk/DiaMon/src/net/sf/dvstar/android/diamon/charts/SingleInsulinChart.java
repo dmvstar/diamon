@@ -16,6 +16,7 @@
 package net.sf.dvstar.android.diamon.charts;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -92,25 +93,36 @@ public class SingleInsulinChart extends AbstractDemoChart {
 		}
 		List<double[]> values = new ArrayList<double[]>();
 
-		double timeRange[] = new double[] {
+		double timeRangeBase[] = new double[] {
 			 	 1,  2,  3,  4,  5,  6,  7,  8, 9,  10, 11, 12, 
 				13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24
 		};
 		double xValueL[] = new double[] {
-				2,  4, 10, 14
+				2,  4, 10.5, 14
 		};
 		double yValueL[] = new double[] {
-				0, 16, 16,  0
+				0, 16,   16,  0
 		};
 		double xValueN[] = new double[] {
-				1,   2,  3,  6
+				0.5,   2,  3,  6
 		};
 		double yValueN[] = new double[] {
-				0,   6,  6,  0
+				0,     6,  6,  0
 		};
 		
-		double LM[] = makeInsulinActivityRange(timeRange, xValueL, yValueL);
-		double NR[] = makeInsulinActivityRange(timeRange, xValueN, yValueN);
+		double timeRange[] = null;
+		timeRange = makeTimeRange(6, timeRangeBase,xValueN); 
+		timeRange = makeTimeRange(7, timeRange,xValueL);
+		
+Arrays.toString(timeRange);		
+		shiftToRange(6, xValueN);
+Arrays.toString(xValueN);		
+		shiftToRange(7, xValueL);
+Arrays.toString(xValueL);		
+		
+		
+		double LM[]  = makeInsulinActivityRange(timeRange, xValueL, yValueL);
+		double NR[]  = makeInsulinActivityRange(timeRange, xValueN, yValueN);
 		double SUM[] = arrraySum(NR, LM);
 		
 		values.add( LM ); 
@@ -161,8 +173,38 @@ public class SingleInsulinChart extends AbstractDemoChart {
 		renderer.setXLabelsAlign(Align.CENTER);
 		renderer.setYLabelsAlign(Align.RIGHT);
 		Intent intent = ChartFactory.getTimeChartIntent(context,
-				buildDateDataset(titles, x, values), renderer, "hh:mm");
+				buildDateDataset(titles, x, values), renderer, "HH:mm" );// "h:mm a"
 		return intent;
+	}
+
+	private void shiftToRange(double shift, double[] xValue) {
+		for(int i=0;i<xValue.length;i++) xValue[i]+=shift;
+	}
+
+	private double[] makeTimeRange(double shift, double[] timeRangeBase, double[] xValue) {
+		double[] ret = new double[timeRangeBase.length + xValue.length];
+		System.arraycopy(timeRangeBase, 0, ret, 0, timeRangeBase.length);
+		int pos = timeRangeBase.length;
+		for(int i=0; i<xValue.length; i++){
+			boolean existVal = false;
+			double  addVal = xValue[i];
+			if(shift>0)addVal+=shift;
+			for(int j=0; j<timeRangeBase.length; j++){
+				if(timeRangeBase[j] == xValue[i]) {
+					existVal = true;
+				}
+			}
+			if(!existVal){
+				ret[pos++] = addVal; 
+			}
+		}
+		if(pos>timeRangeBase.length){
+			double[] tmp = new double[pos];
+			System.arraycopy(ret, 0, tmp, 0, pos);
+			ret = tmp;
+			Arrays.sort(ret);
+		}
+		return ret;
 	}
 
 	private double[] arrraySum(double[] nR, double[] lM) {
