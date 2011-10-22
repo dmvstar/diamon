@@ -17,6 +17,9 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 public class CommonData {
+	
+	
+	
 	public static class UserDesc {
 		public String id;
 	    public String name;
