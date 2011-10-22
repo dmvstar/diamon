@@ -45,17 +45,15 @@ public class SingleInsulinChart extends AbstractDemoChart {
 
 	  private static final long DAY = HOUR * 24;
 
-	  private static final int HOURS = 24;
+	  private static final int HOURS = 24*2;
 	
 	
 	private String insulinName;
-	private Activity parent;
 	private Resources resources;
 
 	public SingleInsulinChart(Activity parent, String insulinName) {
 		super();
 		this.insulinName = insulinName;
-		this.parent = parent;
 		this.resources = parent.getResources();
 	}
 
@@ -81,52 +79,98 @@ public class SingleInsulinChart extends AbstractDemoChart {
 	}
 
 	public Intent execute(Context context) {
-		String[] titles = new String[] { "NR", "LM", "SUM" };
+		String[] titles = new String[] { "NR", "LM", "NR", "LM", "SUM" };
 		long now = Math.round(new Date().getTime() / DAY) * DAY;
-		List<Date[]> x = new ArrayList<Date[]>();
+		List<Date[]>   dateList = new ArrayList<Date[]>();
 		for (int i = 0; i < titles.length; i++) {
 			Date[] dates = new Date[HOURS];
 			for (int j = 0; j < HOURS; j++) {
 				dates[j] = new Date(now - (HOURS - j) * HOUR);
 			}
-			x.add(dates);
+			dateList.add(dates);
 		}
+		List<double[]> timeList = new ArrayList<double[]>();
+		for (int i = 0; i < titles.length; i++) {
+			double[] dates = new double[HOURS];
+			for (int j = 0; j < HOURS; j++) {
+				dates[j] = j;
+			}
+			timeList.add(dates);
+		}
+		double[] timeRangeBase = new double[HOURS];
+		for (int j = 0; j < HOURS; j++) {
+			timeRangeBase[j] = j;
+		}
+				
 		List<double[]> values = new ArrayList<double[]>();
-
+/*
 		double timeRangeBase[] = new double[] {
 			 	 1,  2,  3,  4,  5,  6,  7,  8, 9,  10, 11, 12, 
 				13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24
 		};
+*/		
 		double xValueL[] = new double[] {
 				2,  4, 10.5, 14
 		};
 		double yValueL[] = new double[] {
-				0, 16,   16,  0
+				0, 16,   14,  0
+		};
+		double xValueLL[] = new double[] {
+				2,  4, 10.5, 14
+		};
+		double yValueLL[] = new double[] {
+				0, 12,   10,  0
 		};
 		double xValueN[] = new double[] {
 				0.5,   2,  3,  6
 		};
 		double yValueN[] = new double[] {
-				0,     6,  6,  0
+				0,     6,  5,  0
 		};
+		double xValueNN[] = new double[] {
+				0.5,   2,  3,  6
+		};
+		double yValueNN[] = new double[] {
+				0,     4,  3,  0
+		};
+
+		
 		
 		double timeRange[] = null;
 		timeRange = makeTimeRange(6, timeRangeBase,xValueN); 
 		timeRange = makeTimeRange(7, timeRange,xValueL);
 		
-Arrays.toString(timeRange);		
 		shiftToRange(6, xValueN);
-Arrays.toString(xValueN);		
 		shiftToRange(7, xValueL);
-Arrays.toString(xValueL);		
+String sTemp;
+		sTemp = Arrays.toString(timeRange);		
+		sTemp = Arrays.toString(xValueN);		
+		sTemp = Arrays.toString(xValueL);		
 		
+		shiftToRange(19, xValueNN);
+		shiftToRange(23, xValueLL);
+		timeRange = makeTimeRange(19, timeRangeBase,xValueN); 
+		timeRange = makeTimeRange(23, timeRange,xValueL);
 		
-		double LM[]  = makeInsulinActivityRange(timeRange, xValueL, yValueL);
-		double NR[]  = makeInsulinActivityRange(timeRange, xValueN, yValueN);
-		double SUM[] = arrraySum(NR, LM);
+		double NR[]   = makeInsulinActivityRange(timeRange, xValueN, yValueN);
+		double LN[]   = makeInsulinActivityRange(timeRange, xValueL, yValueL);
+		double NRR[]  = makeInsulinActivityRange(timeRange, xValueNN, yValueNN);
+		double LNN[]  = makeInsulinActivityRange(timeRange, xValueLL, yValueLL);
 		
-		values.add( LM ); 
+		ArrayList<double[]> valuesList = new ArrayList<double[]>();
+		
+		valuesList.add(NR);
+		valuesList.add(LN);
+		valuesList.add(NRR);
+		valuesList.add(LNN);
+		
+		double SUM[]  = arrraySum( valuesList, timeRange.length );
+sTemp = Arrays.toString(SUM);		
+		
 		values.add( NR ); 
+		values.add( LN ); 
+		values.add( NRR ); 
+		values.add( LNN ); 
 		values.add( SUM ); 
 		
 /*		
@@ -148,8 +192,10 @@ Arrays.toString(xValueL);
 				MathHelper.NULL_VALUE, 
 				MathHelper.NULL_VALUE, MathHelper.NULL_VALUE, MathHelper.NULL_VALUE });
 */
-		int[] colors = new int[] { Color.GREEN, Color.BLUE, Color.RED };
+		int[] colors = new int[] { Color.GREEN, Color.BLUE, Color.GREEN, Color.BLUE, Color.RED };
 		PointStyle[] styles = new PointStyle[] { 
+				PointStyle.CIRCLE,
+				PointStyle.DIAMOND, 
 				PointStyle.CIRCLE,
 				PointStyle.DIAMOND, 
 				PointStyle.TRIANGLE 
@@ -163,17 +209,30 @@ Arrays.toString(xValueL);
 		setChartSettings(renderer, 
 				resources.getString(R.string.chart_insulin_title), //"Sensor temperature", 
 				resources.getString(R.string.chart_insulin_xtitle),//"Hour",
-				resources.getString(R.string.chart_insulin_ytitle),//"Celsius degrees", 
+				resources.getString(R.string.chart_insulin_ytitle),//"Celsius degrees",
+				timeList.get(0)[0],
+				timeList.get(0)[HOURS - 1],
+				/*
 				x.get(0)[0].getTime(),
-				x.get(0)[HOURS - 1].getTime(), -5, 30, Color.LTGRAY,
+				x.get(0)[HOURS - 1].getTime(),
+				*/
+				-5, 30, Color.LTGRAY,
 				Color.LTGRAY);
 		renderer.setXLabels(10);
 		renderer.setYLabels(10);
 		renderer.setShowGrid(true);
 		renderer.setXLabelsAlign(Align.CENTER);
 		renderer.setYLabelsAlign(Align.RIGHT);
+		
 		Intent intent = ChartFactory.getTimeChartIntent(context,
-				buildDateDataset(titles, x, values), renderer, "HH:mm" );// "h:mm a"
+				buildDateDataset(titles, dateList, values), renderer, "HH:mm" );// "h:mm a"
+		
+		/*
+		 * x axis points is not correct for time
+		 */
+		intent = ChartFactory.getCubicLineChartIntent(context, 
+				buildBarDataset(titles, values), renderer, 0.5f);
+
 		return intent;
 	}
 
@@ -207,11 +266,20 @@ Arrays.toString(xValueL);
 		return ret;
 	}
 
-	private double[] arrraySum(double[] nR, double[] lM) {
-		double[] ret = new double[nR.length];
-		for(int i=0;i<nR.length;i++){
-			ret[i] = nR[i]+lM[i];
-		}
+	private double[] arrraySum( ArrayList<double[]> valuesList, int maxLen) {
+		double[] ret = new double[maxLen];
+		for(int l=0;l<ret.length;l++) ret[l]  = MathHelper.NULL_VALUE;
+		for(int l=0;l<valuesList.size();l++){
+			double[] cur = valuesList.get(l);
+			for(int i=0;i<cur.length;i++){
+				if(cur[i] != MathHelper.NULL_VALUE && ret[i] != MathHelper.NULL_VALUE) {
+					ret[i] += cur[i];
+				} else {
+					if(cur[i] != MathHelper.NULL_VALUE)
+						ret[i]  = cur[i];
+				}
+			}
+		} 
 		return ret;
 	}
 
