@@ -6,20 +6,38 @@ import java.util.Map;
 
 public class CommonDescs {
 
+	public static final String DESC_STRT_WRK = "STRT_WRK";
+	public static final String DESC_STRT_MAX = "STRT_MAX";
+	public static final String DESC_ENDS_MAX = "ENDS_MAX";
+	public static final String DESC_ENDS_WRK = "ENDS_WRK";
+	
 	public static class InsulinItemActivity<T> implements Comparable<T>{
-		public double  time;
-		public int     dose;
+		private String desc;
+		private double  time;
+		private int     dose;
+		
+		public InsulinItemActivity(String desc, double time, int dose){
+			this.desc = desc;
+			this.time = time;
+			this.dose = dose;
+		}
 		
 		public int compareTo(T another) {
 			int ret = -1;
-			if(this.time < ((InsulinItemActivity)another).time ) ret = -1;
-			if(this.time > ((InsulinItemActivity)another).time ) ret =  1;
-			if(		this.time == ((InsulinItemActivity)another).time && 
-					this.dose == ((InsulinItemActivity)another).dose
+			if(this.time < ((InsulinItemActivity<?>)another).time ) ret = -1;
+			if(this.time > ((InsulinItemActivity<?>)another).time ) ret =  1;
+			if(		this.time == ((InsulinItemActivity<?>)another).time && 
+					this.dose == ((InsulinItemActivity<?>)another).dose
 			   ) ret =  0;
 			
 			return ret;
 		}
+		
+		public String getDesc(){
+			//return String.format( "%02f-%02f", time, dose);
+			return desc;
+		}
+		
 /*
 		public boolean equals(T another) {
 			boolean ret = false;
@@ -82,8 +100,8 @@ public class CommonDescs {
 		 * @param shift time of injection
 		 * @return prepared hash
 		 */
-		public Map getInsulinActivity(int dose, double shift){
-			HashMap<Double, Double> ret = new HashMap();
+		public Map<Double, Double> getInsulinActivityMap(int dose, double shift){
+			HashMap<Double, Double> ret = new HashMap<Double, Double>();
 			ret.put(new Double(start+shift), new Double(0.0));
 			ret.put(new Double(max  +shift), new Double(dose));
 			ret.put(new Double(min  +shift), new Double(dose*degree));
@@ -91,17 +109,27 @@ public class CommonDescs {
 			return ret;
 		}
 
-		public Map getInsulinActivity(){
-			return getInsulinActivity(0, 0.0);
+		public Map<String, InsulinItemActivity> getInsulinActivityItems(){
+			InsulinItemActivity<Object> item;
+			HashMap<String, InsulinItemActivity> ret = new HashMap<String, InsulinItemActivity>();
+			item = new InsulinItemActivity<Object>(DESC_STRT_WRK, start+shift, 0);
+			ret.put(item.getDesc(), item);
+			item = new InsulinItemActivity<Object>(DESC_STRT_MAX,max  +shift, dose);
+			ret.put(item.getDesc(), item);
+			item = new InsulinItemActivity<Object>(DESC_ENDS_MAX,min  +shift, (int)(dose*degree));
+			ret.put(item.getDesc(), item);
+			item = new InsulinItemActivity<Object>(DESC_ENDS_WRK,end  +shift, 0);
+			ret.put(item.getDesc(), item);
+			return ret;
 		}
-		
-		
-		public boolean addItem(InsulinItemActivity desc){
+
+/*		
+		public boolean addItem(InsulinItemActivity<Object> desc){
 			boolean ret = false;
 			if(!list.contains(desc)) {list.add(desc); ret = true;}
 			return ret;
 		} 
-		
+*/		
 	}
 	
 	
