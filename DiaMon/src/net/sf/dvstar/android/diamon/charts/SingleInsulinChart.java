@@ -21,6 +21,8 @@ import java.util.Date;
 import java.util.List;
 
 import net.sf.dvstar.android.diamon.R;
+import net.sf.dvstar.android.diamon.common.CommonDescs.Insulin;
+import net.sf.dvstar.android.diamon.common.CommonDescs.InsulinActivity;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.chart.PointStyle;
@@ -103,6 +105,12 @@ public class SingleInsulinChart extends AbstractDemoChart {
 		}
 				
 		List<double[]> values = new ArrayList<double[]>();
+		
+		Insulin insulinNR_U = new Insulin("NR", 6,  8, new InsulinActivity(0.5, 1, 4, 8, 0.8)); 
+		Insulin insulinLM_U = new Insulin("NR", 6, 16, new InsulinActivity(3, 5, 14, 22, 0.7)); 
+		Insulin insulinNR_V = new Insulin("NR", 19, 6, new InsulinActivity(0.5, 1, 4, 8, 0.8)); 
+		Insulin insulinLM_V = new Insulin("NR", 22, 12,new InsulinActivity(3, 5, 14, 22, 0.7)); 
+		
 /*
 		double timeRangeBase[] = new double[] {
 			 	 1,  2,  3,  4,  5,  6,  7,  8, 9,  10, 11, 12, 
@@ -142,7 +150,8 @@ public class SingleInsulinChart extends AbstractDemoChart {
 		
 		shiftToRange(6, xValueN);
 		shiftToRange(7, xValueL);
-String sTemp;
+		
+		String sTemp;
 		sTemp = Arrays.toString(timeRange);		
 		sTemp = Arrays.toString(xValueN);		
 		sTemp = Arrays.toString(xValueL);		
