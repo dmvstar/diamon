@@ -21,8 +21,8 @@ import java.util.Date;
 import java.util.List;
 
 import net.sf.dvstar.android.diamon.R;
-import net.sf.dvstar.android.diamon.common.CommonDescs.Insulin;
-import net.sf.dvstar.android.diamon.common.CommonDescs.InsulinActivity;
+import net.sf.dvstar.android.diamon.common.Insulin;
+import net.sf.dvstar.android.diamon.common.Insulin.InsulinActivity;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.chart.PointStyle;
@@ -106,10 +106,14 @@ public class SingleInsulinChart extends AbstractDemoChart {
 				
 		List<double[]> values = new ArrayList<double[]>();
 		
-		Insulin insulinNR_U = new Insulin("NR", 6,  8, new InsulinActivity(0.5, 1, 4, 8, 0.8)); 
-		Insulin insulinLM_U = new Insulin("NR", 6, 16, new InsulinActivity(3, 5, 14, 22, 0.7)); 
-		Insulin insulinNR_V = new Insulin("NR", 19, 6, new InsulinActivity(0.5, 1, 4, 8, 0.8)); 
-		Insulin insulinLM_V = new Insulin("NR", 22, 12,new InsulinActivity(3, 5, 14, 22, 0.7)); 
+		InsulinActivity novorapIA = new InsulinActivity(0.5, 1, 4, 8, 0.8);
+		InsulinActivity levemirIA = new InsulinActivity(3, 5, 14, 22, 0.7);
+		
+		Insulin insulinNR_U = new Insulin("Novorapid", 	6,  8, novorapIA); 
+		Insulin insulinLM_U = new Insulin("Levemir", 	6, 16, levemirIA); 
+		Insulin insulinNR_V = new Insulin("Novorapid", 	19, 6, novorapIA); 
+		Insulin insulinLM_V = new Insulin("Levemir", 	22, 12,levemirIA);
+		
 		
 /*
 		double timeRangeBase[] = new double[] {
@@ -180,6 +184,7 @@ sTemp = Arrays.toString(SUM);
 		values.add( LN ); 
 		values.add( NRR ); 
 		values.add( LNN ); 
+		
 		values.add( SUM ); 
 		
 /*		
