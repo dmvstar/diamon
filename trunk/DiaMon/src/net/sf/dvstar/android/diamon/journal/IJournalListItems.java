@@ -5,11 +5,9 @@ import android.graphics.Bitmap;
 public interface IJournalListItems {
 	
 	  /** A constant for the name field in a list activity. */
-	  String NAME = "name";
+	  public String KEY_NAME = "name";
 	  /** A constant for the description field in a list activity. */
-	  String DESC = "desc";
-	  
-	  Bitmap ICON = null;
+	  public String KEY_DESC = "desc";
 
 	  /**
 	   * Returns the chart name.
