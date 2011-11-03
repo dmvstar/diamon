@@ -18,7 +18,7 @@ import android.widget.Spinner;
 
 import net.sf.dvstar.android.diamon.charts.*;
 
-public class StatsActivity extends ListActivity {
+public class ChartsViewActivity extends ListActivity {
 
   private IDemoChart[] mCharts = new IDemoChart[] { 
       new BudgetPieChart(),

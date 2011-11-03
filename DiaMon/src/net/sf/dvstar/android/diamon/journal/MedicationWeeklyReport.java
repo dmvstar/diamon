@@ -2,7 +2,7 @@ package net.sf.dvstar.android.diamon.journal;
 
 import android.graphics.Bitmap;
 
-public class MedicationWeeklyReport implements IJournalListItems {
+public class MedicationWeeklyReport extends JournalReportActivity implements IJournalListItems {
 
 	public String getName() {
 		// TODO Auto-generated method stub

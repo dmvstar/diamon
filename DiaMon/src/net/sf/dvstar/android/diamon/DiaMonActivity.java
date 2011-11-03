@@ -5,13 +5,14 @@ import java.util.Map;
 import net.sf.dvstar.android.diamon.activities.AboutActivity;
 import net.sf.dvstar.android.diamon.activities.ConfigActivity;
 import net.sf.dvstar.android.diamon.activities.HelpAllActivity;
-import net.sf.dvstar.android.diamon.activities.JournalActivity;
+import net.sf.dvstar.android.diamon.activities.StatisticsActivity;
 import net.sf.dvstar.android.diamon.activities.MeasuresActivity;
 import net.sf.dvstar.android.diamon.activities.ProfileActivity;
-import net.sf.dvstar.android.diamon.activities.StatsActivity;
+import net.sf.dvstar.android.diamon.activities.ChartsViewActivity;
 import net.sf.dvstar.android.diamon.datastore.CommonData;
 import net.sf.dvstar.android.diamon.datastore.DBHelper;
 import net.sf.dvstar.android.diamon.datastore.HelpBUItemsFiller;
+import net.sf.dvstar.android.diamon.journal.JournalReportActivity;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -230,12 +231,12 @@ public class DiaMonActivity extends Activity {
 	}
 
 	public void journalActivity(View v) {
-		final Intent intent = new Intent(activity, JournalActivity.class);
+		final Intent intent = new Intent(activity, StatisticsActivity.class);
 		activity.startActivity(intent);
 	}
 
 	public void statsActivity(View v) {
-		final Intent intent = new Intent(activity, StatsActivity.class);
+		final Intent intent = new Intent(activity, ChartsViewActivity.class);
 		activity.startActivity(intent);
 	}
 	
