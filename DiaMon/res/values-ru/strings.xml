@@ -129,7 +129,7 @@
     
 	<string name="button_medicaments">Медикаменты</string>
 	<string name="button_shared_values">Общие параметры</string>
-	<string name="button_add_insulin_type">Добавить описатель Инсулина</string>
+	<string name="button_add_insulin_type">Описания Инсулинов</string>
 	<string name="label_insulin">Описание Инсулина</string>
 	<string name="label_insulin_start">Начало действия (ч.м):</string>
 	<string name="label_insulin_max_start">Начало максимального действия (ч.м):</string>

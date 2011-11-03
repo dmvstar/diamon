@@ -6,8 +6,6 @@
   android:layout_height="match_parent">
     <TextView android:id="@+id/textView1" android:layout_height="wrap_content" android:layout_width="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/buttonConfig"></TextView>
     <Button android:text="@string/buttonBackup" android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/button1" android:onClick="backupActivity"></Button>
-    <Button android:id="@+id/buttonExportImport" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="@string/button_export_import"></Button>
     <Button android:id="@+id/button3" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="@string/button_shared_values" android:onClick="sharedValActivity"></Button>
-    <Button android:text="@string/buttonAbout" android:layout_width="fill_parent" android:layout_height="wrap_content" android:id="@+id/button2"></Button>
     
 </LinearLayout>

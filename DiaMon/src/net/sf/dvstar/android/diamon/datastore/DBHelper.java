@@ -149,6 +149,7 @@ public class DBHelper extends SQLiteOpenHelper implements DBConst{
 				tryPath.mkdirs();
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		return DB_FULL_PATH;
 	}

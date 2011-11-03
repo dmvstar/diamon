@@ -131,7 +131,7 @@
 	<string name="button_medicaments">Medicaments</string>
 	<string name="button_shared_values">Shared Values</string>
 	<string name="button_export_import">Export/Import Data</string>
-	<string name="button_add_insulin_type">Add Insulin description</string>
+	<string name="button_add_insulin_type">Insulin descriptions</string>
 	<string name="label_insulin">Insulin description</string>
 	<string name="label_insulin_start">Start time (h.m):</string>
 	<string name="label_insulin_max_start">Max time start (h.m):</string>
@@ -172,5 +172,9 @@
 	<string name="chart_insulin_title">Insulin Work by Hours</string>
 	<string name="chart_insulin_xtitle">Hours</string>
 	<string name="chart_insulin_ytitle">Insulin activity</string>
+	<string name="label_backup_path">Backup/Restore Path</string>
+	<string name="button_path_dot">...</string>
+	<string name="button_backup_start">Start Backup</string>
+	<string name="button_restore_start">Start Restore</string>
 	    	    	    	    	    
 </resources>
