@@ -13,6 +13,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity android:name=".activities.AboutActivity"></activity>
         <activity android:name=".activities.ConfigActivity"></activity>
         <activity android:name=".activities.ProfileActivity"></activity>
@@ -30,6 +31,7 @@
         <activity android:name=".journal.BGWeeklyReport"></activity>
         <activity android:name=".journal.JournalDailyReport"></activity>
         <activity android:name=".journal.InsulinWeeklyReport"></activity>
+        <activity android:name=".common.AndroidFileBrowser"></activity>
 
     </application>
     

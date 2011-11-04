@@ -126,7 +126,7 @@
                 android:id="@+id/buttonPath"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button_path_dot" />
+                android:text="@string/button_path_dot" android:onClick="dirChooser"/>
 
         </LinearLayout>
 

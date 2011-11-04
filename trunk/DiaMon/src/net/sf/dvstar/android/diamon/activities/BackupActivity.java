@@ -5,12 +5,15 @@ import java.io.File;
 import net.sf.dvstar.android.diamon.R;
 import net.sf.dvstar.android.diamon.R.id;
 import net.sf.dvstar.android.diamon.R.layout;
+import net.sf.dvstar.android.diamon.common.AndroidFileBrowser;
 import net.sf.dvstar.android.diamon.datastore.DBHelper;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -60,6 +63,11 @@ public class BackupActivity extends Activity {
         
     }    
 
+    public void dirChooser(View view){
+		final Intent dialog = new Intent(activity, AndroidFileBrowser.class);
+		activity.startActivity(dialog);
+    }
+    
     @Override
     protected void onStop(){
       EditText text = null;
