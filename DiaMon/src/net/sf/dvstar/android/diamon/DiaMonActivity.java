@@ -5,19 +5,22 @@ import java.util.Map;
 import net.sf.dvstar.android.diamon.activities.AboutActivity;
 import net.sf.dvstar.android.diamon.activities.ConfigActivity;
 import net.sf.dvstar.android.diamon.activities.HelpAllActivity;
-import net.sf.dvstar.android.diamon.activities.StatisticsActivity;
+import net.sf.dvstar.android.diamon.activities.JournalListActivity;
 import net.sf.dvstar.android.diamon.activities.MeasuresActivity;
 import net.sf.dvstar.android.diamon.activities.ProfileActivity;
 import net.sf.dvstar.android.diamon.activities.ChartsViewActivity;
 import net.sf.dvstar.android.diamon.datastore.CommonData;
 import net.sf.dvstar.android.diamon.datastore.DBHelper;
 import net.sf.dvstar.android.diamon.datastore.HelpBUItemsFiller;
-import net.sf.dvstar.android.diamon.journal.JournalReportActivity;
+import net.sf.dvstar.android.diamon.journal.InsulinWeeklyReport;
+import net.sf.dvstar.android.diamon.journal.JournalCommonActivity;
+import net.sf.dvstar.android.diamon.journal.JournalDailyReport;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -39,6 +42,8 @@ public class DiaMonActivity extends Activity {
 	private final Activity activity = this;
 	private DBHelper dbHelper;
 
+	private Resources resources;
+
 	@Override
 	public void onBackPressed() {
 		// super.onBackPressed();
@@ -48,9 +53,9 @@ public class DiaMonActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		setContentView(R.layout.main);
-
+		resources = getResources();
+		
 		final String[] from = new String[] 	{ "user_id", 			"user_name" };
 		final int[] to = new int[] 			{ android.R.id.text1, 	android.R.id.text2 };
 
@@ -231,15 +236,16 @@ public class DiaMonActivity extends Activity {
 	}
 
 	public void journalActivity(View v) {
-		final Intent intent = new Intent(activity, StatisticsActivity.class);
+		final Intent intent = new Intent(activity, JournalListActivity.class);
 		activity.startActivity(intent);
+//		final Intent intent = new Intent(activity, InsulinWeeklyReport.class);
+//		activity.startActivity(intent);
 	}
 
 	public void statsActivity(View v) {
 		final Intent intent = new Intent(activity, ChartsViewActivity.class);
 		activity.startActivity(intent);
 	}
-	
 	
 	public void profileActivity(View v) {
 		Toast.makeText(getApplicationContext(), "profileActivity Start",

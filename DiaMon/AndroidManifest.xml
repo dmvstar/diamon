@@ -25,8 +25,11 @@
         <activity android:name=".activities.ChartsViewActivity"></activity>
         <activity android:name=".activities.AddMeasureActivity"></activity>
         <activity android:name="org.achartengine.GraphicalActivity"></activity>
-        <activity android:name=".activities.StatisticsActivity"></activity>
-        
+        <activity android:name=".activities.JournalListActivity"></activity>
+        <activity android:name=".journal.JournalCommonActivity"></activity>
+        <activity android:name=".journal.BGWeeklyReport"></activity>
+        <activity android:name=".journal.JournalDailyReport"></activity>
+        <activity android:name=".journal.InsulinWeeklyReport"></activity>
 
     </application>
     

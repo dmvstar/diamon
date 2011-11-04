@@ -16,28 +16,41 @@ import net.sf.dvstar.android.diamon.journal.JournalDailyReport;
 import net.sf.dvstar.android.diamon.journal.MedicationWeeklyReport;
 import net.sf.dvstar.android.diamon.journal.WeightReport;
 import android.app.ListActivity;
-import android.app.TabActivity;
+import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-public class StatisticsActivity extends ListActivity {
+public class JournalListActivity extends ListActivity {
 
-	private IJournalListItems[] mJournals = new IJournalListItems[] {
-			new JournalDailyReport(), new BGWeeklyReport(),
-			new InsulinWeeklyReport(), new MedicationWeeklyReport(),
-			new BPWeeklyReport(), new WeightReport(), new CarbsWeeklyReport(),
-			new ExerciseWeeklyReport(), new HbA1Report() };
+	private IJournalListItems[] mJournals;
 
 	private String[] mMenuText;
 
-	private String[] mMenuSummary;	
+	private String[] mMenuSummary;
+
+	private Resources resources;	
 	
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		resources = getResources();		
+		
+		mJournals = new IJournalListItems[] {
+				new JournalDailyReport(resources), 
+				new InsulinWeeklyReport(resources), 
+				new BGWeeklyReport(resources),
+				new MedicationWeeklyReport(resources),
+				new BPWeeklyReport(resources), 
+				new WeightReport(resources), 
+				new CarbsWeeklyReport(resources),
+				new ExerciseWeeklyReport(resources), 
+				new HbA1Report(resources) };		
+		
+		
 		int length = mJournals.length;
 		mMenuText = new String[length];
 		mMenuSummary = new String[length];
@@ -70,10 +83,22 @@ public class StatisticsActivity extends ListActivity {
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		/*
-		 * Intent intent = null; intent = mCharts[position].execute(this);
-		 * startActivity(intent);
-		 */
+		
+		Intent intent = null; 
+		intent = mJournals[position].execute(this);
+		if(intent!=null) startActivity(intent);
+		
+/*		
+		final Intent dialog = new Intent(this, AboutActivity.class);
+		this.startActivity(dialog);
+*/
+//		final Intent dialog = new Intent(this, JournalDailyReport.class);
+//		this.startActivity(dialog);
+		
+//		final Intent intent = new Intent(activity, JournalDailyReport.class);
+//		activity.startActivity(intent);
+		
+		
 	}
 
 }

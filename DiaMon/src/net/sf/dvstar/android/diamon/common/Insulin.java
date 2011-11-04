@@ -7,11 +7,12 @@ import java.util.Map;
 
 /**
  * Describe of insulin works
+ * 
  * @author dstarzhynskyi
- *
+ * 
  */
 public class Insulin {
-	
+
 	public static final String DESC_STRT_WRK = "STRT_WRK";
 	public static final String DESC_STRT_MAX = "STRT_MAX";
 	public static final String DESC_ENDS_MAX = "ENDS_MAX";
@@ -29,10 +30,10 @@ public class Insulin {
 	 * Injection time
 	 */
 	public double shift;
-	
-	
+
 	public ArrayList<InsulinItemActivity> list;
 	private HashMap<String, InsulinItemActivity> insulinItemActivityWork;
+
 	public HashMap<String, InsulinItemActivity> getInsulinItemActivityWork() {
 		return insulinItemActivityWork;
 	}
@@ -47,9 +48,8 @@ public class Insulin {
 	public Insulin(String name, InsulinActivity activity) {
 		this(name, 0, 0.0, activity);
 	}
-	
-	public Insulin(String name, int dose, double shift,
-			InsulinActivity activity) {
+
+	public Insulin(String name, int dose, double shift, InsulinActivity activity) {
 		list = new ArrayList<InsulinItemActivity>();
 		this.name = name;
 		this.dose = dose;
@@ -58,12 +58,11 @@ public class Insulin {
 		createInsulinActivityItems();
 	}
 
-	public void setParams(int dose, double shift){
+	public void setParams(int dose, double shift) {
 		this.dose = dose;
 		this.shift = shift;
 	}
-	
-	
+
 	/**
 	 * 
 	 * @param dose
@@ -78,11 +77,10 @@ public class Insulin {
 		insulinItemActivityWork = new HashMap<String, InsulinItemActivity>();
 		insulinItemActivityEtal = new HashMap<String, InsulinItemActivity>();
 
-		item = new InsulinItemActivity<Object>(DESC_STRT_WRK,
-				activity.start + shift, 0);
+		item = new InsulinItemActivity<Object>(DESC_STRT_WRK, activity.start
+				+ shift, 0);
 		insulinItemActivityWork.put(item.getDesc(), item);
-		item = new InsulinItemActivity<Object>(DESC_STRT_WRK,
-				activity.start, 0);
+		item = new InsulinItemActivity<Object>(DESC_STRT_WRK, activity.start, 0);
 		insulinItemActivityEtal.put(item.getDesc(), item);
 
 		item = new InsulinItemActivity<Object>(DESC_STRT_MAX, activity.max
@@ -102,8 +100,7 @@ public class Insulin {
 		item = new InsulinItemActivity<Object>(DESC_ENDS_WRK, activity.end
 				+ shift, 0);
 		insulinItemActivityWork.put(item.getDesc(), item);
-		item = new InsulinItemActivity<Object>(DESC_ENDS_WRK, activity.end,
-				0);
+		item = new InsulinItemActivity<Object>(DESC_ENDS_WRK, activity.end, 0);
 		insulinItemActivityEtal.put(item.getDesc(), item);
 	}
 
@@ -128,15 +125,13 @@ public class Insulin {
 		ret.add(insulinItemActivityWork.get(DESC_ENDS_WRK).dose);
 		return ret;
 	}
-	
+
 	public String toString() {
-		String ret = String.format(
-				"{%s} (%2d)(%.02f)[%s][%s]", 
-				name, dose, shift,getInsulinTimeList(),getInsulinDoseList()); 
-		return ret;	
+		String ret = String.format("{%s} (%2d)(%.02f)[%s][%s]", name, dose,
+				shift, getInsulinTimeList(), getInsulinDoseList());
+		return ret;
 	}
-	
-	
+
 	public static class InsulinActivity {
 		/**
 		 * Start activity
@@ -206,6 +201,5 @@ public class Insulin {
 		 */
 
 	}
-	
-	
+
 }
