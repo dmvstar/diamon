@@ -42,13 +42,13 @@ public class JournalListActivity extends ListActivity {
 		mJournals = new IJournalListItems[] {
 				new JournalDailyReport(resources), 
 				new InsulinWeeklyReport(resources), 
-				new BGWeeklyReport(resources),
+				new BGWeeklyReport(resources)/*,
 				new MedicationWeeklyReport(resources),
 				new BPWeeklyReport(resources), 
 				new WeightReport(resources), 
 				new CarbsWeeklyReport(resources),
 				new ExerciseWeeklyReport(resources), 
-				new HbA1Report(resources) };		
+				new HbA1Report(resources)*/ };		
 		
 		
 		int length = mJournals.length;
