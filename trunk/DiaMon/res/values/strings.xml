@@ -176,5 +176,15 @@
 	<string name="button_path_dot">...</string>
 	<string name="button_backup_start">Start Backup</string>
 	<string name="button_restore_start">Start Restore</string>
-	    	    	    	    	    
+
+	<string name="jrn_name_common">Report name for future</string>
+	<string name="jrn_desc_common">Report description, analitics and statistics</string>
+	<string name="jrn_name_jrn_daily_report">Journal Daily Report</string>
+	<string name="jrn_desc_jrn_daily_report">Journal Daily Report Description</string>
+	<string name="jrn_name_insulin_weekly_report">Insulin Weekly Report</string>
+	<string name="jrn_desc_insulin_weekly_report">Insulin Weekly Report, analitics and statistics</string>
+	<string name="jrn_name_bg_weekly_report">Blood Weekly Report</string>
+	<string name="jrn_desc_bg_weekly_report">Blood Weekly Report, analitics and statistics</string>
+	    	    	    	    	    	    
+	    	    	    	    	    	    
 </resources>

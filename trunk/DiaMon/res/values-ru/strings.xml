@@ -159,6 +159,12 @@
 	<string name="button_add_hba1">Добавить показания HbA1</string>
 	<string name="button_charts">Статистика</string>
     
-    
+	<string name="jrn_name_common">Отчет на будущее</string>
+	<string name="jrn_desc_common">Описание отчета, аналитика и статистика</string>
+	<string name="jrn_name_jrn_daily_report">Отчет ежедневный</string>
+	<string name="jrn_desc_jrn_daily_report">Отчет ежедневный показания глюкозы медикаменты</string>
+	<string name="jrn_name_insulin_weekly_report">Отчет использования инсулинов</string>
+	<string name="jrn_desc_insulin_weekly_report">Отчет по использованию инсулинов, типы и количество</string>
+	    	    
     
 </resources>
