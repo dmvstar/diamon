@@ -165,6 +165,7 @@
 	<string name="jrn_desc_jrn_daily_report">Отчет ежедневный показания глюкозы медикаменты</string>
 	<string name="jrn_name_insulin_weekly_report">Отчет использования инсулинов</string>
 	<string name="jrn_desc_insulin_weekly_report">Отчет по использованию инсулинов, типы и количество</string>
+	<string name="buttonReport_Current">Текущий отчет</string>
 	    	    
     
 </resources>

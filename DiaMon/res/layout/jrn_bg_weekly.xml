@@ -10,22 +10,25 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/buttonReportPrev"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Button" android:layout_weight="3"/>
+            android:layout_weight="3"
+            android:drawableLeft="@drawable/arrow_left_16" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonReportCurrent"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Button" android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="@string/buttonReport_Current" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/buttonReportRight"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Button" android:layout_weight="3"/>
+            android:layout_weight="3"
+            android:drawableRight="@drawable/arrow_right_16" />
 
     </LinearLayout>
 

@@ -9,6 +9,9 @@ import android.os.Bundle;
 
 public class BGWeeklyReport  extends JournalCommonActivity implements IJournalListItems {
 
+	/**
+	 * Default constructor - must be exists otherwise -  java.lang.RuntimeException: Unable to instantiate activity ComponentInfo!
+	 */
 	public BGWeeklyReport(){
 		super();
 	}

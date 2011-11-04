@@ -185,6 +185,7 @@
 	<string name="jrn_desc_insulin_weekly_report">Insulin Weekly Report, analitics and statistics</string>
 	<string name="jrn_name_bg_weekly_report">Blood Weekly Report</string>
 	<string name="jrn_desc_bg_weekly_report">Blood Weekly Report, analitics and statistics</string>
+	<string name="buttonReport_Current">Current Report</string>
 	    	    	    	    	    	    
 	    	    	    	    	    	    
 </resources>
