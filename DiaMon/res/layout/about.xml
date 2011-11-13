@@ -5,9 +5,16 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent" android:background="@drawable/backgrount_blend">
     <LinearLayout android:layout_height="wrap_content" android:id="@+id/linearLayout1" android:layout_width="fill_parent">
-        <TextView android:id="@+id/textView2" android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/version_desc" android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
-        <TextView android:layout_height="wrap_content" android:textSize="24sp" android:textStyle="bold" android:layout_width="wrap_content" android:text="@string/version" android:textAppearance="?android:attr/textAppearanceLarge"></TextView>
-        <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:text="@string/hello" android:textColor="#ffcc00"></TextView>
+        <TextView android:id="@+id/textView2" android:layout_height="fill_parent" android:layout_width="wrap_content" android:text="@string/version_desc" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_marginLeft="15sp" android:layout_gravity="center_vertical"></TextView>
+        <TextView android:layout_height="fill_parent" android:textSize="24sp" android:textStyle="bold" android:layout_width="wrap_content" android:text="@string/version" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_marginLeft="15sp" android:layout_gravity="center_vertical"></TextView>
+        <TextView android:layout_height="fill_parent" android:layout_width="wrap_content" android:text="@string/hello" android:textColor="#ffcc00" android:layout_marginLeft="15sp" android:layout_gravity="center_vertical"></TextView>
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:src="@drawable/gplv3_127x51" android:layout_marginLeft="15sp" android:layout_gravity="right"/>
+
     </LinearLayout>
     <RelativeLayout android:layout_height="wrap_content" android:id="@+id/RelativeLayout1" android:layout_width="match_parent" android:layout_gravity="center_horizontal|center">
         <ImageView android:id="@+id/imageView1" android:clickable="false" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" android:src="@drawable/diamond_0"></ImageView>
