@@ -32,6 +32,7 @@
         <activity android:name=".journal.JournalDailyReport"></activity>
         <activity android:name=".journal.InsulinWeeklyReport"></activity>
         <activity android:name=".common.AndroidFileBrowser"></activity>
+        <activity android:name="com.h3r3t1c.filechooser.FileChooser"></activity>
 
     </application>
     
