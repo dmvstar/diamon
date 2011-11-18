@@ -1,23 +1,50 @@
+/*                                                                                                                                                                             
+ * DiaMon   
+ * Diabet monitoring suite for Android devices                                                                                                          
+ *                                                                                                                                                                             
+ * Copyright (C) 2009-2011 Dmytro Starzhynskyi (dvstar)                                                                                                                        
+ *                                                                                                                                      
+ * http://code.google.com/p/diamon/                                                                                                                          
+ *                                                                                                                                                                             
+ * This program is free software: you can redistribute it and/or modify                                                                                                        
+ * it under the terms of the GNU General Public License as published by                                                                                                        
+ * the Free Software Foundation, either version 3 of the License, or                                                                                                           
+ * (at your option) any later version.                                                                                                                                         
+ *                                                                                                                                                                             
+ * This program is distributed in the hope that it will be useful,                                                                                                             
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of                                                                                                              
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the                                                                                                               
+ * GNU General Public License for more details.                                                                                                                                
+ *                                                                                                                                                                             
+ * You should have received a copy of the GNU General Public License                                                                                                           
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.                                                                                                       
+ */                                             
+
 package net.sf.dvstar.android.diamon;
 
 import java.util.Map;
 
 import net.sf.dvstar.android.diamon.activities.AboutActivity;
-import net.sf.dvstar.android.diamon.activities.ChartsViewActivity;
 import net.sf.dvstar.android.diamon.activities.ConfigActivity;
 import net.sf.dvstar.android.diamon.activities.HelpAllActivity;
 import net.sf.dvstar.android.diamon.activities.JournalListActivity;
 import net.sf.dvstar.android.diamon.activities.MeasuresActivity;
 import net.sf.dvstar.android.diamon.activities.ProfileActivity;
+import net.sf.dvstar.android.diamon.activities.ChartsViewActivity;
 import net.sf.dvstar.android.diamon.datastore.CommonData;
 import net.sf.dvstar.android.diamon.datastore.DBHelper;
 import net.sf.dvstar.android.diamon.datastore.HelpBUItemsFiller;
+import net.sf.dvstar.android.diamon.journal.InsulinWeeklyReport;
+import net.sf.dvstar.android.diamon.journal.JournalCommonActivity;
+import net.sf.dvstar.android.diamon.journal.JournalDailyReport;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
