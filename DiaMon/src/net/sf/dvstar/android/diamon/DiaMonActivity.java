@@ -3,26 +3,21 @@ package net.sf.dvstar.android.diamon;
 import java.util.Map;
 
 import net.sf.dvstar.android.diamon.activities.AboutActivity;
+import net.sf.dvstar.android.diamon.activities.ChartsViewActivity;
 import net.sf.dvstar.android.diamon.activities.ConfigActivity;
 import net.sf.dvstar.android.diamon.activities.HelpAllActivity;
 import net.sf.dvstar.android.diamon.activities.JournalListActivity;
 import net.sf.dvstar.android.diamon.activities.MeasuresActivity;
 import net.sf.dvstar.android.diamon.activities.ProfileActivity;
-import net.sf.dvstar.android.diamon.activities.ChartsViewActivity;
 import net.sf.dvstar.android.diamon.datastore.CommonData;
 import net.sf.dvstar.android.diamon.datastore.DBHelper;
 import net.sf.dvstar.android.diamon.datastore.HelpBUItemsFiller;
-import net.sf.dvstar.android.diamon.journal.InsulinWeeklyReport;
-import net.sf.dvstar.android.diamon.journal.JournalCommonActivity;
-import net.sf.dvstar.android.diamon.journal.JournalDailyReport;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
