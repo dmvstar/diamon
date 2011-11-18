@@ -2,8 +2,6 @@ package net.sf.dvstar.android.diamon.activities;
 
 import java.util.Map;
 
-//import de.devmil.common.ui.color.ColorSelectorDialog;
-
 import net.sf.dvstar.android.diamon.R;
 import net.sf.dvstar.android.diamon.charts.SingleInsulinChart;
 import net.sf.dvstar.android.diamon.datastore.CommonData;
@@ -11,7 +9,10 @@ import net.sf.dvstar.android.diamon.datastore.DBConst;
 import net.sf.dvstar.android.diamon.datastore.DBHelper;
 import net.sf.dvstar.android.diamon.widgets.color.ColorSelectorDialog;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -20,14 +21,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.CursorAdapter;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.EditText;
 import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemSelectedListener;
 
 public class InsulinDescActivity extends Activity implements DBConst {
 
@@ -310,12 +310,45 @@ public class InsulinDescActivity extends Activity implements DBConst {
 	    intent = chart.execute(this);
 	    startActivity(intent);
 	}
+
+	
+    private final int IDD_COLOR = 0;
+    final CharSequence[] mColors = {"Red", "Green", "Blue"};
+	
 	
 	public void selectColor(View v) {
+		
 		ColorSelectorDialog dialog = new ColorSelectorDialog(this,null,0);
 		dialog.show();
+		
+        showDialog(IDD_COLOR);  
 	}
 
+	
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+        case IDD_COLOR:
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Pick a color");
+            
+            builder.setItems(mColors, 
+                    new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int item) {
+                    Toast.makeText(getApplicationContext(), "Color: " +
+                            mColors[item], Toast.LENGTH_SHORT).show();
+                    dialog.cancel();
+                }
+            });
+            
+            builder.setCancelable(false);
+            return builder.create();
+        default:
+            return null;
+        }
+    }
+	
+	
 	
 	class InsulinOnItemSelectedListener implements OnItemSelectedListener {
 

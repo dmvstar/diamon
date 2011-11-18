@@ -1,144 +1,204 @@
 package net.sf.dvstar.android.diamon.common;
 
+import net.sf.dvstar.android.diamon.R;
+
 import java.io.File;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-import net.sf.dvstar.android.diamon.R;
+import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.DialogInterface;
-import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.DialogInterface.OnClickListener;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class AndroidFileBrowser extends ListActivity {
-	
-	private enum DISPLAYMODE{ ABSOLUTE, RELATIVE; }
 
-	private final DISPLAYMODE displayMode = DISPLAYMODE.ABSOLUTE;
-	private List<String> directoryEntries = new ArrayList<String>();
+	private enum DISPLAYMODE {
+		ABSOLUTE, RELATIVE;
+	}
+
+	private final DISPLAYMODE displayMode = DISPLAYMODE.RELATIVE;
+	private List<IconifiedText> directoryEntries = new ArrayList<IconifiedText>();
 	private File currentDirectory = new File("/");
 
-	public AndroidFileBrowser(){
-		super();
-	}
-	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
-		// setContentView() gets called within the next line,
-		// so we do not need it here.
 		browseToRoot();
 	}
-	
+
 	/**
-	 * This function browses to the 
-	 * root-directory of the file-system.
+	 * This function browses to the root-directory of the file-system.
 	 */
 	private void browseToRoot() {
 		browseTo(new File("/"));
-    }
-	
+	}
+
 	/**
-	 * This function browses up one level 
-	 * according to the field: currentDirectory
+	 * This function browses up one level according to the field:
+	 * currentDirectory
 	 */
-	private void upOneLevel(){
-		if(this.currentDirectory.getParent() != null)
+	private void upOneLevel() {
+		if (this.currentDirectory.getParent() != null)
 			this.browseTo(this.currentDirectory.getParentFile());
 	}
-	
-	private void browseTo(final File aDirectory){
-		if (aDirectory.isDirectory()){
+
+	private void browseTo(final File aDirectory) {
+		// On relative we display the full path in the title.
+		if (this.displayMode == DISPLAYMODE.RELATIVE)
+			this.setTitle(aDirectory.getAbsolutePath() + " :: "
+					+ getString(R.string.app_name));
+		if (aDirectory.isDirectory()) {
 			this.currentDirectory = aDirectory;
 			fill(aDirectory.listFiles());
-		}else{
-			OnClickListener okButtonListener = new OnClickListener(){
+		} else {
+			OnClickListener okButtonListener = new OnClickListener() {
 				// @Override
 				public void onClick(DialogInterface arg0, int arg1) {
-						// Lets start an intent to View the file, that was clicked...
-						Intent myIntent = new Intent(android.content.Intent.ACTION_VIEW, // VIEW_ACTION, 
-								Uri.parse("file://" 
-										+ aDirectory.getAbsolutePath()));
-						startActivity(myIntent);
+					// Lets start an intent to View the file, that was
+					// clicked...
+					AndroidFileBrowser.this.openFile(aDirectory);
 				}
 			};
-			OnClickListener cancelButtonListener = new OnClickListener(){
+			OnClickListener cancelButtonListener = new OnClickListener() {
 				// @Override
 				public void onClick(DialogInterface arg0, int arg1) {
-					// Do nothing
+					// Do nothing ^^
 				}
 			};
-/*			
-			AlertDialog.show(this,"Question", "Do you want to open that file?n" 
-								+ aDirectory.getName(),
-								"OK", okButtonListener,
-								"Cancel", cancelButtonListener, false, null);
-*/								
+
+			AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+			alertDialog.setTitle("Question");
+			alertDialog.setMessage("Do you want to open that file ? " + aDirectory.getName());
+			alertDialog.setButton("OK", okButtonListener);
+			alertDialog.setButton2("Cancel", cancelButtonListener );
+			
 		}
+	}
+
+	private void openFile(File aFile) {
+		Intent myIntent = new Intent(android.content.Intent.ACTION_VIEW,
+				Uri.parse("file://" + aFile.getAbsolutePath()));
+		startActivity(myIntent);
 	}
 
 	private void fill(File[] files) {
 		this.directoryEntries.clear();
-		
-		// Add the "." and the ".." == 'Up one level'
-		try {
-			Thread.sleep(10);
-		} catch (InterruptedException e1) {
-			e1.printStackTrace();
-		}
-		this.directoryEntries.add(".");
-		
-		if(this.currentDirectory.getParent() != null)
-			this.directoryEntries.add("..");
-		
-		switch(this.displayMode){
+
+		// Add the "." == "current directory"
+		this.directoryEntries.add(new IconifiedText(
+				getString(R.string.current_dir), getResources().getDrawable(
+						R.drawable.dir_folder)));
+		// and the ".." == 'Up one level'
+		if (this.currentDirectory.getParent() != null)
+			this.directoryEntries.add(new IconifiedText(
+					getString(R.string.up_one_level), getResources()
+							.getDrawable(R.drawable.dir_uponelevel)));
+
+		Drawable currentIcon = null;
+		for (File currentFile : files) {
+			if (currentFile.isDirectory()) {
+				currentIcon = getResources().getDrawable(R.drawable.dir_folder);
+			} else {
+				String fileName = currentFile.getName();
+				/*
+				 * Determine the Icon to be used, depending on the FileEndings
+				 * defined in: res/values/fileendings.xml.
+				 */
+				if (checkEndsWithInStringArray(fileName, getResources()
+						.getStringArray(R.array.fileEndingImage))) {
+					currentIcon = getResources().getDrawable(
+							R.drawable.dir_image);
+				} else if (checkEndsWithInStringArray(fileName, getResources()
+						.getStringArray(R.array.fileEndingWebText))) {
+					currentIcon = getResources().getDrawable(
+							R.drawable.dir_webtext);
+				} else if (checkEndsWithInStringArray(fileName, getResources()
+						.getStringArray(R.array.fileEndingPackage))) {
+					currentIcon = getResources().getDrawable(
+							R.drawable.dir_packed);
+				} else if (checkEndsWithInStringArray(fileName, getResources()
+						.getStringArray(R.array.fileEndingAudio))) {
+					currentIcon = getResources().getDrawable(
+							R.drawable.dir_audio);
+				} else {
+					currentIcon = getResources().getDrawable(
+							R.drawable.dir_text);
+				}
+			}
+			switch (this.displayMode) {
 			case ABSOLUTE:
-				for (File file : files){
-					this.directoryEntries.add(file.getPath());
-				}
+				/* On absolute Mode, we show the full path */
+				this.directoryEntries.add(new IconifiedText(currentFile
+						.getPath(), currentIcon));
 				break;
-			case RELATIVE: // On relative Mode, we have to add the current-path to the beginning
-				int currentPathStringLenght = this.currentDirectory.getAbsolutePath().length();
-				for (File file : files){
-					this.directoryEntries.add(file.getAbsolutePath().substring(currentPathStringLenght));
-				}
+			case RELATIVE:
+				/*
+				 * On relative Mode, we have to cut the current-path at the
+				 * beginning
+				 */
+				int currentPathStringLenght = this.currentDirectory
+						.getAbsolutePath().length();
+				this.directoryEntries.add(new IconifiedText(currentFile
+						.getAbsolutePath().substring(currentPathStringLenght),
+						currentIcon));
+
 				break;
+			}
 		}
-		
-		ArrayAdapter<String> directoryList = new ArrayAdapter<String>(this,
-				R.layout.file_row, this.directoryEntries);
-		
-		this.setListAdapter(directoryList);
+		Collections.sort(this.directoryEntries);
+
+		IconifiedTextListAdapter itla = new IconifiedTextListAdapter(this);
+		itla.setListItems(this.directoryEntries);
+		this.setListAdapter(itla);
 	}
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		int selectionRowID = (int) this.getSelectedItemId();
-		String selectedFileString = this.directoryEntries.get(selectionRowID);
-		if (selectedFileString.equals(".")) {
+		super.onListItemClick(l, v, position, id);
+
+		String selectedFileString = this.directoryEntries.get(position)
+				.getText();
+		if (selectedFileString.equals(getString(R.string.current_dir))) {
 			// Refresh
 			this.browseTo(this.currentDirectory);
-		} else if(selectedFileString.equals("..")){
+		} else if (selectedFileString.equals(getString(R.string.up_one_level))) {
 			this.upOneLevel();
 		} else {
 			File clickedFile = null;
-			switch(this.displayMode){
-				case RELATIVE:
-					clickedFile = new File(this.currentDirectory.getAbsolutePath() 
-												+ this.directoryEntries.get(selectionRowID));
-					break;
-				case ABSOLUTE:
-					clickedFile = new File(this.directoryEntries.get(selectionRowID));
-					break;
+			switch (this.displayMode) {
+			case RELATIVE:
+				clickedFile = new File(this.currentDirectory.getAbsolutePath()
+						+ this.directoryEntries.get(position).getText());
+				break;
+			case ABSOLUTE:
+				clickedFile = new File(this.directoryEntries.get(position)
+						.getText());
+				break;
 			}
-			if(clickedFile != null)
+			if (clickedFile != null)
 				this.browseTo(clickedFile);
 		}
+	}
+
+	/**
+	 * Checks whether checkItsEnd ends with one of the Strings from fileEndings
+	 */
+	private boolean checkEndsWithInStringArray(String checkItsEnd,
+			String[] fileEndings) {
+		for (String aEnd : fileEndings) {
+			if (checkItsEnd.endsWith(aEnd))
+				return true;
+		}
+		return false;
 	}
 }
