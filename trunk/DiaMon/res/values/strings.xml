@@ -188,6 +188,9 @@
 	<string name="buttonReport_Current">Current Report</string>
 	    	    	    	    	    	    
 
+<string name="label_platform">Platform</string>
+<string name="label_platform_value">Android Kernel ID</string>
+
 
     <string name="dirname_app_name">Android File Browser - by anddev.org</string>
     <string name="menu_new_folder">New Folder</string>
