@@ -1,4 +1,4 @@
-package com.h3r3t1c.filechooser;
+package net.sf.dvstar.android.diamon.widgets.filechooser;
 
 import android.graphics.drawable.Drawable;
 

@@ -1,204 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
- <string name="hello">Life is DiaMond !</string>
- <string name="app_name">DiaMon</string>
- <string name="version">1.0.23</string>
- <string name="buttonExit">Exit</string>
- <string name="butonSave">Save</string>
- <string name="user_profile">Select Profile to work</string>
- <string name="version_desc"> Version </string>
- <string name="buttonConfig">Config</string>
- <string name="buttonProfile">Profiles</string>
- <string name="buttonHelp">Help</string>
- <string name="buttonAbout">About</string>
 
- <string name="buttonYes">Yes</string>
- <string name="buttonNo">No</string>
- <string name="buttonCancel">Cancel</string>
- <string name="buttonOk">Ok</string>
- 
- <string-array name="array_sex">
-		<item>Mr.</item>
-		<item>Ms.</item>
-	</string-array>
-	
- <string-array name="array_measur">
-		<item>Mmol/L</item>
-		<item>Mg/dL</item>
-	</string-array>
-	
- <string-array name="array_food_types">
-		<item>BU Bread unit</item>
-		<item>KC Calories</item>
-	</string-array>
-	
-	
-	<string name="user_id">User Id (e-mail)</string>
-	<string name="user_name">User Name</string>
-	<string name="user_sex">Sex</string>
-	<string name="user_weight">Weight</string>
-	<string name="user_height">Height</string>
-	<string name="user_age">Age</string>
-	<string name="measure_type">Measure</string>
-	<string name="insulin_type">Insulin Type</string>
-	<string name="show_journal">Journal</string>
-	<string name="add_data">Add Item</string>
-	<string name="buttonBackup">Backup and Restore</string>
-	<string name="buttonFood">Unit of food</string>
-	<string name="exit_confirm">"Are you sure you want to exit?"</string>
-	<string name="close_confirm">"Do you want to close dialog?"</string>
-	<string name="storage_path_desc">Storage Paths Values</string>
+    <string name="hello">Life is DiaMond !</string>
+    <string name="app_name">DiaMon</string>
+    <string name="version">1.0.23</string>
+    <string name="buttonExit">Exit</string>
+    <string name="butonSave">Save</string>
+    <string name="user_profile">Select Profile to work</string>
+    <string name="version_desc"> Version </string>
+    <string name="buttonConfig">Config</string>
+    <string name="buttonProfile">Profiles</string>
+    <string name="buttonHelp">Help</string>
+    <string name="buttonAbout">About</string>
+    <string name="buttonYes">Yes</string>
+    <string name="buttonNo">No</string>
+    <string name="buttonCancel">Cancel</string>
+    <string name="buttonOk">Ok</string>
 
-	<string name="bu_items_array_title">Таблица замены углеводсодержащих продукто по хлебным единицам</string>
-	
-	<string-array name="bu_items_array">
-	<item>	Хлеб и хлебобулочные изделия 	|1 ХЕ = 				|...</item>
-	<item>Белый хлеб 					|1 кусок 				|20 г</item>
-	<item>Ржаной хлеб 					|1 кусок 				|25 г</item>
-	<item>Бородинский хлеб 				|1 кусок 				|25 г</item>
-	<item>Булочка 						|1/2 маленькой 			|20 г</item>
-	<item>Крекеры (сухое печенье) 		|5 штук 				|15 г</item>
-	<item>Сухари (не сладкие) 			|2 штуки 				|15 г</item>
-	<item>Панировочные сухари 			|1 ст. ложка 			|15 г</item>
-	<item>Хрустящие хлебцы 				|2 штуки 				|25 г</item>
-	<item>	Макаронные изделия 			|1 ХЕ =					|...</item>
-	<item>Вермишель, лапша, рожки, макароныА 	|1—2 ст. ложки  зависимости от формы изделия 	|15 г</item>
-	<item>— сырые изделия; либо 2—4 ст. ложки отвареных макаронных изделий в зависимости от формы изделия|.|.</item>	
-	<item>	Крупы, злаки, мука 			|1 ХЕ = 				|...</item>
-	<item>Гречневая 					|1 ст. ложка 			|15 г</item>
-	<item>Кукуруза 						|1/2 початка 			|100 г</item>
-	<item>Кукурузные хлопья 			|1 ст. ложка 			|15 г</item>
-	<item>Манная 						|1 ст. ложка 			|15 г</item>
-	<item>Мука́ (любая) 					|1 ст. ложка 			|15 г</item>
-	<item>Овсяная 						|1 ст. ложка 			|15 г</item>
-	<item>Овсяные хлопья 				|1 ст. ложка 			|15 г</item>
-	<item>Перловая 						|1 ст. ложка 			|15 г</item>
-	<item>Пшено 						|1 ст. ложка 			|15 г</item>
-	<item>Рис 							|1 ст. ложка 			|15 г</item>
-	<item>— имеется в виду 1 ст. ложка сырой крупы; в варёном виде (каша) 1 ХЕ содержится в 2 ст. ложках продукта. Итак, 2 ст. ложки любой каши = 1 ХЕ!|.|.</item>	
-	<item>	Картофель 					|1 ХЕ = 				|...</item>
-	<item>Картофель 					|1 клубень величиной с крупное куриное яйцо 	|65 г</item>
-	<item>Картофельное пюре 			|2 ст. ложки (с горкой) |75 г</item>
-	<item>Жареный картофель 			|2 ст. ложки с горкой 	|35 г</item>
-	<item>Сухой картофель 				|						|25 г</item>
-	<item>	Фрукты и ягоды 				|1 ХЕ = 				|...</item>
-	<item>Абрикосы 						|2—3 штуки 				|110 г</item>
-	<item>Айва 							|1 штука, крупная 		|140 г</item>
-	<item>Ананас 						|1 кусок (поперечный срез) 	|140 г</item>
-	<item>Арбуз 						|1 кусок 				|270 г</item>
-	<item>Апельсин 						|1 штука, средний 		|150 г</item>
-	<item>Банан 						|1/2 штуки, средний 	|70 г</item>
-	<item>Брусника 						|7 ст. ложек 			|140 г</item>
-	<item>Виноград 						|12 штук, небольших 	|70 г</item>
-	<item>Вишня 						|15 штук 				|90 г</item>
-	<item>Гранат 						|1 штука, большой 		|170 г</item>
-	<item>Грейпфрут 					|1/2 штуки, крупный 	|170 г</item>
-	<item>Груша 						|1 штука, средняя 		|90 г</item>
-	<item>Дыня 							|1 кусок 				|100 г</item>
-	<item>Ежевика 						|8 ст. ложек 			|140 г</item>
-	<item>Инжир 						|1 штука 				|80 г</item>
-	<item>Киви 							|1 штука, крупная 		|110 г</item>
-	<item>Клубника					 	|10 штук, средних 		|160 г</item>
-	<item>Крыжовник 					|6 ст. ложек 			|120 г</item>
-	<item>Малина 						|8 ст. ложек 			|150 г</item>
-	<item>Манго 						|1 штука, небольшое 	|110 г</item>
-	<item>Мандарины 					|2-3 штуки, средних 	|150 г</item>
-	<item>Персик 						|1 штука, крупный 		|120 г</item>
-	<item>Сливы 						|4 штуки, средние 		|90 г</item>
-	<item>Смородина 					|7 ст. ложек 			|140 г</item>
-	<item>Хурма 						|1 штука, средняя 		|70 г</item>
-	<item>Черника, чёрная смородина 	|7 ст. ложек 			|140 г</item>
-	<item>Яблоко 						|1 штука, среднее 		|90 г</item>
-	<item>— с косточками и кожурой. Свежеприготовленные фруктовые соки подсчитываются как соответствующие сорта фруктов. Около 100 мл сока (без добавления сахара, 100% натуральный сок) содержит примерно 1 ХЕ. 6 — 8 ложек ягод (малина, смородина и так далее), в среднем, соответствует 1 стаканчику (1 чайной чашке) этих ягод. Около 20 г сухофруктов (курага, чернослив, изюм, инжир) содержит примерно 1 ХЕ.|.|.</item>	
-	<item>Молоко и жидкие молочные продукты 	|1 ХЕ = 		|...</item>
-	<item>Молоко 						|1 стакан 				|200 мл</item>
-	<item>Кефир 						|1 стакан 				|200 мл</item>
-	<item>Сливки 						|1 стакан 				|200 мл</item>
-	<item>	Другие продукты 				|1 ХЕ = 				|...</item>
-	<item>Квас 							|1 стакан 				|200 мл</item>
-	<item>Кока-кола 					|1/2 стакана 			|100 мл</item>
-	<item>Мороженое 					|1 порция (без стаканчика) 	|65 г</item>
-	<item>Сахар-песок 					|1 ст. ложка без горки 	|10 г</item>
-	<item>Сахар рафинад 				|1 кусок 				|10 г</item>
-	<item>Зелёный горошек 				|7 ст. ложек 			|100 г</item>
-	<item>	Примечания:|Пельмени, блины, оладьи, пирожки, сырники, вареники, котлеты также содержат углеводы, но количество ХЕ зависит от размера и способа приготовления.Некоторые овощи (морковь, свёкла, сельдерей, лук) учитываются по ХЕ при употреблении более 200 г.При составлении диеты больному сахарным диабетом не стоит забывать о продуктах, не содержащих ХЕ.|.</item>	
-	</string-array>
-	
-	<string name="buttonBUHelp">Таблица замены по хлебным единицам</string>
-	
-	<string name="user_image">User image</string>
-	
-	<string name="button_medicaments">Medicaments</string>
-	<string name="button_shared_values">Shared Values</string>
-	<string name="button_export_import">Export/Import Data</string>
-	<string name="button_add_insulin_type">Insulin descriptions</string>
-	<string name="label_insulin">Insulin description</string>
-	<string name="label_insulin_start">Start time (h.m):</string>
-	<string name="label_insulin_max_start">Max time start (h.m):</string>
-	<string name="label_insulin_max_end">Max time end (h.m):</string>
-	<string name="label_insulin_end">End time (h.m):</string>
-	
-	<string name="insulin_work_from">Work From (h.m):</string>
-	<string name="insulin_work_to"> To (h.m) </string>
-	<string name="insulin_work_max_from">Max From (h.m):</string>
-	<string name="insulin_work_max_to"> To (h.m) </string>
-	
-	<string name="insulin_work_from_val">...</string>
-	<string name="insulin_work_to_val">...</string>
-	<string name="insulin_work_max_to_val">...</string>
-	<string name="insulin_work_max_from_val">...</string>
-	<string name="insulin_name">Insulin name</string>
-	<string name="insulin_color">Color</string>
-	
-	
-	<string name="button_profile_add">Add</string>
-	<string name="button_profile_save">Save</string>
-	<string name="button_profile_del">Delete</string>
+    <string-array name="array_sex">
+        <item>Mr.</item>
+        <item>Ms.</item>
+    </string-array>
+    <string-array name="array_measur">
+        <item>Mmol/L</item>
+        <item>Mg/dL</item>
+    </string-array>
+    <string-array name="array_food_types">
+        <item>BU Bread unit</item>
+        <item>KC Calories</item>
+    </string-array>
 
+    <string name="user_id">User Id (e-mail)</string>
+    <string name="user_name">User Name</string>
+    <string name="user_sex">Sex</string>
+    <string name="user_weight">Weight</string>
+    <string name="user_height">Height</string>
+    <string name="user_age">Age</string>
+    <string name="measure_type">Measure</string>
+    <string name="insulin_type">Insulin Type</string>
+    <string name="show_journal">Journal</string>
+    <string name="add_data">Add Item</string>
+    <string name="buttonBackup">Backup and Restore</string>
+    <string name="buttonFood">Unit of food</string>
+    <string name="exit_confirm">"Are you sure you want to exit?"</string>
+    <string name="close_confirm">"Do you want to close dialog?"</string>
+    <string name="storage_path_desc">Storage Paths Values</string>
+    <string name="bu_items_array_title">Таблица замены углеводсодержащих продукто по хлебным единицам</string>
 
-	<string name="button_add_blood_measure">Add blood glucose record</string>
-	<string name="button_add_insulin_injection">Add insulin dose</string>
-	<string name="button_add_medicaments">Add medicaments dose</string>
-	<string name="button_add_eat">Add calories or BU</string>
-	<string name="button_add_weight_measure">Add weight record</string>
-	<string name="button_add_blood_pressure">Add blood pressure</string>
-	<string name="button_add_exercise">Add exercise</string>
-	<string name="button_add_hba1">Add HbA1 record</string>
-	<string name="button_charts">Charts</string>
+    <string-array name="bu_items_array">
+        <item>	Хлеб и хлебобулочные изделия 	|1 ХЕ = 				|...</item>
+        <item>Белый хлеб 					|1 кусок 				|20 г</item>
+        <item>Ржаной хлеб 					|1 кусок 				|25 г</item>
+        <item>Бородинский хлеб 				|1 кусок 				|25 г</item>
+        <item>Булочка 						|1/2 маленькой 			|20 г</item>
+        <item>Крекеры (сухое печенье) 		|5 штук 				|15 г</item>
+        <item>Сухари (не сладкие) 			|2 штуки 				|15 г</item>
+        <item>Панировочные сухари 			|1 ст. ложка 			|15 г</item>
+        <item>Хрустящие хлебцы 				|2 штуки 				|25 г</item>
+        <item>	Макаронные изделия 			|1 ХЕ =					|...</item>
+        <item>Вермишель, лапша, рожки, макароныА 	|1—2 ст. ложки  зависимости от формы изделия 	|15 г</item>
+        <item>— сырые изделия; либо 2—4 ст. ложки отвареных макаронных изделий в зависимости от формы изделия|.|.</item>
+        <item>	Крупы, злаки, мука 			|1 ХЕ = 				|...</item>
+        <item>Гречневая 					|1 ст. ложка 			|15 г</item>
+        <item>Кукуруза 						|1/2 початка 			|100 г</item>
+        <item>Кукурузные хлопья 			|1 ст. ложка 			|15 г</item>
+        <item>Манная 						|1 ст. ложка 			|15 г</item>
+        <item>Мука́ (любая) 					|1 ст. ложка 			|15 г</item>
+        <item>Овсяная 						|1 ст. ложка 			|15 г</item>
+        <item>Овсяные хлопья 				|1 ст. ложка 			|15 г</item>
+        <item>Перловая 						|1 ст. ложка 			|15 г</item>
+        <item>Пшено 						|1 ст. ложка 			|15 г</item>
+        <item>Рис 							|1 ст. ложка 			|15 г</item>
+        <item>— имеется в виду 1 ст. ложка сырой крупы; в варёном виде (каша) 1 ХЕ содержится в 2 ст. ложках продукта. Итак, 2 ст. ложки любой каши = 1 ХЕ!|.|.</item>
+        <item>	Картофель 					|1 ХЕ = 				|...</item>
+        <item>Картофель 					|1 клубень величиной с крупное куриное яйцо 	|65 г</item>
+        <item>Картофельное пюре 			|2 ст. ложки (с горкой) |75 г</item>
+        <item>Жареный картофель 			|2 ст. ложки с горкой 	|35 г</item>
+        <item>Сухой картофель 				|						|25 г</item>
+        <item>	Фрукты и ягоды 				|1 ХЕ = 				|...</item>
+        <item>Абрикосы 						|2—3 штуки 				|110 г</item>
+        <item>Айва 							|1 штука, крупная 		|140 г</item>
+        <item>Ананас 						|1 кусок (поперечный срез) 	|140 г</item>
+        <item>Арбуз 						|1 кусок 				|270 г</item>
+        <item>Апельсин 						|1 штука, средний 		|150 г</item>
+        <item>Банан 						|1/2 штуки, средний 	|70 г</item>
+        <item>Брусника 						|7 ст. ложек 			|140 г</item>
+        <item>Виноград 						|12 штук, небольших 	|70 г</item>
+        <item>Вишня 						|15 штук 				|90 г</item>
+        <item>Гранат 						|1 штука, большой 		|170 г</item>
+        <item>Грейпфрут 					|1/2 штуки, крупный 	|170 г</item>
+        <item>Груша 						|1 штука, средняя 		|90 г</item>
+        <item>Дыня 							|1 кусок 				|100 г</item>
+        <item>Ежевика 						|8 ст. ложек 			|140 г</item>
+        <item>Инжир 						|1 штука 				|80 г</item>
+        <item>Киви 							|1 штука, крупная 		|110 г</item>
+        <item>Клубника					 	|10 штук, средних 		|160 г</item>
+        <item>Крыжовник 					|6 ст. ложек 			|120 г</item>
+        <item>Малина 						|8 ст. ложек 			|150 г</item>
+        <item>Манго 						|1 штука, небольшое 	|110 г</item>
+        <item>Мандарины 					|2-3 штуки, средних 	|150 г</item>
+        <item>Персик 						|1 штука, крупный 		|120 г</item>
+        <item>Сливы 						|4 штуки, средние 		|90 г</item>
+        <item>Смородина 					|7 ст. ложек 			|140 г</item>
+        <item>Хурма 						|1 штука, средняя 		|70 г</item>
+        <item>Черника, чёрная смородина 	|7 ст. ложек 			|140 г</item>
+        <item>Яблоко 						|1 штука, среднее 		|90 г</item>
+        <item>— с косточками и кожурой. Свежеприготовленные фруктовые соки подсчитываются как соответствующие сорта фруктов. Около 100 мл сока (без добавления сахара, 100% натуральный сок) содержит примерно 1 ХЕ. 6 — 8 ложек ягод (малина, смородина и так далее), в среднем, соответствует 1 стаканчику (1 чайной чашке) этих ягод. Около 20 г сухофруктов (курага, чернослив, изюм, инжир) содержит примерно 1 ХЕ.|.|.</item>
+        <item>Молоко и жидкие молочные продукты 	|1 ХЕ = 		|...</item>
+        <item>Молоко 						|1 стакан 				|200 мл</item>
+        <item>Кефир 						|1 стакан 				|200 мл</item>
+        <item>Сливки 						|1 стакан 				|200 мл</item>
+        <item>	Другие продукты 				|1 ХЕ = 				|...</item>
+        <item>Квас 							|1 стакан 				|200 мл</item>
+        <item>Кока-кола 					|1/2 стакана 			|100 мл</item>
+        <item>Мороженое 					|1 порция (без стаканчика) 	|65 г</item>
+        <item>Сахар-песок 					|1 ст. ложка без горки 	|10 г</item>
+        <item>Сахар рафинад 				|1 кусок 				|10 г</item>
+        <item>Зелёный горошек 				|7 ст. ложек 			|100 г</item>
+        <item>	Примечания:|Пельмени, блины, оладьи, пирожки, сырники, вареники, котлеты также содержат углеводы, но количество ХЕ зависит от размера и способа приготовления.Некоторые овощи (морковь, свёкла, сельдерей, лук) учитываются по ХЕ при употреблении более 200 г.При составлении диеты больному сахарным диабетом не стоит забывать о продуктах, не содержащих ХЕ.|.</item>
+    </string-array>
 
- 
-	<string name="chart_insulin_name">Insulin Work Diagram</string>
-	<string name="chart_insulin_desc">The average work of insulin in day</string>
-	<string name="chart_insulin_title">Insulin Work by Hours</string>
-	<string name="chart_insulin_xtitle">Hours</string>
-	<string name="chart_insulin_ytitle">Insulin activity</string>
-	<string name="label_backup_path">Backup/Restore Path</string>
-	<string name="button_path_dot">...</string>
-	<string name="button_backup_start">Start Backup</string>
-	<string name="button_restore_start">Start Restore</string>
-
-	<string name="jrn_name_common">Report name for future</string>
-	<string name="jrn_desc_common">Report description, analitics and statistics</string>
-	<string name="jrn_name_jrn_daily_report">Journal Daily Report</string>
-	<string name="jrn_desc_jrn_daily_report">Journal Daily Report Description</string>
-	<string name="jrn_name_insulin_weekly_report">Insulin Weekly Report</string>
-	<string name="jrn_desc_insulin_weekly_report">Insulin Weekly Report, analitics and statistics</string>
-	<string name="jrn_name_bg_weekly_report">Blood Weekly Report</string>
-	<string name="jrn_desc_bg_weekly_report">Blood Weekly Report, analitics and statistics</string>
-	<string name="buttonReport_Current">Current Report</string>
-	    	    	    	    	    	    
-
-<string name="label_platform">Platform</string>
-<string name="label_platform_value">Android Kernel ID</string>
-
-
+    <string name="buttonBUHelp">Таблица замены по хлебным единицам</string>
+    <string name="user_image">User image</string>
+    <string name="button_medicaments">Medicaments</string>
+    <string name="button_shared_values">Shared Values</string>
+    <string name="button_export_import">Export/Import Data</string>
+    <string name="button_add_insulin_type">Insulin descriptions</string>
+    <string name="label_insulin">Insulin description</string>
+    <string name="label_insulin_start">Start time (h.m):</string>
+    <string name="label_insulin_max_start">Max time start (h.m):</string>
+    <string name="label_insulin_max_end">Max time end (h.m):</string>
+    <string name="label_insulin_end">End time (h.m):</string>
+    <string name="insulin_work_from">Work From (h.m):</string>
+    <string name="insulin_work_to"> To (h.m) </string>
+    <string name="insulin_work_max_from">Max From (h.m):</string>
+    <string name="insulin_work_max_to"> To (h.m) </string>
+    <string name="insulin_work_from_val">...</string>
+    <string name="insulin_work_to_val">...</string>
+    <string name="insulin_work_max_to_val">...</string>
+    <string name="insulin_work_max_from_val">...</string>
+    <string name="insulin_name">Insulin name</string>
+    <string name="insulin_color">Color</string>
+    <string name="button_profile_add">Add</string>
+    <string name="button_profile_save">Save</string>
+    <string name="button_profile_del">Delete</string>
+    <string name="button_add_blood_measure">Add blood glucose record</string>
+    <string name="button_add_insulin_injection">Add insulin dose</string>
+    <string name="button_add_medicaments">Add medicaments dose</string>
+    <string name="button_add_eat">Add calories or BU</string>
+    <string name="button_add_weight_measure">Add weight record</string>
+    <string name="button_add_blood_pressure">Add blood pressure</string>
+    <string name="button_add_exercise">Add exercise</string>
+    <string name="button_add_hba1">Add HbA1 record</string>
+    <string name="button_charts">Charts</string>
+    <string name="chart_insulin_name">Insulin Work Diagram</string>
+    <string name="chart_insulin_desc">The average work of insulin in day</string>
+    <string name="chart_insulin_title">Insulin Work by Hours</string>
+    <string name="chart_insulin_xtitle">Hours</string>
+    <string name="chart_insulin_ytitle">Insulin activity</string>
+    <string name="label_backup_path">Backup/Restore Path</string>
+    <string name="button_path_dot">...</string>
+    <string name="button_backup_start">Start Backup</string>
+    <string name="button_restore_start">Start Restore</string>
+    <string name="jrn_name_common">Report name for future</string>
+    <string name="jrn_desc_common">Report description, analitics and statistics</string>
+    <string name="jrn_name_jrn_daily_report">Journal Daily Report</string>
+    <string name="jrn_desc_jrn_daily_report">Journal Daily Report Description</string>
+    <string name="jrn_name_insulin_weekly_report">Insulin Weekly Report</string>
+    <string name="jrn_desc_insulin_weekly_report">Insulin Weekly Report, analitics and statistics</string>
+    <string name="jrn_name_bg_weekly_report">Blood Weekly Report</string>
+    <string name="jrn_desc_bg_weekly_report">Blood Weekly Report, analitics and statistics</string>
+    <string name="buttonReport_Current">Current Report</string>
+    <string name="label_platform">Platform</string>
+    <string name="label_platform_value">Android Kernel ID</string>
     <string name="dirname_app_name">Android File Browser - by anddev.org</string>
     <string name="menu_new_folder">New Folder</string>
     <string name="dirnameinput_cmd_return">Save</string>
     <string name="dirnameinput_hint">Enter a directory-name:</string>
     <string name="up_one_level">..</string>
     <string name="current_dir">.</string>
-    <string name="button_path_file_view">Set</string>
+    <string name="button_path_file_view_set">Set</string>
+    <string name="button_path_file_view_get">Select</string>
 
-	    	    	    	    	    	    
 </resources>
