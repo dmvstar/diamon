@@ -6,97 +6,191 @@ import java.util.Collections;
 import java.util.List;
 
 import net.sf.dvstar.android.diamon.R;
+import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+/**
+ * File chooser class for select file or dir
+ * 
+ * @author sdv
+ * 
+ */
 public class FileChooser extends ListActivity {
-	
-    private File currentDir;
-    private FileArrayAdapter adapter;
-	private int HEADER_ITEMS_COUNT=1;
-        
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        currentDir = new File("/sdcard/");
-        ListView list = getListView();
-		View header =  getLayoutInflater().inflate(R.layout.file_view_header, null, false);
-//		 View footer = getLayoutInflater().inflate(R.layout.listfooter, null, false);
-//		 ImageView image = (ImageView) header1.findViewById(R.id.image);
-		if(list!=null && header != null){
-			 list.addHeaderView(header, null, false);
-//			 list.addFooterView(footer, null, false);
-//			 list.setAdapter(new MenuAdapter());
+
+	private static final int BTN_SET = 0;
+	private static final int BTN_GET = 1;
+
+	private File currentDir;
+	private File rootDir;
+	private FileArrayAdapter adapter;
+	private int HEADER_ITEMS_COUNT = 1;
+
+	private Button buttonSet;
+	private Button buttonGet;
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Bundle extras = getIntent().getExtras();
+
+		currentDir = new File("/sdcard/");
+
+		if (extras != null) {
+			String currentDirStr = extras.getString("currentDir");
+			if (currentDirStr != null) {
+				currentDir = new File(currentDirStr);
+			}
 		}
-        fill(currentDir);
-    }
-    
-    private void fill(File f)
-    {
-    	Drawable icon;
-    	File[]dirs = f.listFiles();
-		 this.setTitle("Current Dir: "+f.getName());
-		 List<Option>dir = new ArrayList<Option>();
-		 List<Option>fls = new ArrayList<Option>();
-		 try{
-			 for(File ff: dirs)
-			 {
-				if(ff.isDirectory()) {
+
+		ListView list = getListView();
+		View header = getLayoutInflater().inflate(R.layout.file_view_header,
+				null, false);
+
+		buttonSet = (Button) header.findViewById(R.id.buttonSetPathFileView);
+		buttonGet = (Button) header.findViewById(R.id.buttonGetPathFileView);
+
+		buttonSet.setOnClickListener(new ButtonsOnClickListener(this, BTN_SET,
+				buttonSet.getId()));
+		buttonGet.setOnClickListener(new ButtonsOnClickListener(this, BTN_GET,
+				buttonGet.getId()));
+
+		// View footer = getLayoutInflater().inflate(R.layout.listfooter, null,
+		// false);
+		// ImageView image = (ImageView) header1.findViewById(R.id.image);
+		if (list != null && header != null) {
+			list.addHeaderView(header, null, false);
+			// list.addFooterView(footer, null, false);
+			// list.setAdapter(new MenuAdapter());
+		}
+		rootDir = currentDir;
+		fillDirStructure(currentDir, currentDir);
+	}
+
+	/**
+	 * Filler directory structure
+	 * 
+	 * @param currentDir
+	 *            - current dir for fill data
+	 */
+	private void fillDirStructure(File currentDir, File rootDir) {
+		Drawable icon;
+		File[] dirs = currentDir.listFiles();
+		this.setTitle("Current Dir: " + currentDir.getName());
+		List<FileChooserElement> dir = new ArrayList<FileChooserElement>();
+		List<FileChooserElement> fls = new ArrayList<FileChooserElement>();
+		try {
+			for (File ff : dirs) {
+				if (ff.isDirectory()) {
 					icon = getResources().getDrawable(
 							R.drawable.ic_launcher_folder);
-					dir.add(new Option(ff.getName(),"Folder",ff.getAbsolutePath(),icon));
-				}	
-				else
-				{
+					dir.add(new FileChooserElement(ff.getName(), "Folder", ff
+							.getAbsolutePath(), icon));
+				} else {
 					icon = getResources().getDrawable(
 							R.drawable.ic_launcher_file);
-					fls.add(new Option(ff.getName(),"File Size: "+ff.length(),ff.getAbsolutePath(),icon));
+					fls.add(new FileChooserElement(ff.getName(), "File Size: "
+							+ ff.length(), ff.getAbsolutePath(), icon));
 				}
-			 }
-		 }catch(Exception e)
-		 {
-			 
-		 }
-		 Collections.sort(dir);
-		 Collections.sort(fls);
-		 dir.addAll(fls);
-		 if(!f.getName().equalsIgnoreCase("sdcard"))
-			 dir.add(0,new Option("..","Parent Directory",f.getParent()));
-		 adapter = new FileArrayAdapter(FileChooser.this,R.layout.file_view,dir);
- 		 
-		 
-		 this.setListAdapter(adapter);
-		 
-         EditText edit = (EditText) findViewById(R.id.editTextPathFileView);
-         if(edit != null) {
-        	edit.setText(f.getPath()); 
-         }
-		 
-    }
+			}
+		} catch (Exception e) {
 
-    
-    
-    @Override
+		}
+		Collections.sort(dir);
+		Collections.sort(fls);
+		dir.addAll(fls);
+		if (!currentDir.getName().equalsIgnoreCase(rootDir.getName())) // "sdcard"))
+			dir.add(0, new FileChooserElement("..", "Parent Directory",
+					currentDir.getParent()));
+		adapter = new FileArrayAdapter(FileChooser.this, R.layout.file_view,
+				dir);
+
+		this.setListAdapter(adapter);
+
+		EditText edit = (EditText) findViewById(R.id.editTextPathFileView);
+		if (edit != null) {
+			edit.setText(currentDir.getPath());
+		}
+
+	}
+
+	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		Option o = adapter.getItem(position-HEADER_ITEMS_COUNT);
-		if(o.getData().equalsIgnoreCase("folder")||o.getData().equalsIgnoreCase("parent directory")){
-				currentDir = new File(o.getPath());
-				fill(currentDir);
-		}
-		else
-		{
+		FileChooserElement o = adapter.getItem(position - HEADER_ITEMS_COUNT);
+		if (o.getData().equalsIgnoreCase("folder")
+				|| o.getData().equalsIgnoreCase("parent directory")) {
+			currentDir = new File(o.getPath());
+			fillDirStructure(currentDir, rootDir);
+		} else {
 			onFileClick(o);
 		}
 	}
-    
-    private void onFileClick(Option o)
-    {
-    	Toast.makeText(this, "File Clicked: "+o.getName(), Toast.LENGTH_SHORT).show();
-    }
+
+	/**
+	 * 
+	 * @param fce
+	 */
+	private void onFileClick(FileChooserElement fce) {
+		Toast.makeText(this, "File Clicked: " + fce.getName(),
+				Toast.LENGTH_SHORT).show();
+	}
+
+	private class ButtonsOnClickListener implements OnClickListener {
+
+		int btnID, selID;
+		Activity context;
+
+		public ButtonsOnClickListener(Activity context, int selID, int btnID) {
+			this.btnID = btnID;
+			this.selID = selID;
+			this.context = context;
+		}
+
+		public void onClick(View v) {
+			Toast.makeText(
+					context,
+					"File Clicked: [" + v.getId() + "][" + selID + "][" + btnID
+							+ "]" + currentDir.getPath(), Toast.LENGTH_SHORT)
+					.show();
+
+			switch (selID) {
+			case BTN_SET: {
+				EditText edit = (EditText) context
+						.findViewById(R.id.editTextPathFileView);
+				if (edit != null) {
+
+					File goToDir = new File(edit.getText().toString());
+					if (goToDir.exists()) {
+						Toast.makeText(
+								context,
+								"File Clicked: " + v.getId() + " "
+										+ edit.getText(), Toast.LENGTH_SHORT)
+								.show();
+						
+						fillDirStructure(goToDir, rootDir);
+					}
+				}
+			}
+				break;
+			case BTN_GET: {
+
+			}
+				break;
+
+			default:
+				break;
+			}
+		}
+
+	}
+
 }

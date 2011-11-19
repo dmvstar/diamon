@@ -11,21 +11,21 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class FileArrayAdapter extends ArrayAdapter<Option> {
+public class FileArrayAdapter extends ArrayAdapter<FileChooserElement> {
 
 	private Context c;
 	private int id;
-	private List<Option> items;
+	private List<FileChooserElement> items;
 
 	public FileArrayAdapter(Context context, int textViewResourceId,
-			List<Option> objects) {
+			List<FileChooserElement> objects) {
 		super(context, textViewResourceId, objects);
 		c = context;
 		id = textViewResourceId;
 		items = objects;
 	}
 
-	public Option getItem(int i) {
+	public FileChooserElement getItem(int i) {
 		return items.get(i);
 	}
 
@@ -37,7 +37,7 @@ public class FileArrayAdapter extends ArrayAdapter<Option> {
 					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			v = vi.inflate(id, null);
 		}
-		final Option o = items.get(position);
+		final FileChooserElement o = items.get(position);
 		if (o != null) {
 			TextView t1 = (TextView) v.findViewById(R.id.file_view_item_name);
 			TextView t2 = (TextView) v.findViewById(R.id.file_view_item_desc);

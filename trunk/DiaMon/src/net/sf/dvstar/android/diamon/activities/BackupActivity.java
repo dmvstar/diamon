@@ -82,6 +82,8 @@ public class BackupActivity extends Activity {
 
     	try {
     		final Intent intent = new Intent( this, net.sf.dvstar.android.diamon.widgets.filechooser.FileChooser.class  );
+    		intent.putExtra("currentDir", "/mnt/");
+    		
     		startActivityForResult(intent, 1);
     	} catch (ActivityNotFoundException a) {
     		AlertDialog alertDialog = new AlertDialog.Builder( this ).create();
