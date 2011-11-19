@@ -20,11 +20,18 @@
         </EditText>
 
         <Button
-            android:id="@+id/buttonPathFileView"
+            android:id="@+id/buttonSetPathFileView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight=".1"
-            android:text="@string/button_path_file_view" />
+            android:text="@string/button_path_file_view_set" />
+
+        <Button
+            android:id="@+id/buttonGetPathFileView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".1"
+            android:text="@string/button_path_file_view_get" />
 
     </LinearLayout>
 

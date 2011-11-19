@@ -166,6 +166,9 @@
 	<string name="jrn_name_insulin_weekly_report">Отчет использования инсулинов</string>
 	<string name="jrn_desc_insulin_weekly_report">Отчет по использованию инсулинов, типы и количество</string>
 	<string name="buttonReport_Current">Текущий отчет</string>
-	    	    
+
+    <string name="button_path_file_view_set">Установить</string>
+    <string name="button_path_file_view_get">Применить</string>
+	    	    	    	    
     
 </resources>

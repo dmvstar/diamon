@@ -15,7 +15,7 @@ done
   
 cd ..
 
-echo 7z a -r $ARC $FFF/
-7z a -r $ARC $FFF/
+echo 7z a -r $ARC $FFF/*
+7z a -r $ARC $FFF/*
 
 
