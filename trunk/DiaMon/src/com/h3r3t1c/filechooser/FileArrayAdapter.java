@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -37,13 +38,20 @@ public class FileArrayAdapter extends ArrayAdapter<Option>{
                }
                final Option o = items.get(position);
                if (o != null) {
-                       TextView t1 = (TextView) v.findViewById(R.id.TextView01);
-                       TextView t2 = (TextView) v.findViewById(R.id.TextView02);
+                       TextView t1 = (TextView) v.findViewById(R.id.file_view_item_name);
+                       TextView t2 = (TextView) v.findViewById(R.id.file_view_item_desc);
+                       ImageView icon = (ImageView) v.findViewById(R.id.file_view_item_icon);
                        
                        if(t1!=null)
                        	t1.setText(o.getName());
                        if(t2!=null)
                        	t2.setText(o.getData());
+                       if(icon != null){
+                    	   if(o.getIcon()!=null){
+                    		   icon.setImageDrawable(o.getIcon());   
+                    	   }
+                    	   
+                       }
                        
                }
                return v;

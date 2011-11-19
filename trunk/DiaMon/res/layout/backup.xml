@@ -117,7 +117,7 @@
             android:layout_height="wrap_content" >
 
             <EditText
-                android:id="@+id/editTextPath"
+                android:id="@+id/editTextPathBackupRestore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
@@ -126,7 +126,7 @@
                 android:id="@+id/buttonPath"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button_path_dot" android:onClick="dirChooser"/>
+                android:text="@string/button_path_dot" android:onClick="dirChooser" android:layout_weight=".1"/>
 
         </LinearLayout>
 
