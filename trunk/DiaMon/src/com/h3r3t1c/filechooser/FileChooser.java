@@ -18,11 +18,21 @@ public class FileChooser extends ListActivity {
 	
     private File currentDir;
     private FileArrayAdapter adapter;
+	private int HEADER_ITEMS_COUNT=1;
         
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         currentDir = new File("/sdcard/");
+        ListView list = getListView();
+		View header =  getLayoutInflater().inflate(R.layout.file_view_header, null, false);
+//		 View footer = getLayoutInflater().inflate(R.layout.listfooter, null, false);
+//		 ImageView image = (ImageView) header1.findViewById(R.id.image);
+		if(list!=null && header != null){
+			 list.addHeaderView(header, null, false);
+//			 list.addFooterView(footer, null, false);
+//			 list.setAdapter(new MenuAdapter());
+		}
         fill(currentDir);
     }
     
@@ -58,19 +68,23 @@ public class FileChooser extends ListActivity {
 		 if(!f.getName().equalsIgnoreCase("sdcard"))
 			 dir.add(0,new Option("..","Parent Directory",f.getParent()));
 		 adapter = new FileArrayAdapter(FileChooser.this,R.layout.file_view,dir);
+ 		 
+		 
 		 this.setListAdapter(adapter);
-/*		 
+		 
          EditText edit = (EditText) findViewById(R.id.editTextPathFileView);
          if(edit != null) {
         	edit.setText(f.getPath()); 
          }
-*/		 
+		 
     }
 
+    
+    
     @Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
-		Option o = adapter.getItem(position);
+		Option o = adapter.getItem(position-HEADER_ITEMS_COUNT);
 		if(o.getData().equalsIgnoreCase("folder")||o.getData().equalsIgnoreCase("parent directory")){
 				currentDir = new File(o.getPath());
 				fill(currentDir);
