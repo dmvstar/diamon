@@ -176,12 +176,14 @@ public class DiaMonActivity extends Activity {
 		};
 		simpleAdapter.setViewBinder(viewBinder);
 */
+		
 		/*
 		 * this.closeButton = (Button)this.findViewById(R.id.buttonClose);
 		 * this.closeButton.setOnClickListener(new OnClickListener() {
 		 * 
 		 * @Override public void onClick(View v) { finish(); } });
 		 */
+		
 		Spinner spinner = (Spinner) findViewById(R.id.spinnerProfileList);
 
 		spinner.setAdapter(simpleAdapter);

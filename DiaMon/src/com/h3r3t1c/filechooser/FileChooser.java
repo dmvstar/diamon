@@ -7,8 +7,10 @@ import java.util.List;
 
 import net.sf.dvstar.android.diamon.R;
 import android.app.ListActivity;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -16,14 +18,17 @@ public class FileChooser extends ListActivity {
 	
     private File currentDir;
     private FileArrayAdapter adapter;
+        
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         currentDir = new File("/sdcard/");
         fill(currentDir);
     }
+    
     private void fill(File f)
     {
+    	Drawable icon;
     	File[]dirs = f.listFiles();
 		 this.setTitle("Current Dir: "+f.getName());
 		 List<Option>dir = new ArrayList<Option>();
@@ -31,11 +36,16 @@ public class FileChooser extends ListActivity {
 		 try{
 			 for(File ff: dirs)
 			 {
-				if(ff.isDirectory())
-					dir.add(new Option(ff.getName(),"Folder",ff.getAbsolutePath()));
+				if(ff.isDirectory()) {
+					icon = getResources().getDrawable(
+							R.drawable.ic_launcher_folder);
+					dir.add(new Option(ff.getName(),"Folder",ff.getAbsolutePath(),icon));
+				}	
 				else
 				{
-					fls.add(new Option(ff.getName(),"File Size: "+ff.length(),ff.getAbsolutePath()));
+					icon = getResources().getDrawable(
+							R.drawable.ic_launcher_file);
+					fls.add(new Option(ff.getName(),"File Size: "+ff.length(),ff.getAbsolutePath(),icon));
 				}
 			 }
 		 }catch(Exception e)
@@ -49,10 +59,16 @@ public class FileChooser extends ListActivity {
 			 dir.add(0,new Option("..","Parent Directory",f.getParent()));
 		 adapter = new FileArrayAdapter(FileChooser.this,R.layout.file_view,dir);
 		 this.setListAdapter(adapter);
+/*		 
+         EditText edit = (EditText) findViewById(R.id.editTextPathFileView);
+         if(edit != null) {
+        	edit.setText(f.getPath()); 
+         }
+*/		 
     }
+
     @Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
 		Option o = adapter.getItem(position);
 		if(o.getData().equalsIgnoreCase("folder")||o.getData().equalsIgnoreCase("parent directory")){
@@ -64,6 +80,7 @@ public class FileChooser extends ListActivity {
 			onFileClick(o);
 		}
 	}
+    
     private void onFileClick(Option o)
     {
     	Toast.makeText(this, "File Clicked: "+o.getName(), Toast.LENGTH_SHORT).show();
