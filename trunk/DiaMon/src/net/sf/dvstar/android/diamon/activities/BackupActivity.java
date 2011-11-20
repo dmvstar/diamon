@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class BackupActivity extends Activity {
     private static final String PREFS_NAME = "DiaMonPrefs";
@@ -23,6 +24,8 @@ public class BackupActivity extends Activity {
 	
 	private Button closeButton;
 	private final Activity activity = this;        
+	private static final int REQUEST_CODE = 10;
+	
 	
     @Override
     public void onBackPressed() {
@@ -62,12 +65,28 @@ public class BackupActivity extends Activity {
         
     }    
 
+    @Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+			if (data.hasExtra("returnKey1")) {
+				EditText text = (EditText) findViewById(R.id.editTextPathBackupRestore);
+				text.setText( data.getExtras().getString("returnKey1") );
+				
+				Toast.makeText(this, data.getExtras().getString("returnKey1"),
+						Toast.LENGTH_SHORT).show();
+			}
+		}
+	}
+    
+    
     public void dirChooser(View view){
+    	
+/*    	
     	try {
     		//final Intent dialog = new Intent(activity, AndroidFileBrowser.class);
     		//activity.startActivity(dialog);
     		final Intent intent = new Intent("org.openintents.action.PICK_FILE");
-    		startActivityForResult(intent, 1);
+    		startActivityForResult(intent, REQUEST_CODE);
     	} catch (ActivityNotFoundException a) {
     		AlertDialog alertDialog = new AlertDialog.Builder( this ).create();
     		alertDialog.setTitle( "Create Dir Picker" );
@@ -79,12 +98,24 @@ public class BackupActivity extends Activity {
     			} );
     		alertDialog.show();
     	}
-
+*/
     	try {
     		final Intent intent = new Intent( this, net.sf.dvstar.android.diamon.widgets.filechooser.FileChooser.class  );
-    		intent.putExtra("currentDir", "/mnt/");
     		
-    		startActivityForResult(intent, 1);
+    		
+    		intent.putExtra("rootDir",    "/mnt");
+
+    		EditText text = (EditText) findViewById(R.id.editTextPathBackupRestore);
+			String tryDir = text.getText().toString();
+			File tryFile = new File(tryDir);
+    		if(tryFile.exists() && tryFile.isDirectory()) {
+        		intent.putExtra("currentDir",  tryDir);
+    		} else {
+        		intent.putExtra("currentDir", "/mnt");
+    		}
+    		
+    		startActivityForResult(intent, REQUEST_CODE);
+    		
     	} catch (ActivityNotFoundException a) {
     		AlertDialog alertDialog = new AlertDialog.Builder( this ).create();
     		alertDialog.setTitle( "Create Dir Picker" );

@@ -9,6 +9,7 @@ import net.sf.dvstar.android.diamon.R;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -45,9 +46,14 @@ public class FileChooser extends ListActivity {
 		currentDir = new File("/sdcard/");
 
 		if (extras != null) {
-			String currentDirStr = extras.getString("currentDir");
-			if (currentDirStr != null) {
-				currentDir = new File(currentDirStr);
+			String dirStr = extras.getString("currentDir");
+			if (dirStr != null) {
+				currentDir = new File(dirStr);
+				rootDir = new File(dirStr);
+			}
+			dirStr = extras.getString("rootDir");
+			if (dirStr != null) {
+				rootDir = new File(dirStr);
 			}
 		}
 
@@ -71,8 +77,8 @@ public class FileChooser extends ListActivity {
 			// list.addFooterView(footer, null, false);
 			// list.setAdapter(new MenuAdapter());
 		}
-		rootDir = currentDir;
-		fillDirStructure(currentDir, currentDir);
+		//rootDir = currentDir;
+		fillDirStructure(currentDir, rootDir);
 	}
 
 	/**
@@ -182,7 +188,7 @@ public class FileChooser extends ListActivity {
 			}
 				break;
 			case BTN_GET: {
-
+				finish();
 			}
 				break;
 
@@ -192,5 +198,15 @@ public class FileChooser extends ListActivity {
 		}
 
 	}
+	
+	@Override
+	public void finish() {
+		Intent data = new Intent();
+		data.putExtra("returnKey1", currentDir.getPath());
+		data.putExtra("returnKey2", "You could be better then you are. ");
+		setResult(RESULT_OK, data);
+		super.finish();
+	}
+	
 
 }
