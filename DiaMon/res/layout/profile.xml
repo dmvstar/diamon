@@ -27,7 +27,29 @@
         <TextView android:text="@string/user_weight" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView6"></TextView>
         <EditText android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/editTextUserWeight"></EditText>
         <TextView android:textAppearance="?android:attr/textAppearanceLarge" android:id="@+id/textView10" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/user_image"></TextView>
-        <ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/preferences_desktop_user" android:id="@+id/imageButtonUserPicture"></ImageButton>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+
+            <ImageButton
+                android:id="@+id/imageButtonUserPicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="selProfileImageAction"
+                android:src="@drawable/preferences_desktop_user" />
+
+            <TextView
+                android:id="@+id/textViewProfileIconPath"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.06"
+                android:text="..."
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
         <LinearLayout android:id="@+id/linearLayout2" android:layout_height="wrap_content" android:layout_width="match_parent" android:layout_weight="1">
             <Button android:layout_weight="1" android:id="@+id/buttonCreateProfile" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="@string/button_profile_add" android:drawableLeft="@drawable/data_add" android:onClick="addProfileAction"></Button>
             <Button android:layout_weight="1" android:id="@+id/buttonSaveProfile" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="@string/button_profile_save" android:drawableLeft="@drawable/document_save" android:onClick="saveProfileAction"></Button>
