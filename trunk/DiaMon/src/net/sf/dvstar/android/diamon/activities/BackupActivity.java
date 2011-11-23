@@ -4,6 +4,7 @@ import java.io.File;
 
 import net.sf.dvstar.android.diamon.R;
 import net.sf.dvstar.android.diamon.datastore.DBHelper;
+import net.sf.dvstar.android.diamon.widgets.filechooser.FileChooser;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
@@ -68,11 +69,11 @@ public class BackupActivity extends Activity {
     @Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
-			if (data.hasExtra("returnKey1")) {
+			if (data.hasExtra(FileChooser.RESULT_KEY_SELECTED_DIR)) {
 				EditText text = (EditText) findViewById(R.id.editTextPathBackupRestore);
-				text.setText( data.getExtras().getString("returnKey1") );
+				text.setText( data.getExtras().getString(FileChooser.RESULT_KEY_SELECTED_DIR) );
 				
-				Toast.makeText(this, data.getExtras().getString("returnKey1"),
+				Toast.makeText(this, data.getExtras().getString(FileChooser.RESULT_KEY_SELECTED_DIR),
 						Toast.LENGTH_SHORT).show();
 			}
 		}
@@ -101,17 +102,15 @@ public class BackupActivity extends Activity {
 */
     	try {
     		final Intent intent = new Intent( this, net.sf.dvstar.android.diamon.widgets.filechooser.FileChooser.class  );
-    		
-    		
-    		intent.putExtra("rootDir",    "/mnt");
+    		intent.putExtra(FileChooser.PARAMS_FC_ROOT_DIR,    "/mnt");
 
     		EditText text = (EditText) findViewById(R.id.editTextPathBackupRestore);
 			String tryDir = text.getText().toString();
 			File tryFile = new File(tryDir);
     		if(tryFile.exists() && tryFile.isDirectory()) {
-        		intent.putExtra("currentDir",  tryDir);
+        		intent.putExtra(FileChooser.PARAMS_FC_WORK_DIR,  tryDir); // "currentDir"
     		} else {
-        		intent.putExtra("currentDir", "/mnt");
+        		intent.putExtra(FileChooser.PARAMS_FC_WORK_DIR, "/mnt");  // "currentDir"
     		}
     		
     		startActivityForResult(intent, REQUEST_CODE);

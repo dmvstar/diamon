@@ -1,15 +1,23 @@
 package net.sf.dvstar.android.diamon.activities;
 
+import java.io.File;
+
 import net.sf.dvstar.android.diamon.R;
 import net.sf.dvstar.android.diamon.datastore.CommonData;
+import net.sf.dvstar.android.diamon.widgets.filechooser.FileChooser;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ProfileActivity extends Activity {
@@ -82,6 +90,7 @@ public void onBackPressed() {
         
     }
 	
+	private static final int REQUEST_CODE = 11;
     
 	public void addProfileAction(View v) {
 	}
@@ -89,7 +98,54 @@ public void onBackPressed() {
 	}
 	public void delProfileAction(View v) {
 	}
-    
+	
+	
+	public void selProfileImageAction(View v) {
+    	try {
+    		final Intent intent = new Intent( this, net.sf.dvstar.android.diamon.widgets.filechooser.FileChooser.class  );
+    		intent.putExtra(FileChooser.PARAMS_FC_ROOT_DIR,    "/mnt");
+    		intent.putExtra(FileChooser.PARAMS_FC_WORK_MODE,   FileChooser.SELECT_MODE_ITEM);
+    		/**
+    		 * TODO  get dir for icon object
+    		 */
+       		intent.putExtra(FileChooser.PARAMS_FC_WORK_DIR,    "/mnt"); 
+       		
+    		startActivityForResult(intent, REQUEST_CODE);
+    		
+    	} catch (ActivityNotFoundException a) {
+    		AlertDialog alertDialog = new AlertDialog.Builder( this ).create();
+    		alertDialog.setTitle( "Create Dir Picker" );
+    		alertDialog.setMessage( "ERROR : com.h3r3t1c.filechooser.FileChooser not found ! \n"+a.getMessage() );
+    		alertDialog.setButton( "Yes", new DialogInterface.OnClickListener() {
+    				public void onClick(DialogInterface dialog, int which) {
+    					Log.d( "AlertDialog", "ERROR : ocom.h3r3t1c.filechooser.FileChooser not found !" );
+    				}
+    			} );
+    		alertDialog.show();
+    	}
+    	
+	}
+
+    @Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == RESULT_OK && requestCode == REQUEST_CODE) {
+			if (data.hasExtra(FileChooser.RESULT_KEY_SELECTED_ITEM)) {
+				
+				TextView text = (TextView) findViewById(R.id.textViewProfileIconPath);
+				if(text != null) {					
+					text.setText( data.getExtras().getString(FileChooser.RESULT_KEY_SELECTED_DIR)+"/"+data.getExtras().getString(FileChooser.RESULT_KEY_SELECTED_ITEM));
+				}
+				
+				Toast.makeText(this, 
+						data.getExtras().getString(FileChooser.RESULT_KEY_SELECTED_DIR) +
+						" -- " +
+						data.getExtras().getString(FileChooser.RESULT_KEY_SELECTED_ITEM),
+						Toast.LENGTH_SHORT).show();
+			}
+		}
+	}
+	
+	
     
     
 }

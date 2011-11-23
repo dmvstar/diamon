@@ -27,6 +27,16 @@ import android.widget.Toast;
  */
 public class FileChooser extends ListActivity {
 
+	public static final String PARAMS_FC_WORK_MODE 	= "PARAMS_FC_WORK_MODE"; 
+	public static final String PARAMS_FC_WORK_DIR   = "PARAMS_FC_WORK_DIR"; 
+	public static final String PARAMS_FC_ROOT_DIR 	= "PARAMS_FC_ROOT_DIR"; 
+	
+	public static final String RESULT_KEY_SELECTED_DIR  = "RESULT_KEY_SELECTED_DIR"; 
+	public static final String RESULT_KEY_SELECTED_ITEM = "RESULT_KEY_SELECTED_ITEM"; 
+	
+	public static final int SELECT_MODE_DIR  = 0;
+	public static final int SELECT_MODE_ITEM = 1;
+	
 	private static final int BTN_SET = 0;
 	private static final int BTN_GET = 1;
 
@@ -37,6 +47,8 @@ public class FileChooser extends ListActivity {
 
 	private Button buttonSet;
 	private Button buttonGet;
+	private FileChooserElement selectedItem = null;
+	private int fileChooserWorkMode = SELECT_MODE_DIR;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -46,15 +58,16 @@ public class FileChooser extends ListActivity {
 		currentDir = new File("/sdcard/");
 
 		if (extras != null) {
-			String dirStr = extras.getString("currentDir");
+			String dirStr = extras.getString(PARAMS_FC_WORK_DIR);
 			if (dirStr != null) {
 				currentDir = new File(dirStr);
 				rootDir = new File(dirStr);
 			}
-			dirStr = extras.getString("rootDir");
+			dirStr = extras.getString(PARAMS_FC_ROOT_DIR);
 			if (dirStr != null) {
 				rootDir = new File(dirStr);
 			}
+			fileChooserWorkMode = extras.getInt(PARAMS_FC_WORK_MODE);
 		}
 
 		ListView list = getListView();
@@ -90,6 +103,7 @@ public class FileChooser extends ListActivity {
 	private void fillDirStructure(File currentDir, File rootDir) {
 		Drawable icon;
 		File[] dirs = currentDir.listFiles();
+		selectedItem = null;
 		this.setTitle("Current Dir: " + currentDir.getName());
 		List<FileChooserElement> dir = new ArrayList<FileChooserElement>();
 		List<FileChooserElement> fls = new ArrayList<FileChooserElement>();
@@ -113,6 +127,12 @@ public class FileChooser extends ListActivity {
 		Collections.sort(dir);
 		Collections.sort(fls);
 		dir.addAll(fls);
+		
+		if(fls.size()>0) { selectedItem = fls.get(0);}
+		else 
+		if(dir.size()>0) { selectedItem = dir.get(0);}
+			
+		
 		if (!currentDir.getName().equalsIgnoreCase(rootDir.getName())) // "sdcard"))
 			dir.add(0, new FileChooserElement("..", "Parent Directory",
 					currentDir.getParent()));
@@ -146,8 +166,12 @@ public class FileChooser extends ListActivity {
 	 * @param fce
 	 */
 	private void onFileClick(FileChooserElement fce) {
+		selectedItem = fce;
 		Toast.makeText(this, "File Clicked: " + fce.getName(),
 				Toast.LENGTH_SHORT).show();
+		if(fileChooserWorkMode == SELECT_MODE_ITEM) {
+			finish();
+		}
 	}
 
 	private class ButtonsOnClickListener implements OnClickListener {
@@ -202,8 +226,12 @@ public class FileChooser extends ListActivity {
 	@Override
 	public void finish() {
 		Intent data = new Intent();
-		data.putExtra("returnKey1", currentDir.getPath());
-		data.putExtra("returnKey2", "You could be better then you are. ");
+		data.putExtra(RESULT_KEY_SELECTED_DIR,  currentDir.getPath());
+		if(selectedItem!=null) {
+			data.putExtra(RESULT_KEY_SELECTED_ITEM, selectedItem.getName() );
+		} else {
+			data.putExtra(RESULT_KEY_SELECTED_ITEM, currentDir.getPath());
+		}	
 		setResult(RESULT_OK, data);
 		super.finish();
 	}
