@@ -126,7 +126,7 @@
                 android:id="@+id/buttonPath"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button_path_dot" android:onClick="dirChooser" android:layout_weight=".1"/>
+                android:text="@string/button_path_dot" android:onClick="dirChooser" android:layout_weight=".1" android:layout_margin="2sp"/>
 
         </LinearLayout>
 
@@ -139,14 +139,14 @@
                 android:id="@+id/buttonBackup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/button_backup_start" android:layout_weight="1"/>
+                android:text="@string/button_backup_start" android:layout_weight="1" android:layout_margin="2sp"/>
 
             <Button
                 android:id="@+id/buttonRestore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/button_restore_start" />
+                android:text="@string/button_restore_start" android:layout_margin="2sp"/>
 
         </LinearLayout>
 

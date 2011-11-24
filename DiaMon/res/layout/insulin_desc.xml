@@ -22,7 +22,7 @@
                 android:layout_gravity="top"
                 android:layout_weight=".7"
                 android:drawableLeft="@drawable/list_add_32"
-                android:onClick="addInsulin" >
+                android:onClick="addInsulin" android:layout_margin="2sp">
             </Button>
 
             <Button
@@ -32,7 +32,7 @@
                 android:layout_gravity="top"
                 android:layout_weight=".7"
                 android:drawableLeft="@drawable/document_save_32"
-                android:onClick="saveInsulin" >
+                android:onClick="saveInsulin" android:layout_margin="2sp">
             </Button>
 
             <Button
@@ -42,7 +42,7 @@
                 android:layout_gravity="top"
                 android:layout_weight=".7"
                 android:drawableLeft="@drawable/list_remove_32"
-                android:onClick="delInsulin" >
+                android:onClick="delInsulin" android:layout_margin="2sp">
             </Button>
 
             <Button
@@ -52,7 +52,7 @@
                 android:layout_gravity="top"
                 android:layout_weight=".7"
                 android:drawableLeft="@drawable/view_statistics_32"
-                android:onClick="viewDiagram" >
+                android:onClick="viewDiagram" android:layout_margin="2sp">
             </Button>
         </LinearLayout>
 
@@ -199,7 +199,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight=".5"
                 android:onClick="selectColor"
-                android:text="@string/insulin_color" >
+                android:text="@string/insulin_color" android:layout_margin="2sp">
             </Button>
 
             <EditText

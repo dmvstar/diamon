@@ -8,9 +8,9 @@
         <TextView android:layout_height="wrap_content" android:id="@+id/textView7" android:layout_width="wrap_content" android:layout_weight="1" android:textAppearance="?android:attr/textAppearanceLarge" android:text="@string/user_profile"></TextView>
         <Spinner android:layout_weight="1" style="@style/SpinnerAsEditText" android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/spinnerProfileList"></Spinner>
         <LinearLayout android:id="@+id/LinearLayout01" android:layout_weight="1" android:layout_width="match_parent" android:layout_height="wrap_content">
-            <Button android:text="@string/button_profile_add" android:drawableLeft="@drawable/data_add" android:onClick="addProfileAction" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="fill_parent" android:id="@+id/Button03"></Button>
-            <Button android:text="@string/button_profile_save" android:drawableLeft="@drawable/document_save" android:onClick="saveProfileAction" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="fill_parent" android:id="@+id/Button02"></Button>
-            <Button android:text="@string/button_profile_del" android:drawableLeft="@drawable/data_remove" android:onClick="delProfileAction" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="fill_parent" android:id="@+id/Button01"></Button>
+            <Button android:text="@string/button_profile_add" android:drawableLeft="@drawable/data_add" android:onClick="addProfileAction" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="fill_parent" android:id="@+id/Button03" android:layout_margin="2sp"></Button>
+            <Button android:text="@string/button_profile_save" android:drawableLeft="@drawable/document_save" android:onClick="saveProfileAction" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="fill_parent" android:id="@+id/Button02" android:layout_margin="2sp"></Button>
+            <Button android:text="@string/button_profile_del" android:drawableLeft="@drawable/data_remove" android:onClick="delProfileAction" android:layout_height="wrap_content" android:layout_weight="1" android:layout_width="fill_parent" android:id="@+id/Button01" android:layout_margin="2sp"></Button>
         </LinearLayout>
         <TextView android:text="@string/user_id" android:layout_height="wrap_content" android:textAppearance="?android:attr/textAppearanceLarge" android:layout_width="wrap_content" android:id="@+id/textView1"></TextView>
         <EditText android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/editTextUserId">
@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="selProfileImageAction"
-                android:src="@drawable/preferences_desktop_user" />
+                android:src="@drawable/preferences_desktop_user" android:layout_margin="2sp"/>
 
             <TextView
                 android:id="@+id/textViewProfileIconPath"
