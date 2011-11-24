@@ -5,7 +5,10 @@
       android:versionName="1.0">
     <uses-sdk android:minSdkVersion="8" />
 
-    <application android:icon="@drawable/icon" android:label="@string/app_name">
+    <application 
+		android:icon="@drawable/icon" 
+		android:label="@string/app_name"
+		android:theme="@style/DiaMonTheme" >
         <activity android:name=".DiaMonActivity"
                   android:label="@string/app_name">
             <intent-filter>
