@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    	<style name="DiaMonTheme" parent="@android:style/Theme.Black">
+
+<!-- 		<item name="android:windowBackground">#370903</item>   -->
+		<item name="android:textColor">#F0E68C</item>
+		<item name="android:buttonStyle">@style/DiaMonThemeButton</item>
+
+
+	</style>
+
+	<style name="DiaMonThemeButton" parent="@android:style/Widget.Button">
+
+    		<item name="android:background">@drawable/dbutton</item>
+
+	</style>
+
+</resources>
