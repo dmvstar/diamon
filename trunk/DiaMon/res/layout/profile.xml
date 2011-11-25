@@ -51,9 +51,9 @@
         </LinearLayout>
 
         <LinearLayout android:id="@+id/linearLayout2" android:layout_height="wrap_content" android:layout_width="match_parent" android:layout_weight="1">
-            <Button android:layout_weight="1" android:id="@+id/buttonCreateProfile" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="@string/button_profile_add" android:drawableLeft="@drawable/data_add" android:onClick="addProfileAction"></Button>
-            <Button android:layout_weight="1" android:id="@+id/buttonSaveProfile" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="@string/button_profile_save" android:drawableLeft="@drawable/document_save" android:onClick="saveProfileAction"></Button>
-            <Button android:layout_weight="1" android:id="@+id/buttonDeleteProfile" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="@string/button_profile_del" android:drawableLeft="@drawable/data_remove" android:onClick="delProfileAction"></Button>
+            <Button android:layout_weight="1" android:id="@+id/buttonCreateProfile" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="@string/button_profile_add" android:drawableLeft="@drawable/data_add" android:onClick="addProfileAction" android:layout_margin="2sp"></Button>
+            <Button android:layout_weight="1" android:id="@+id/buttonSaveProfile" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="@string/button_profile_save" android:drawableLeft="@drawable/document_save" android:onClick="saveProfileAction" android:layout_margin="2sp"></Button>
+            <Button android:layout_weight="1" android:id="@+id/buttonDeleteProfile" android:layout_height="wrap_content" android:layout_width="fill_parent" android:text="@string/button_profile_del" android:drawableLeft="@drawable/data_remove" android:onClick="delProfileAction" android:layout_margin="2sp"></Button>
         </LinearLayout>
     </LinearLayout>
     
