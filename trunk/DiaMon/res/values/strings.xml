@@ -3,7 +3,7 @@
 
     <string name="hello">Life is DiaMond !</string>
     <string name="app_name">DiaMon</string>
-    <string name="version">1.0.23</string>
+    <string name="version">1.0.24</string>
     <string name="buttonExit">Exit</string>
     <string name="butonSave">Save</string>
     <string name="user_profile">Select Profile to work</string>
