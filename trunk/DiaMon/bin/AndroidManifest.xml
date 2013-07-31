@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="net.sf.dvstar.android.diamon"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="8" />
+
+    <application 
+		android:icon="@drawable/icon" 
+		android:label="@string/app_name"
+		android:theme="@style/DiaMonTheme" >
+        <activity android:name=".DiaMonActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <activity android:name=".activities.AboutActivity"></activity>
+        <activity android:name=".activities.ConfigActivity"></activity>
+        <activity android:name=".activities.ProfileActivity"></activity>
+        <activity android:name=".activities.BackupActivity"></activity>
+        <activity android:name=".activities.HelpBUActivity"></activity>
+        <activity android:name=".activities.HelpAllActivity"></activity>
+        <activity android:name=".activities.MeasuresActivity"></activity>
+        <activity android:name=".activities.SharedActivity"></activity>
+        <activity android:name=".activities.InsulinDescActivity"></activity>
+        <activity android:name=".activities.ChartsViewActivity"></activity>
+        <activity android:name=".activities.AddMeasureActivity"></activity>
+        <activity android:name="org.achartengine.GraphicalActivity"></activity>
+        <activity android:name=".activities.JournalListActivity"></activity>
+        <activity android:name=".journal.JournalCommonActivity"></activity>
+        <activity android:name=".journal.BGWeeklyReport"></activity>
+        <activity android:name=".journal.JournalDailyReport"></activity>
+        <activity android:name=".journal.InsulinWeeklyReport"></activity>
+        <activity android:name=".common.AndroidFileBrowser"></activity>
+        <activity android:name=".widgets.filechooser.FileChooser"></activity>
+
+    </application>
+    
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    
+</manifest>
